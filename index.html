@@ -323,7 +323,7 @@ window.showTab = function(t){
   if(btns[idx]) btns[idx].classList.add('active');
   var nav = document.getElementById('tabs-nav');
   if(nav) nav.scrollIntoView({behavior:'smooth',block:'start'});
-  if(t==='calc'){setTimeout(function(){if(typeof buildTasks==='function'){buildTasks();calcFinal();}},150);}
+  if(t==='calc'){setTimeout(function(){if(typeof buildSvcs==='function'){buildSvcs();}},150);}
 }
 window.switchPlano = function(p){
   document.querySelectorAll('#panel-calc .calc-tab').forEach(function(b,i){b.classList.toggle('active',['basico','intermediario','avancado'][i]===p);});
@@ -475,9 +475,9 @@ window.switchPlano = function(p){
       <span class="section-tag">Resultados reais</span>
       <h2 class="section-title">Quem já passou pela <span class="grad-text">mentoria fala por nós</span></h2>
       <div class="dep-grid">
-        <div class="dep-card"><div class="dep-stars">★★★★★</div><p>"Finalmente entendo o lucro real de cada lançamento. Antes eu faturava bem mas não sabia quanto sobrava. A Empreenda BPO mudou isso completamente."</p><div class="dep-cite"><div class="dep-av">RM</div><div><div class="dep-name">Ricardo M.</div><div class="dep-role">Infooprodutor — Cursos online</div></div></div></div>
-        <div class="dep-card"><div class="dep-stars">★★★★★</div><p>"Trabalho com coprodução e afiliados. A Claudia estruturou todo o controle de comissões e hoje nunca mais tive conflito com parceiros por causa de número."</p><div class="dep-cite"><div class="dep-av">AF</div><div><div class="dep-name">Ana F.</div><div class="dep-role">Coach — Mentoria digital</div></div></div></div>
-        <div class="dep-card"><div class="dep-stars">★★★★★</div><p>"Meu negócio cresceu muito rápido e o financeiro virou um caos. Em 45 dias a Empreenda BPO organizou tudo e hoje tenho relatório por produto e por lançamento."</p><div class="dep-cite"><div class="dep-av">JS</div><div><div class="dep-name">Julia S.</div><div class="dep-role">Infoprodutora — Hotmart</div></div></div></div>
+        <div class="dep-card"><div class="dep-stars">★★★★★</div><p>"Entrei na mentoria sem saber nada sobre BPO. Em 3 meses já tinha meus primeiros clientes e um processo estruturado. A Claudia ensina do zero com muita didática e clareza."</p><div class="dep-cite"><div class="dep-av">CM</div><div><div class="dep-name">Camila M.</div><div class="dep-role">Aluna — Iniciante no BPO Financeiro</div></div></div></div>
+        <div class="dep-card"><div class="dep-stars">★★★★★</div><p>"Eu era contadora e não sabia como transformar meu conhecimento em um negócio de BPO. A mentoria me deu o modelo, os processos e a confiança para cobrar o valor certo."</p><div class="dep-cite"><div class="dep-av">RF</div><div><div class="dep-name">Renata F.</div><div class="dep-role">Aluna — Contadora em transição para BPO</div></div></div></div>
+        <div class="dep-card"><div class="dep-stars">★★★★★</div><p>"O que mais me surpreendeu foi a parte de precificação. Eu cobrava muito abaixo do mercado. Depois da mentoria aprendi a calcular meu custo/hora e hoje tenho margem real."</p><div class="dep-cite"><div class="dep-av">TS</div><div><div class="dep-name">Thiago S.</div><div class="dep-role">Aluno — Operador de BPO Financeiro</div></div></div></div>
       </div>
     </div>
   </div>
@@ -597,8 +597,149 @@ window.switchPlano = function(p){
   <div class="calc-section">
     <div style="max-width:960px;margin:0 auto">
       <span class="section-tag">Ferramenta gratuita</span>
-      <h2 class="section-title">Calcule o preço certo dos seus <span class="grad-text">serviços de BPO</span></h2>
-      <p class="section-lead">Metodologia real: baseada em custo/hora + tarefas do plano + margem de lucro. Do jeito que profissional de BPO calcula de verdade.</p>
+      <h2 class="section-title">Quanto Cobrar pelo <span class="grad-text">meu BPO?</span></h2>
+      <p class="section-lead">Metodologia real baseada em custo/hora + serviços contratados + margem de lucro. Do jeito que profissional de BPO calcula de verdade.</p>
+
+      <div class="calc-container" style="margin-top:2.5rem">
+
+        <!-- PASSO 1: CUSTO/HORA -->
+        <div class="calc-card" style="margin-bottom:1.5rem">
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap">
+            <div style="background:var(--grad);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;color:#fff">1</div>
+            <div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem">Seus custos mensais do negócio</div>
+              <div style="font-size:.78rem;color:var(--muted);margin-top:.15rem">Preencha seus custos reais para calcular seu custo/hora</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem 2rem">
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <label style="font-size:.78rem;color:var(--muted)">Aluguel / Condomínio (R$)</label>
+              <input type="number" id="c-aluguel" value="0" min="0" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <label style="font-size:.78rem;color:var(--muted)">Internet + Telefone (R$)</label>
+              <input type="number" id="c-internet" value="160" min="0" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <label style="font-size:.78rem;color:var(--muted)">Sistema de gestão financeira (R$)</label>
+              <input type="number" id="c-sistema" value="500" min="0" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <label style="font-size:.78rem;color:var(--muted)">Equipamentos / Depreciação (R$)</label>
+              <input type="number" id="c-equip" value="200" min="0" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <label style="font-size:.78rem;color:var(--muted)">Funcionários / Prestadores (R$)</label>
+              <input type="number" id="c-func" value="0" min="0" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <label style="font-size:.78rem;color:var(--muted)">Pró-labore (R$)</label>
+              <input type="number" id="c-prolabore" value="3000" min="0" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <label style="font-size:.78rem;color:var(--muted)">Marketing / Anúncios (R$)</label>
+              <input type="number" id="c-marketing" value="300" min="0" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <label style="font-size:.78rem;color:var(--muted)">Outros custos (R$)</label>
+              <input type="number" id="c-outros" value="200" min="0" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
+            </div>
+          </div>
+          <hr class="c-divider" style="border:none;border-top:1px solid var(--border-light);margin:1.5rem 0">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem 2rem;margin-bottom:1.25rem">
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <label style="font-size:.78rem;color:var(--muted)">Horas trabalhadas por dia</label>
+              <input type="number" id="c-hdia" value="6" min="1" max="16" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <label style="font-size:.78rem;color:var(--muted)">Dias trabalhados por mês</label>
+              <input type="number" id="c-dmes" value="21" min="1" max="31" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
+            </div>
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <label style="font-size:.78rem;color:var(--muted)">Margem de segurança</label>
+              <select id="c-margem" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
+                <option value="1.0">0%</option>
+                <option value="1.1" selected>10%</option>
+                <option value="1.15">15%</option>
+                <option value="1.2">20%</option>
+              </select>
+            </div>
+          </div>
+          <div style="background:linear-gradient(100deg,rgba(91,111,212,.15),rgba(196,109,181,.1));border:1px solid rgba(91,111,212,.3);border-radius:12px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+            <div><div style="font-size:.73rem;color:var(--muted);margin-bottom:.3rem">Total custos/mês</div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:700" id="r-custo-total">R$ 0</div></div>
+            <div><div style="font-size:.73rem;color:var(--muted);margin-bottom:.3rem">Horas/mês</div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:700" id="r-horas-mes">126h</div></div>
+            <div style="text-align:right"><div style="font-size:.73rem;color:var(--muted);margin-bottom:.3rem">Seu custo/hora</div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text" id="r-custo-hora">R$ 0</div></div>
+          </div>
+        </div>
+
+        <!-- PASSO 2: SERVIÇOS -->
+        <div class="calc-card" style="margin-bottom:1.5rem">
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap">
+            <div style="background:var(--grad);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;color:#fff">2</div>
+            <div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem">Serviços incluídos no contrato</div>
+              <div style="font-size:.78rem;color:var(--muted);margin-top:.15rem">Marque os serviços e informe o volume mensal para calcular as horas</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:auto 1fr auto auto;gap:.6rem .75rem;align-items:center;margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--border-light)">
+            <div></div>
+            <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em">Serviço</div>
+            <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:center">Volume/mês</div>
+            <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:center">H/mês</div>
+          </div>
+          <div id="svc-lista"></div>
+          <div style="margin-top:1.25rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
+            <div><div style="font-size:.72rem;color:var(--muted)">Total horas do cliente/mês</div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700" id="r-horas-cliente">0,00h</div></div>
+            <div style="text-align:right"><div style="font-size:.72rem;color:var(--muted)">Custo de atender este cliente</div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700" id="r-custo-cliente">R$ 0</div></div>
+          </div>
+        </div>
+
+        <!-- PASSO 3: PREÇO FINAL -->
+        <div class="calc-card">
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap">
+            <div style="background:var(--grad);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;color:#fff">3</div>
+            <div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem">Margem de lucro e preço final</div>
+              <div style="font-size:.78rem;color:var(--muted);margin-top:.15rem">Defina sua margem e regime tributário para calcular o preço</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem 2rem;margin-bottom:1.5rem">
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <label style="font-size:.78rem;color:var(--muted)">Margem de lucro desejada</label>
+              <select id="c-lucro" oninput="calcFinal()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
+                <option value="1.5">50%</option>
+                <option value="1.6">60%</option>
+                <option value="1.7">70%</option>
+                <option value="1.8" selected>80%</option>
+                <option value="2.0">100%</option>
+                <option value="2.5">150%</option>
+              </select>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:.4rem">
+              <label style="font-size:.78rem;color:var(--muted)">Regime tributário</label>
+              <select id="c-imposto" oninput="calcFinal()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
+                <option value="0">MEI — 0%</option>
+                <option value="0.06" selected>Simples Nacional — 6%</option>
+                <option value="0.116">Lucro Presumido — 11,6%</option>
+                <option value="0.155">Lucro Real — 15,5%</option>
+              </select>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-top:.5rem">
+            <div class="res-card"><div class="res-label">Custo do cliente</div><div class="res-val" id="f-custo">R$ 0</div></div>
+            <div class="res-card"><div class="res-label">Preço sugerido</div><div class="res-val highlight" id="f-preco">R$ 0</div></div>
+            <div class="res-card"><div class="res-label">Imposto estimado</div><div class="res-val" id="f-imposto">R$ 0</div></div>
+            <div class="res-card"><div class="res-label">Lucro líquido</div><div class="res-val highlight" id="f-lucro">R$ 0</div></div>
+          </div>
+          <div class="calc-tip" style="margin-top:1.25rem">💡 Esses valores são a base — o preço final pode ser ajustado conforme a complexidade e perfil do cliente. Use como piso, nunca como teto.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
       <div class="calc-container" style="margin-top:2.5rem">
 
@@ -868,121 +1009,100 @@ window.switchPlano = function(p){
 <script>
 // tabs já declaradas globalmente acima
 
-const PLANOS = {
-  basico:[
-    {nome:'Emissão de Notas Fiscais', h:0.0208},
-    {nome:'Emissão de Boletos', h:0.0208},
-    {nome:'Conciliação bancária', h:0.0139},
-    {nome:'Lançamentos de cartão', h:0.0208},
-    {nome:'Contas a pagar / fornecedores', h:0.0417},
-    {nome:'Controle contas a receber', h:0.0139},
-    {nome:'Reunião de Análise de Resultados', h:0.0208},
-  ],
-  intermediario:[
-    {nome:'Emissão de Notas Fiscais', h:0.0278},
-    {nome:'Emissão de Boletos', h:0.0278},
-    {nome:'Conciliação bancária (até 4 contas)', h:0.0417},
-    {nome:'Lançamentos de cartão de crédito', h:0.0208},
-    {nome:'Contas a pagar / fornecedores', h:0.0417},
-    {nome:'Agendamento Bancário', h:0.0208},
-    {nome:'Controle de Aplicações', h:0.0417},
-    {nome:'Reunião de Análise de Resultados', h:0.0417},
-  ],
-  avancado:[
-    {nome:'Emissão de Notas Fiscais', h:0.0694},
-    {nome:'Emissão de Boletos', h:0.1167},
-    {nome:'Conciliação bancária (até 4 contas)', h:0.0542},
-    {nome:'Lançamentos de cartão de crédito', h:0.0625},
-    {nome:'Contas a pagar / fornecedores', h:0.0417},
-    {nome:'Agendamento Bancário', h:0.1042},
-    {nome:'Reunião de Análise de Resultados', h:0.0417},
-    {nome:'Vídeo Mensal com Apresentação', h:0.0208},
-    {nome:'Indicadores de Performance', h:0.0625},
-    {nome:'Planejamento Estratégico', h:0.2083},
-  ]
-};
+// Serviços reais do PDF com tempo estimado em horas/execução
+const SERVICOS = [
+  {id:'conciliacao', nome:'Conciliação bancária',           hUnit:0.25,  vol:'contas',      def:2,  checked:true},
+  {id:'agendamento', nome:'Agendamento bancário',           hUnit:0.05,  vol:'agendamentos', def:20, checked:false},
+  {id:'relatorios',  nome:'Relatórios de desempenho mensal',hUnit:1.5,   vol:'relatórios',  def:1,  checked:true},
+  {id:'nf',          nome:'Emissão de notas fiscais',       hUnit:0.025, vol:'notas',        def:20, checked:false},
+  {id:'boletos',     nome:'Emissão de boletos',             hUnit:0.025, vol:'boletos',      def:10, checked:false},
+  {id:'inadimp',     nome:'Controle de inadimplentes',      hUnit:0.5,   vol:'clientes',     def:5,  checked:true},
+  {id:'cpagar',      nome:'Contas a pagar e receber',       hUnit:0.033, vol:'lançamentos',  def:50, checked:true},
+  {id:'docs',        nome:'Gestão de documentos',           hUnit:0.016, vol:'documentos',   def:50, checked:true},
+  {id:'cartao',      nome:'Conciliação de cartão de crédito',hUnit:0.5,  vol:'faturas',      def:1,  checked:false},
+  {id:'contab',      nome:'Envio à contabilidade',          hUnit:1.0,   vol:'envios',       def:1,  checked:false},
+  {id:'plataformas', nome:'Conciliação de plataformas digitais',hUnit:0.5,vol:'plataformas', def:1,  checked:false},
+  {id:'reuniao',     nome:'Reunião mensal de resultados',   hUnit:1.0,   vol:'reuniões',     def:1,  checked:false},
+  {id:'indicadores', nome:'Indicadores de performance',     hUnit:1.0,   vol:'indicadores',  def:3,  checked:false},
+  {id:'consultoria', nome:'Consultoria empresarial',        hUnit:1.5,   vol:'horas',        def:1,  checked:false},
+  {id:'planejamento',nome:'Planejamento estratégico',       hUnit:3.0,   vol:'sessões',      def:1,  checked:false},
+];
 
 function fmt(v){return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:2})}
 function fmtH(v){return v.toFixed(2).replace('.',',')+'h'}
 
-function buildTasks(){
-  for(const[plano,tasks] of Object.entries(PLANOS)){
-    const el=document.getElementById('tasks-'+plano);
-    if(!el)continue;
-    el.innerHTML=tasks.map((t,i)=>`
-      <div style="display:grid;grid-template-columns:1fr 60px 40px;gap:.4rem .75rem;align-items:center;padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.05)">
-        <label style="font-size:.82rem;color:rgba(255,255,255,.8);cursor:pointer" for="task-${plano}-${i}">${t.nome}</label>
-        <div style="font-size:.78rem;color:#8B9FE4;text-align:center;font-weight:600">${fmtH(t.h)}</div>
-        <div style="text-align:center"><input type="checkbox" id="task-${plano}-${i}" checked onchange="calcFinal()" style="cursor:pointer;width:16px;height:16px;accent-color:#7B8FE4"></div>
-      </div>`).join('');
-  }
+function buildSvcs(){
+  const el=document.getElementById('svc-lista');
+  if(!el)return;
+  el.innerHTML=SERVICOS.map(s=>`
+    <div style="display:grid;grid-template-columns:20px 1fr 110px 70px;gap:.5rem .75rem;align-items:center;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.05)">
+      <input type="checkbox" id="chk-${s.id}" ${s.checked?'checked':''} onchange="calcFinal()" style="cursor:pointer;width:15px;height:15px;accent-color:#7B8FE4;flex-shrink:0">
+      <label for="chk-${s.id}" style="font-size:.82rem;color:rgba(255,255,255,.85);cursor:pointer">${s.nome}</label>
+      <div style="display:flex;align-items:center;gap:.3rem">
+        <input type="number" id="vol-${s.id}" value="${s.def}" min="0" oninput="calcFinal()" style="width:60px;background:rgba(255,255,255,.05);border:1px solid rgba(91,111,212,.2);border-radius:6px;padding:.3rem .5rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.78rem;text-align:right">
+        <span style="font-size:.7rem;color:var(--muted)">${s.vol}</span>
+      </div>
+      <div style="font-size:.78rem;color:#8B9FE4;text-align:right;font-weight:600" id="h-${s.id}">0,00h</div>
+    </div>`).join('');
+  calcFinal();
 }
 
 function getCustoHora(){
-  const vals=[
-    +(document.getElementById('c-aluguel')?.value||0),
-    +(document.getElementById('c-internet')?.value||0),
-    +(document.getElementById('c-sistema')?.value||0),
-    +(document.getElementById('c-equip')?.value||0),
-    +(document.getElementById('c-func')?.value||0),
-    +(document.getElementById('c-prolabore')?.value||0),
-    +(document.getElementById('c-marketing')?.value||0),
-    +(document.getElementById('c-outros')?.value||0),
-  ];
-  const total=vals.reduce((a,b)=>a+b,0);
+  const ids=['c-aluguel','c-internet','c-sistema','c-equip','c-func','c-prolabore','c-marketing','c-outros'];
+  const total=ids.reduce((s,id)=>s+(+(document.getElementById(id)?.value||0)),0);
   const hdia=+(document.getElementById('c-hdia')?.value||6);
   const dmes=+(document.getElementById('c-dmes')?.value||21);
   const margem=+(document.getElementById('c-margem')?.value||1.1);
   const hmes=hdia*dmes;
   const custoH=hmes>0?(total/hmes)*margem:0;
-  document.getElementById('r-custo-total').textContent=fmt(total);
-  document.getElementById('r-horas-mes').textContent=hmes+'h';
-  document.getElementById('r-custo-hora').textContent=fmt(custoH);
+  const rTotal=document.getElementById('r-custo-total');
+  const rHmes=document.getElementById('r-horas-mes');
+  const rCH=document.getElementById('r-custo-hora');
+  if(rTotal)rTotal.textContent=fmt(total);
+  if(rHmes)rHmes.textContent=hmes+'h';
+  if(rCH)rCH.textContent=fmt(custoH);
   return custoH;
 }
 
-function calcHora(){getCustoHora();calcFinal()}
-
-function getPlanoAtivo(){
-  const tabs=document.querySelectorAll('#panel-calc .calc-tab');
-  const planos=['basico','intermediario','avancado'];
-  for(let i=0;i<tabs.length;i++){if(tabs[i].classList.contains('active'))return planos[i];}
-  return'basico';
-}
+function calcHora(){getCustoHora();calcFinal();}
 
 function calcFinal(){
   const custoH=getCustoHora();
-  const plano=getPlanoAtivo();
-  const tasks=PLANOS[plano];
   let horasTotal=0;
-  tasks.forEach((t,i)=>{
-    const cb=document.getElementById('task-'+plano+'-'+i);
-    if(cb&&cb.checked)horasTotal+=t.h;
+  SERVICOS.forEach(s=>{
+    const chk=document.getElementById('chk-'+s.id);
+    const vol=+(document.getElementById('vol-'+s.id)?.value||s.def);
+    const hEl=document.getElementById('h-'+s.id);
+    if(chk&&chk.checked){
+      const h=s.hUnit*vol;
+      horasTotal+=h;
+      if(hEl)hEl.textContent=fmtH(h);
+    } else {
+      if(hEl)hEl.textContent='—';
+    }
   });
-  const custoPlan=horasTotal*custoH;
+  const custoCliente=horasTotal*custoH;
   const lucroMult=+(document.getElementById('c-lucro')?.value||1.8);
   const impostoPct=+(document.getElementById('c-imposto')?.value||0.06);
-  const precoSugerido=custoPlan*lucroMult;
-  const impostoVal=precoSugerido*impostoPct;
-  const lucroLiq=precoSugerido-custoPlan-impostoVal;
-  document.getElementById('r-horas-plano').textContent=fmtH(horasTotal);
-  document.getElementById('r-custo-plano').textContent=fmt(custoPlan);
-  document.getElementById('f-custo').textContent=fmt(custoPlan);
-  document.getElementById('f-preco').textContent=fmt(precoSugerido);
-  document.getElementById('f-imposto').textContent=fmt(impostoVal);
-  document.getElementById('f-lucro').textContent=fmt(lucroLiq);
+  const preco=custoCliente*lucroMult;
+  const imposto=preco*impostoPct;
+  const lucro=preco-custoCliente-imposto;
+  const rHC=document.getElementById('r-horas-cliente');
+  const rCC=document.getElementById('r-custo-cliente');
+  if(rHC)rHC.textContent=fmtH(horasTotal);
+  if(rCC)rCC.textContent=fmt(custoCliente);
+  const fC=document.getElementById('f-custo');
+  const fP=document.getElementById('f-preco');
+  const fI=document.getElementById('f-imposto');
+  const fL=document.getElementById('f-lucro');
+  if(fC)fC.textContent=fmt(custoCliente);
+  if(fP)fP.textContent=fmt(preco);
+  if(fI)fI.textContent=fmt(imposto);
+  if(fL)fL.textContent=fmt(lucro);
 }
 
-buildTasks();
-document.addEventListener('DOMContentLoaded', function(){
-  buildTasks();
-  calcFinal();
-});
-// fallback se DOMContentLoaded já disparou
-if(document.readyState !== 'loading'){
-  buildTasks();
-  calcFinal();
-}
+document.addEventListener('DOMContentLoaded',function(){buildSvcs();calcFinal();});
+if(document.readyState!=='loading'){buildSvcs();calcFinal();}
 </script>
 </body>
 </html>
