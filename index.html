@@ -156,7 +156,7 @@ h1.hero-h em{font-style:italic;background:var(--grad);-webkit-background-clip:te
 .tab-btn.active{color:var(--navy);border-bottom-color:var(--blue);font-weight:600}
 
 /* ── TAB PANELS ── */
-.tab-panel{display:none}.tab-panel.active{display:block}
+.tab-panel{display:none !important}.tab-panel.active{display:block !important}
 
 /* ── SHARED SECTION ── */
 section{padding:5rem 5%}
@@ -1039,7 +1039,8 @@ window.showTab=function(t){
   var idx={bpo:0,mentoria:1,conexao:2,calc:3,contrato:4}[t];
   var btns=document.querySelectorAll('.tab-btn');
   if(btns[idx])btns[idx].classList.add('active');
-  document.getElementById('tabs-nav').scrollIntoView({behavior:'smooth',block:'start'});
+  var nav=document.getElementById('tabs-nav');
+  if(nav)nav.scrollIntoView({behavior:'smooth',block:'start'});
   if(t==='calc'){setTimeout(function(){
     if(typeof buildSvcs==='function')buildSvcs();
     if(typeof calc==='function')calc();
@@ -1047,7 +1048,8 @@ window.showTab=function(t){
     if(p1&&!p1.classList.contains('active')){
       document.querySelectorAll('#panel-calc .calc-inner').forEach(p=>p.classList.remove('active'));
       p1.classList.add('active');
-      document.querySelectorAll('.pilar-btn')[0].classList.add('active');
+      var pb=document.querySelectorAll('.pilar-btn');
+      if(pb[0])pb[0].classList.add('active');
     }
   },100);}
 }
