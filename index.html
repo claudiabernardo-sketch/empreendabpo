@@ -261,7 +261,8 @@ footer p{font-size:.73rem;color:rgba(255,255,255,.28)}
     <li><a href="#" onclick="showTab('bpo');return false">BPO Financeiro</a></li>
     <li><a href="#" onclick="showTab('mentoria');return false">Mentoria</a></li>
     <li><a href="#" onclick="showTab('conexao');return false">Conexão BPO</a></li>
-    <li><a href="#" onclick="showTab('calc');return false">Calculadora</a></li>
+    <li><a href="#" onclick="showTab('calc');return false">Quanto Cobrar?</a></li>
+    <li><a href="#" onclick="showTab('contrato');return false">Contrato</a></li>
   </ul>
   <a href="https://wa.me/5511917101173" class="nav-cta" target="_blank" rel="noopener">Falar Agora</a>
 </nav>
@@ -305,7 +306,8 @@ footer p{font-size:.73rem;color:rgba(255,255,255,.28)}
     <button class="tab-btn active" onclick="showTab('bpo')">📊 BPO Financeiro</button>
     <button class="tab-btn" onclick="showTab('mentoria')">🚀 Mentoria</button>
     <button class="tab-btn" onclick="showTab('conexao')">🤝 Conexão BPO</button>
-    <button class="tab-btn" onclick="showTab('calc')">🧮 Calculadora</button>
+    <button class="tab-btn" onclick="showTab('calc')">🧮 Quanto Cobrar?</button>
+    <button class="tab-btn" onclick="showTab('contrato')">📄 Contrato</button>
   </div>
 </div>
 
@@ -316,7 +318,7 @@ window.showTab = function(t){
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   var panel = document.getElementById('panel-'+t);
   if(panel) panel.classList.add('active');
-  var idx={bpo:0,mentoria:1,conexao:2,calc:3}[t];
+  var idx={bpo:0,mentoria:1,conexao:2,calc:3,contrato:4}[t];
   var btns = document.querySelectorAll('.tab-btn');
   if(btns[idx]) btns[idx].classList.add('active');
   var nav = document.getElementById('tabs-nav');
@@ -490,7 +492,10 @@ window.switchPlano = function(p){
       <img src="foto-chao.jpg" alt="Claudia Bernardo — Conexão BPO"/>
     </div>
     <div class="conexao-content-side">
-      <div class="conexao-logo-text">Conexão BPO</div>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.5rem">
+        <img src="logo-conexao.png" alt="Conexão BPO" style="height:52px;border-radius:8px"/>
+        <div class="conexao-logo-text">Conexão BPO</div>
+      </div>
       <div class="conexao-tagline">A comunidade de quem vive o BPO Financeiro</div>
       <p>A <strong>Conexão BPO</strong> é a comunidade criada para profissionais de BPO Financeiro que querem crescer com suporte, conteúdo de qualidade e uma rede de pessoas que entendem sua realidade.</p>
       <p>Aqui você não fica sozinho. Encontra <strong>pessoas que passaram pelos mesmos desafios</strong> e que estão dispostas a compartilhar o que funciona de verdade — sem enrolação.</p>
@@ -501,7 +506,7 @@ window.switchPlano = function(p){
         <div class="c-stat"><div class="c-stat-val">20+</div><div class="c-stat-label">Anos de experiência</div></div>
       </div>
       <div style="display:flex;gap:1rem;flex-wrap:wrap">
-        <a href="https://comunidadeconexaobpo.my.canva.site/comunidade-conex-o-bpo" class="btn-grad" target="_blank" rel="noopener">🔗 Ver página completa</a>
+        <a href="https://www.comunidadeconexaobpo.com.br" class="btn-grad" target="_blank" rel="noopener">🔐 Já sou membro — Entrar</a>
         <a href="https://wa.me/5511917101173" class="btn-ghost" target="_blank" rel="noopener">💬 Falar pelo WhatsApp</a>
       </div>
     </div>
@@ -541,24 +546,47 @@ window.switchPlano = function(p){
   <div class="conexao-como">
     <div style="max-width:1100px;margin:0 auto">
       <span class="section-tag">Como participar</span>
-      <h2 class="section-title">Entrar na Conexão BPO é <span class="grad-text">simples e rápido</span></h2>
+      <h2 class="section-title">Escolha seu plano e <span class="grad-text">comece agora</span></h2>
       <div class="como-grid">
-        <div class="como-item"><div class="como-num">1</div><h3>Acesse a página</h3><p>Veja todos os detalhes, planos e o que está incluso na comunidade.</p></div>
-        <div class="como-item"><div class="como-num">2</div><h3>Escolha seu plano</h3><p>Mensal ou anual — escolha o que faz mais sentido para você agora.</p></div>
-        <div class="como-item"><div class="como-num">3</div><h3>Faça sua inscrição</h3><p>Processo rápido e seguro. Em minutos você já tem acesso completo.</p></div>
-        <div class="como-item"><div class="como-num">4</div><h3>Comece a crescer</h3><p>Acesse o conteúdo, interaja com a comunidade e acelere seu negócio.</p></div>
+        <div class="como-item"><div class="como-num">1</div><h3>Escolha seu plano</h3><p>Mensal, trimestral ou anual — escolha o que faz mais sentido para você agora.</p></div>
+        <div class="como-item"><div class="como-num">2</div><h3>Faça sua assinatura</h3><p>Pagamento seguro pela Kiwify. Em minutos você já tem acesso completo.</p></div>
+        <div class="como-item"><div class="como-num">3</div><h3>Acesse a comunidade</h3><p>Entre em www.comunidadeconexaobpo.com.br com seu login e senha cadastrados.</p></div>
+        <div class="como-item"><div class="como-num">4</div><h3>Comece a crescer</h3><p>Acesse o conteúdo, interaja com a comunidade e acelere seu negócio de BPO.</p></div>
       </div>
     </div>
   </div>
 
   <!-- CTA FINAL CONEXÃO -->
   <div class="conexao-cta">
-    <span class="section-tag" style="margin:0 auto .9rem">Faça parte</span>
-    <h3>Junte-se à comunidade de <span class="grad-text">BPO Financeiro do Brasil</span></h3>
-    <p>Profissionais de todo o Brasil já fazem parte da Conexão BPO e estão crescendo juntos. Chegou a sua vez.</p>
+    <span class="section-tag" style="margin:0 auto .9rem">Faça parte agora</span>
+    <div style="display:flex;align-items:center;justify-content:center;gap:.75rem;margin-bottom:.75rem">
+      <img src="logo-conexao.png" alt="Conexão BPO" style="height:44px;border-radius:8px"/>
+      <h3 style="margin:0">Escolha seu plano e entre na <span class="grad-text">Conexão BPO</span></h3>
+    </div>
+    <p>Acesso imediato após a assinatura. Cancele quando quiser.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;max-width:700px;margin:0 auto 2rem">
+      <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center">
+        <div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem">Mensal</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem">Flexibilidade total</div>
+        <a href="https://pay.kiwify.com.br/MfrUsPo" class="btn-grad" style="width:100%;justify-content:center;font-size:.8rem;padding:.7rem 1rem" target="_blank" rel="noopener">Assinar mensal</a>
+      </div>
+      <div style="background:linear-gradient(140deg,rgba(91,111,212,.15),rgba(196,109,181,.1));border:1px solid rgba(91,111,212,.5);border-radius:14px;padding:1.5rem;text-align:center;position:relative">
+        <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .85rem;border-radius:100px;white-space:nowrap">Mais popular</div>
+        <div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem">Trimestral</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem">Melhor custo-benefício</div>
+        <a href="https://pay.kiwify.com.br/zrfBdss" class="btn-grad" style="width:100%;justify-content:center;font-size:.8rem;padding:.7rem 1rem" target="_blank" rel="noopener">Assinar trimestral</a>
+      </div>
+      <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center">
+        <div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem">Anual</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem">Máxima economia</div>
+        <a href="https://pay.kiwify.com.br/Ox0ttIv" class="btn-grad" style="width:100%;justify-content:center;font-size:.8rem;padding:.7rem 1rem" target="_blank" rel="noopener">Assinar anual</a>
+      </div>
+    </div>
+
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-      <a href="https://comunidadeconexaobpo.my.canva.site/comunidade-conex-o-bpo" class="btn-grad" target="_blank" rel="noopener">🚀 Quero entrar na Conexão BPO</a>
-      <a href="https://wa.me/5511917101173" class="btn-ghost" target="_blank" rel="noopener">💬 Tenho dúvidas — falar no WhatsApp</a>
+      <a href="https://www.comunidadeconexaobpo.com.br" class="btn-ghost" target="_blank" rel="noopener">🔐 Já sou membro — Acessar</a>
+      <a href="https://wa.me/5511917101173" class="btn-ghost" target="_blank" rel="noopener">💬 Tenho dúvidas</a>
     </div>
   </div>
 
@@ -746,7 +774,44 @@ window.switchPlano = function(p){
   </div>
 </div>
 
-<!-- SOBRE -->
+<!-- ═══ ABA 5: CONTRATO ═══ -->
+<div class="tab-panel" id="panel-contrato">
+  <div style="padding:5rem 5%;background:var(--navy-deep)">
+    <div style="max-width:800px;margin:0 auto;text-align:center">
+      <span class="section-tag" style="margin:0 auto 1rem">Ferramenta gratuita</span>
+      <h2 class="section-title">Gere seu <span class="grad-text">contrato de BPO</span> personalizado</h2>
+      <p class="section-lead" style="margin:0 auto 2.5rem">Preencha os dados do seu escritório e do cliente, selecione os serviços, defina os valores e baixe o contrato pronto em Word (.docx) — com todas as cláusulas revisadas e adequadas à legislação vigente.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-bottom:3rem">
+        <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center">
+          <div style="font-size:1.8rem;margin-bottom:.75rem">⚖️</div>
+          <div style="font-size:.88rem;font-weight:700;margin-bottom:.35rem">Juridicamente revisado</div>
+          <div style="font-size:.78rem;color:var(--muted)">Cláusulas alinhadas ao Código Civil e LGPD</div>
+        </div>
+        <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center">
+          <div style="font-size:1.8rem;margin-bottom:.75rem">✏️</div>
+          <div style="font-size:.88rem;font-weight:700;margin-bottom:.35rem">100% personalizável</div>
+          <div style="font-size:.78rem;color:var(--muted)">Dados do prestador, cliente, serviços e valores</div>
+        </div>
+        <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center">
+          <div style="font-size:1.8rem;margin-bottom:.75rem">⬇️</div>
+          <div style="font-size:.88rem;font-weight:700;margin-bottom:.35rem">Download em Word</div>
+          <div style="font-size:.78rem;color:var(--muted)">Arquivo .docx pronto para assinar digitalmente</div>
+        </div>
+        <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center">
+          <div style="font-size:1.8rem;margin-bottom:.75rem">🆓</div>
+          <div style="font-size:.88rem;font-weight:700;margin-bottom:.35rem">Totalmente gratuito</div>
+          <div style="font-size:.78rem;color:var(--muted)">Sem cadastro, sem limite de uso</div>
+        </div>
+      </div>
+
+      <a href="gerador-contrato.html" class="btn-grad" style="font-size:.95rem;padding:1rem 2.5rem" target="_blank">
+        📄 Acessar o Gerador de Contrato →
+      </a>
+      <p style="font-size:.75rem;color:var(--muted);margin-top:1rem">Abre em uma nova aba — preencha no seu ritmo</p>
+    </div>
+  </div>
+</div>
 <div class="sobre-section">
   <div class="sobre-inner">
     <div class="sobre-photo">
