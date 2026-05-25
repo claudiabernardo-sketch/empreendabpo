@@ -2,381 +2,356 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Empreenda BPO | Transformamos Empresas em Negócios de Resultado</title>
-<meta name="description" content="Especialistas em BPO Financeiro, Controladoria, Mentoria e Infoprodutos. Transformamos empresas em negócios de resultado."/>
+<meta name="description" content="BPO Financeiro especializado para infoprodutores. Baseada em Barueri/SP, atendemos todo o Brasil. Valuation, Controladoria e Mentoria para negócios digitais."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --navy:#1E2347;--navy-deep:#141730;--navy-mid:#252A55;--navy-light:#2E3568;
+  --ink:#0a0c1a;
+  --ink2:#12152e;
+  --ink3:#1a1f3a;
   --blue:#5B6FD4;--purple:#9B6FBF;--pink:#C46DB5;
-  --grad:linear-gradient(100deg,#5B6FD4 0%,#9B6FBF 55%,#C46DB5 100%);
-  --grad-text:linear-gradient(100deg,#7B8FE4 0%,#B08FCF 55%,#D48DC5 100%);
-  --white:#fff;--muted:rgba(255,255,255,0.5);
-  --border:rgba(91,111,212,0.2);--border-light:rgba(91,111,212,0.1);
+  --grad:linear-gradient(110deg,#5B6FD4,#9B6FBF,#C46DB5);
+  --grad-soft:linear-gradient(110deg,rgba(91,111,212,.15),rgba(196,109,181,.1));
+  --gold:#c8a96e;--gold2:#e2c99a;
+  --white:#fff;--off:#f5f4f0;
+  --muted:rgba(255,255,255,.45);
+  --border:rgba(255,255,255,.08);
+  --border2:rgba(91,111,212,.2);
 }
 html{scroll-behavior:smooth}
-body{font-family:'Manrope',sans-serif;background:var(--navy-deep);color:#fff;overflow-x:hidden}
-.grad-text{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:rgba(20,23,48,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.nav-logo{height:36px;display:block}
-.nav-links{display:flex;gap:1.75rem;list-style:none}
-.nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.8rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;transition:color .2s}
-.nav-links a:hover{color:#fff}
-.nav-cta{background:var(--grad);color:#fff;padding:0.5rem 1.4rem;border-radius:100px;font-size:0.78rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;transition:opacity .2s}
+/* ── TYPOGRAPHY ── */
+.serif{font-family:'Cormorant Garamond',serif}
+.grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gold-text{color:var(--gold)}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:rgba(10,12,26,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background .3s}
+.nav-logo{height:34px;display:block}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--grad);color:#fff;padding:.5rem 1.4rem;border-radius:3px;font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:opacity .2s}
 .nav-cta:hover{opacity:.85}
 
-/* HERO */
-#hero{min-height:100vh;background:var(--navy-deep);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:80px}
-.hero-glow{position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(91,111,212,0.15) 0%,transparent 70%);top:-200px;right:-100px;pointer-events:none}
-.hero-grid{position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(91,111,212,0.04) 0px,rgba(91,111,212,0.04) 1px,transparent 1px,transparent 70px),repeating-linear-gradient(0deg,rgba(91,111,212,0.04) 0px,rgba(91,111,212,0.04) 1px,transparent 1px,transparent 70px);pointer-events:none}
+/* ── HERO ── */
+#hero{min-height:100vh;background:var(--ink);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:70px}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+.hero-bg::before{content:'';position:absolute;top:-20%;right:-10%;width:70%;height:140%;background:radial-gradient(ellipse,rgba(91,111,212,.12) 0%,transparent 65%);border-radius:50%}
+.hero-bg::after{content:'';position:absolute;bottom:-20%;left:20%;width:50%;height:80%;background:radial-gradient(ellipse,rgba(196,109,181,.08) 0%,transparent 65%);border-radius:50%}
+.hero-lines{position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0,rgba(255,255,255,.025) 1px,transparent 1px,transparent 80px),repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0,rgba(255,255,255,.025) 1px,transparent 1px,transparent 80px)}
 .hero-content{display:flex;flex-direction:column;justify-content:center;padding:4rem 6% 4rem;position:relative;z-index:2}
-.hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(91,111,212,0.12);border:1px solid rgba(91,111,212,0.3);padding:.4rem 1rem;border-radius:100px;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8B9FE4;margin-bottom:1.5rem;width:fit-content}
-.hero-tag span{width:6px;height:6px;border-radius:50%;background:var(--grad);display:block}
-h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;line-height:1.15;margin-bottom:1.25rem}
-.hero-sub{font-size:.95rem;color:var(--muted);line-height:1.75;max-width:460px;margin-bottom:2rem}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
-.btn-grad{background:var(--grad);color:#fff;padding:.85rem 1.8rem;border-radius:100px;font-size:.83rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:opacity .2s,transform .15s;box-shadow:0 4px 20px rgba(91,111,212,0.3)}
-.btn-grad:hover{opacity:.88;transform:translateY(-2px)}
-.btn-ghost{border:1px solid rgba(91,111,212,0.4);color:rgba(255,255,255,0.8);padding:.85rem 1.8rem;border-radius:100px;font-size:.83rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:border-color .2s,color .2s}
-.btn-ghost:hover{border-color:var(--blue);color:#fff}
-.hero-proof{display:flex;align-items:center;gap:1.25rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.07)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:2rem;width:fit-content}
+.hero-eyebrow span{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';height:1px;width:28px;background:var(--grad)}
+h1.hero-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4.5vw,4rem);font-weight:600;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-.01em}
+h1.hero-h em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:.95rem;color:var(--muted);line-height:1.8;max-width:460px;margin-bottom:2.5rem;font-weight:300}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn-primary{background:var(--grad);color:#fff;padding:.85rem 2rem;border-radius:3px;font-size:.82rem;font-weight:600;letter-spacing:.04em;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:opacity .2s,transform .15s;box-shadow:0 8px 32px rgba(91,111,212,.25)}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px)}
+.btn-ghost{border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);padding:.85rem 2rem;border-radius:3px;font-size:.82rem;font-weight:500;letter-spacing:.04em;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .2s}
+.btn-ghost:hover{border-color:rgba(255,255,255,.35);color:#fff}
+.hero-proof{display:flex;align-items:center;gap:1.25rem;padding-top:2rem;border-top:1px solid var(--border)}
 .avatars{display:flex}
-.avatars span{width:34px;height:34px;border-radius:50%;border:2px solid var(--navy-deep);display:flex;align-items:center;justify-content:center;font-size:.62rem;font-weight:700;margin-left:-8px}
+.avatars span{width:32px;height:32px;border-radius:50%;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;margin-left:-8px;background:var(--grad)}
 .avatars span:first-child{margin-left:0}
-.avatars span:nth-child(1){background:#5B6FD4}.avatars span:nth-child(2){background:#7B5FC4}.avatars span:nth-child(3){background:#9B6FBF}.avatars span:nth-child(4){background:#C46DB5}
-.proof-text{font-size:.8rem;color:var(--muted);line-height:1.4}
-.proof-text strong{display:block;font-size:.88rem;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-photo-col{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
-.hero-photo-col img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-.hero-photo-overlay{position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to top,var(--navy-deep),transparent);pointer-events:none}
+.proof-text{font-size:.78rem;color:var(--muted);line-height:1.5}
+.proof-text strong{display:block;color:var(--white);font-weight:600;font-size:.85rem}
+.hero-img{position:relative;z-index:2;overflow:hidden;display:flex;align-items:flex-end}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--ink) 0%,transparent 30%,transparent 70%,var(--ink) 100%)}
+.hero-img-overlay2{position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(to top,var(--ink),transparent)}
 
-/* TABS NAVIGATION */
-#tabs-nav{background:var(--navy);border-bottom:1px solid var(--border-light);position:sticky;top:70px;z-index:100}
-.tabs-container{display:flex;overflow-x:auto;scrollbar-width:none;max-width:1200px;margin:0 auto;padding:0 5%}
-.tabs-container::-webkit-scrollbar{display:none}
-.tab-btn{flex-shrink:0;padding:1.1rem 1.5rem;background:none;border:none;color:rgba(255,255,255,0.5);font-family:'Manrope',sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
-.tab-btn:hover{color:rgba(255,255,255,.8)}
-.tab-btn.active{color:#fff;border-bottom-color:var(--blue)}
+/* ── NUMBERS STRIP ── */
+.strip{background:var(--ink2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2.5rem 5%}
+.strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;max-width:900px;margin:0 auto}
+.strip-item{padding:1.75rem 1.5rem;text-align:center;border-right:1px solid var(--border);position:relative}
+.strip-item:last-child{border-right:none}
+.strip-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;line-height:1;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.35rem}
+.strip-label{font-size:.72rem;color:var(--muted);font-weight:400;letter-spacing:.04em}
 
-/* TAB PANELS */
-.tab-panel{display:none}
-.tab-panel.active{display:block}
+/* ── TABS NAV ── */
+#tabs-nav{background:var(--ink);border-bottom:1px solid var(--border);position:sticky;top:66px;z-index:100}
+.tabs-wrap{display:flex;overflow-x:auto;scrollbar-width:none;max-width:1200px;margin:0 auto;padding:0 5%}
+.tabs-wrap::-webkit-scrollbar{display:none}
+.tab-btn{flex-shrink:0;padding:1rem 1.5rem;background:none;border:none;color:rgba(255,255,255,.4);font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap}
+.tab-btn:hover{color:rgba(255,255,255,.7)}
+.tab-btn.active{color:var(--white);border-bottom-color:var(--blue)}
 
-/* SECTION SHARED */
+/* ── TAB PANELS ── */
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* ── SHARED SECTION ── */
 section{padding:5rem 5%}
-.section-tag{display:inline-flex;align-items:center;gap:.6rem;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8B9FE4;margin-bottom:1rem}
-.section-tag::before{content:'';width:20px;height:2px;background:var(--grad);display:block}
-h2.section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;line-height:1.2;margin-bottom:1.1rem}
-.section-lead{font-size:.95rem;color:var(--muted);line-height:1.75;max-width:540px}
+.eyebrow{display:inline-flex;align-items:center;gap:.75rem;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1.1rem}
+.eyebrow::before{content:'';width:20px;height:1px;background:var(--grad)}
+h2.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3.5vw,3rem);font-weight:600;line-height:1.15;margin-bottom:1.1rem;letter-spacing:-.01em}
+.section-lead{font-size:.95rem;color:var(--muted);line-height:1.8;max-width:560px;font-weight:300}
 
-/* ── ABA 1: BPO ── */
-.bpo-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:5rem 5%}
-.bpo-photo{border-radius:16px;overflow:hidden;aspect-ratio:3/4;position:relative}
+/* ── CARD BASE ── */
+.card{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:6px;padding:2rem;transition:border-color .25s,background .25s}
+.card:hover{background:rgba(255,255,255,.04);border-color:rgba(91,111,212,.25)}
+
+/* ── BPO TAB ── */
+.bpo-hero{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;min-height:500px}
+.bpo-photo{overflow:hidden;position:relative}
 .bpo-photo img{width:100%;height:100%;object-fit:cover;object-position:top}
-.bpo-photo-badge{position:absolute;bottom:1.5rem;left:1.5rem;background:rgba(20,23,48,0.9);border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem;backdrop-filter:blur(8px)}
-.bpo-photo-badge .bv{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.bpo-photo-badge .bl{font-size:.72rem;color:var(--muted)}
-.bpo-text p{font-size:.93rem;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:1.1rem}
-.bpo-text p strong{color:#fff}
-.como-funciona{background:var(--navy);padding:5rem 5%}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:3rem;position:relative}
-.step{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:1.75rem;position:relative}
-.step-num{font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:.75rem}
-.step h3{font-size:.95rem;font-weight:700;margin-bottom:.5rem}
-.step p{font-size:.8rem;color:var(--muted);line-height:1.65}
-.servicos-bpo{padding:5rem 5%;background:var(--navy-deep)}
-.servicos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem;margin-top:3rem}
-.sc{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:1.75rem;transition:background .2s,border-color .2s,transform .2s}
-.sc:hover{background:rgba(91,111,212,.07);border-color:rgba(91,111,212,.35);transform:translateY(-3px)}
-.sc-icon{font-size:1.5rem;margin-bottom:1rem}
-.sc h3{font-size:.95rem;font-weight:700;margin-bottom:.5rem}
-.sc p{font-size:.8rem;color:var(--muted);line-height:1.65;margin-bottom:1rem}
-.sc-tags{display:flex;flex-wrap:wrap;gap:.4rem}
-.stag{background:rgba(91,111,212,.1);border:1px solid rgba(91,111,212,.2);padding:.2rem .65rem;border-radius:100px;font-size:.68rem;font-weight:600;color:#8B9FE4}
-.bpo-cta{background:var(--navy);padding:4rem 5%;text-align:center}
-.bpo-cta h3{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:.75rem}
-.bpo-cta p{font-size:.9rem;color:var(--muted);margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto}
+.bpo-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,var(--ink))}
+.bpo-content{background:var(--ink);display:flex;flex-direction:column;justify-content:center;padding:5rem 6%}
+.bpo-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(91,111,212,.08);border:1px solid rgba(91,111,212,.2);padding:.35rem .9rem;border-radius:2px;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8B9FE4;margin-bottom:1.5rem;width:fit-content}
+.bpo-content p{font-size:.9rem;color:var(--muted);line-height:1.85;margin-bottom:1rem;font-weight:300}
+.bpo-content p strong{color:var(--white);font-weight:500}
+.bpo-stat-badge{background:rgba(10,12,26,.9);border:1px solid var(--border2);border-radius:6px;padding:1rem 1.25rem;backdrop-filter:blur(12px)}
+.bpo-stat-badge .sv{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.bpo-stat-badge .sl{font-size:.68rem;color:var(--muted);margin-top:.2rem}
 
-/* ── ABA 2: MENTORIA ── */
-.mentoria-hero{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;padding:5rem 5%;background:var(--navy-deep)}
-.mentoria-photo{border-radius:16px;overflow:hidden;aspect-ratio:3/4}
-.mentoria-photo img{width:100%;height:100%;object-fit:cover;object-position:top}
-.mentoria-text p{font-size:.93rem;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:1.1rem}
-.mentoria-text p strong{color:#fff}
-.programas{background:var(--navy);padding:5rem 5%}
-.prog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem}
-.prog-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:16px;padding:2.25rem;transition:border-color .2s}
-.prog-card.feat{background:linear-gradient(140deg,rgba(91,111,212,.15),rgba(196,109,181,.1));border-color:rgba(91,111,212,.4)}
-.prog-card:hover{border-color:rgba(91,111,212,.45)}
-.feat-badge{display:inline-block;background:var(--grad);color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .8rem;border-radius:100px;margin-bottom:.9rem}
-.prog-card h3{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:700;margin-bottom:.6rem}
-.prog-card p{font-size:.83rem;color:var(--muted);line-height:1.7;margin-bottom:1.25rem}
-.prog-list{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.75rem}
-.prog-list li{font-size:.8rem;color:rgba(255,255,255,.65);display:flex;align-items:flex-start;gap:.55rem}
-.prog-list li::before{content:'✓';font-weight:800;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;flex-shrink:0}
-.depoimentos{background:var(--navy-deep);padding:5rem 5%}
-.dep-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:3rem}
-.dep-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:1.75rem;transition:border-color .2s}
-.dep-card:hover{border-color:rgba(91,111,212,.4)}
-.dep-stars{color:#7B8FE4;font-size:.8rem;margin-bottom:.9rem;letter-spacing:.1em}
-.dep-card p{font-size:.85rem;color:rgba(255,255,255,.75);line-height:1.75;font-style:italic;margin-bottom:1.1rem}
-.dep-cite{display:flex;align-items:center;gap:.75rem;padding-top:.9rem;border-top:1px solid var(--border-light)}
-.dep-av{width:34px;height:34px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;flex-shrink:0}
-.dep-name{font-size:.76rem;font-weight:700;margin-bottom:.1rem}
-.dep-role{font-size:.7rem;color:var(--muted)}
+/* STEPS */
+.steps-section{background:var(--ink2);padding:5rem 5%}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:3.5rem;position:relative}
+.step{padding:2rem 1.75rem;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:6px;position:relative}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:600;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:.75rem}
+.step h3{font-size:.9rem;font-weight:600;margin-bottom:.5rem}
+.step p{font-size:.8rem;color:var(--muted);line-height:1.7;font-weight:300}
 
-/* ── ABA 3: CONEXÃO BPO ── */
-.conexao-hero{min-height:60vh;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
-.conexao-photo-side{position:relative;overflow:hidden;min-height:400px}
-.conexao-photo-side img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.conexao-photo-side::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,var(--navy-deep))}
-.conexao-content-side{background:var(--navy-deep);display:flex;flex-direction:column;justify-content:center;padding:5rem 6% 5rem 4rem}
-.conexao-logo-text{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem}
-.conexao-tagline{font-size:.85rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.75rem}
-.conexao-content-side p{font-size:.93rem;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:1rem}
-.conexao-content-side p strong{color:#fff}
-.conexao-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
-.c-stat{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:1rem 1.25rem}
-.c-stat-val{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:.3rem}
-.c-stat-label{font-size:.73rem;color:var(--muted)}
-.conexao-beneficios{background:var(--navy);padding:5rem 5%}
-.ben-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;margin-top:3rem}
-.ben-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:1.75rem;text-align:center;transition:border-color .2s,background .2s}
-.ben-card:hover{border-color:rgba(91,111,212,.4);background:rgba(91,111,212,.05)}
-.ben-icon{font-size:1.8rem;margin-bottom:.9rem}
-.ben-card h3{font-size:.93rem;font-weight:700;margin-bottom:.45rem}
-.ben-card p{font-size:.78rem;color:var(--muted);line-height:1.65}
-.conexao-como{background:var(--navy-deep);padding:5rem 5%}
-.como-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;margin-top:3rem}
-.como-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.75rem}
-.como-num{width:44px;height:44px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:.9rem;font-weight:700;color:#fff;flex-shrink:0}
-.como-item h3{font-size:.88rem;font-weight:700}
-.como-item p{font-size:.78rem;color:var(--muted);line-height:1.6}
-.conexao-cta{background:var(--navy);padding:4rem 5%;text-align:center}
-.conexao-cta h3{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:.75rem}
-.conexao-cta p{font-size:.9rem;color:var(--muted);margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
+/* SERVICES GRID */
+.svcs-section{padding:5rem 5%;background:var(--ink)}
+.svcs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-top:3.5rem}
+.svc{background:var(--ink);padding:2rem;transition:background .2s;cursor:default;position:relative;overflow:hidden}
+.svc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--grad);transform:scaleX(0);transition:transform .35s;transform-origin:left}
+.svc:hover{background:var(--ink2)}.svc:hover::before{transform:scaleX(1)}
+.svc-icon{font-size:1.3rem;margin-bottom:1.25rem}
+.svc h3{font-size:.88rem;font-weight:600;margin-bottom:.5rem;letter-spacing:.01em}
+.svc p{font-size:.78rem;color:var(--muted);line-height:1.7;margin-bottom:1rem;font-weight:300}
+.svc-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.stag{background:rgba(91,111,212,.08);border:1px solid rgba(91,111,212,.15);padding:.2rem .6rem;border-radius:2px;font-size:.65rem;font-weight:500;color:#8B9FE4;letter-spacing:.04em}
 
-/* ── ABA 4: CALCULADORA ── */
-.calc-section{padding:5rem 5%;background:var(--navy-deep)}
-.calc-container{max-width:820px;margin:3rem auto 0}
-.calc-tabs{display:flex;gap:10px;margin-bottom:2rem;flex-wrap:wrap}
-.calc-tab{padding:10px 22px;border-radius:100px;border:1px solid var(--border);background:transparent;cursor:pointer;font-family:'Manrope',sans-serif;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.55);transition:all .2s}
-.calc-tab.active{background:rgba(91,111,212,.2);border-color:rgba(91,111,212,.6);color:#fff}
-.calc-panel{display:none}.calc-panel.active{display:block}
-.calc-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:16px;padding:2.5rem}
-.c-row{display:flex;align-items:center;gap:14px;margin-bottom:1.25rem}
-.c-row label{font-size:.82rem;color:var(--muted);width:210px;flex-shrink:0}
-.c-row input[type=range]{flex:1;accent-color:#7B8FE4}
-.c-row .cval{font-size:.82rem;font-weight:600;color:#fff;min-width:90px;text-align:right}
-.c-divider{border:none;border-top:1px solid var(--border-light);margin:1.5rem 0}
-.c-slabel{font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.9rem}
-.c-check{display:flex;align-items:center;gap:10px;margin-bottom:.75rem;cursor:pointer}
-.c-check input{cursor:pointer;width:16px;height:16px;accent-color:#7B8FE4}
-.c-check span{font-size:.82rem;color:rgba(255,255,255,.8)}
-.c-check .cadd{font-size:.75rem;color:#8B9FE4;margin-left:auto}
-.results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}
-.res-card{background:rgba(255,255,255,.05);border-radius:12px;padding:1.1rem;text-align:center}
-.res-label{font-size:.68rem;color:var(--muted);margin-bottom:.4rem;font-weight:500}
-.res-val{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:700;color:#fff}
-.res-val.highlight{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.calc-tip{font-size:.78rem;color:rgba(255,255,255,.5);background:rgba(255,255,255,.03);border-radius:10px;padding:.85rem 1.1rem;margin-top:1.1rem;line-height:1.65}
+/* VALUATION HIGHLIGHT */
+.val-banner{margin:0 5%;background:linear-gradient(110deg,rgba(91,111,212,.08),rgba(196,109,181,.06));border:1px solid rgba(196,109,181,.2);border-radius:6px;padding:2rem 2.5rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.val-banner .icon{font-size:2rem;flex-shrink:0}
+.val-banner h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;margin-bottom:.3rem}
+.val-banner p{font-size:.82rem;color:var(--muted);line-height:1.65;font-weight:300}
 
-/* SOBRE / FOOTER */
-.sobre-section{background:var(--navy);padding:5rem 5%}
+/* CTA STRIP */
+.cta-strip{background:var(--ink2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:4rem 5%;text-align:center}
+.cta-strip h3{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:600;margin-bottom:.75rem}
+.cta-strip p{font-size:.88rem;color:var(--muted);max-width:480px;margin:0 auto 2rem;line-height:1.75;font-weight:300}
+
+/* ── MENTORIA TAB ── */
+.ment-hero{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;min-height:500px}
+.ment-photo{overflow:hidden;position:relative;order:2}
+.ment-photo img{width:100%;height:100%;object-fit:cover;object-position:top}
+.ment-photo::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(270deg,transparent 60%,var(--ink))}
+.ment-content{background:var(--ink);display:flex;flex-direction:column;justify-content:center;padding:5rem 6%;order:1}
+.ment-content p{font-size:.9rem;color:var(--muted);line-height:1.85;margin-bottom:1rem;font-weight:300}
+.ment-content p strong{color:var(--white);font-weight:500}
+
+.progs{background:var(--ink2);padding:5rem 5%}
+.progs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3.5rem}
+.prog{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:6px;padding:2.25rem;transition:border-color .2s}
+.prog:hover{border-color:rgba(91,111,212,.3)}
+.prog.feat{background:linear-gradient(140deg,rgba(91,111,212,.07),rgba(196,109,181,.05));border-color:rgba(91,111,212,.3)}
+.feat-tag{display:inline-block;background:var(--grad);color:#fff;font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .75rem;border-radius:2px;margin-bottom:.9rem}
+.prog h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;margin-bottom:.5rem}
+.prog p{font-size:.82rem;color:var(--muted);line-height:1.7;margin-bottom:1.25rem;font-weight:300}
+.prog-list{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.75rem}
+.prog-list li{font-size:.78rem;color:rgba(255,255,255,.6);display:flex;align-items:flex-start;gap:.6rem;font-weight:300}
+.prog-list li::before{content:'—';color:var(--blue);flex-shrink:0;font-weight:400}
+
+.deps{padding:5rem 5%;background:var(--ink)}
+.deps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:3.5rem}
+.dep{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:6px;padding:1.75rem;transition:border-color .2s}
+.dep:hover{border-color:rgba(91,111,212,.25)}
+.dep-stars{letter-spacing:.1em;margin-bottom:1rem;color:var(--blue);font-size:.8rem}
+.dep p{font-size:.85rem;color:rgba(255,255,255,.65);line-height:1.8;font-style:italic;margin-bottom:1.1rem;font-weight:300}
+.dep-cite{display:flex;align-items:center;gap:.75rem;padding-top:.9rem;border-top:1px solid var(--border)}
+.dep-av{width:32px;height:32px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;flex-shrink:0}
+.dep-name{font-size:.75rem;font-weight:600}
+.dep-role{font-size:.68rem;color:var(--muted);font-weight:300}
+
+/* ── CONEXÃO BPO TAB ── */
+.cx-hero{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:500px}
+.cx-photo{position:relative;overflow:hidden}
+.cx-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.cx-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 50%,var(--ink))}
+.cx-content{background:var(--ink);display:flex;flex-direction:column;justify-content:center;padding:5rem 6% 5rem 4rem}
+.cx-logo-row{display:flex;align-items:center;gap:.9rem;margin-bottom:.5rem}
+.cx-logo-row img{height:48px;border-radius:6px}
+.cx-name{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cx-tag{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.75rem;font-weight:300}
+.cx-content p{font-size:.9rem;color:var(--muted);line-height:1.85;margin-bottom:1rem;font-weight:300}
+.cx-content p strong{color:var(--white);font-weight:500}
+.cx-stats{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin:1.75rem 0}
+.cx-stat{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:4px;padding:.9rem 1rem}
+.cx-stat-val{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:.2rem}
+.cx-stat-label{font-size:.68rem;color:var(--muted);font-weight:300}
+
+.cx-bens{background:var(--ink2);padding:5rem 5%}
+.cx-bens-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;margin-top:3.5rem}
+.cx-ben{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:6px;padding:1.75rem;text-align:center;transition:all .2s}
+.cx-ben:hover{background:rgba(91,111,212,.04);border-color:rgba(91,111,212,.2)}
+.cx-ben .bi{font-size:1.6rem;margin-bottom:.9rem}
+.cx-ben h3{font-size:.85rem;font-weight:600;margin-bottom:.4rem}
+.cx-ben p{font-size:.75rem;color:var(--muted);line-height:1.65;font-weight:300}
+
+.cx-plans{background:var(--ink);padding:5rem 5%}
+.plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;max-width:780px;margin:2.5rem auto 0}
+.plan{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:6px;padding:1.75rem;text-align:center;position:relative;transition:border-color .2s}
+.plan:hover{border-color:rgba(91,111,212,.35)}
+.plan.featured{background:linear-gradient(140deg,rgba(91,111,212,.08),rgba(196,109,181,.05));border-color:rgba(91,111,212,.4)}
+.plan-pop{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .8rem;border-radius:2px;white-space:nowrap}
+.plan-period{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.plan-desc{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:rgba(255,255,255,.7);margin-bottom:1.5rem}
+
+.cx-cta{background:var(--ink2);border-top:1px solid var(--border);padding:4rem 5%;text-align:center}
+.cx-cta-logo{display:flex;align-items:center;justify-content:center;gap:.75rem;margin-bottom:1rem}
+.cx-cta-logo img{height:36px;border-radius:6px}
+.cx-cta h3{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:600;margin-bottom:.75rem}
+.cx-cta p{font-size:.88rem;color:var(--muted);max-width:480px;margin:0 auto 2rem;line-height:1.75;font-weight:300}
+.cx-cta-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+
+/* ── CALCULADORA TAB ── */
+.calc-wrap{padding:4rem 5%;background:var(--ink);max-width:1000px;margin:0 auto}
+.pilares{display:flex;gap:0;background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:2rem}
+.pilar-btn{flex:1;padding:.9rem .5rem;text-align:center;font-size:.65rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);cursor:pointer;border:none;background:none;border-right:1px solid var(--border);transition:all .2s;position:relative}
+.pilar-btn:last-child{border-right:none}
+.pilar-btn.active{background:rgba(91,111,212,.08);color:var(--white)}
+.pilar-btn .pnum{display:block;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.1rem}
+.pilar-dot{width:6px;height:6px;border-radius:50%;position:absolute;top:8px;right:8px;background:rgba(255,255,255,.1)}
+.pilar-dot.done{background:#2ecc71}
+.calc-card{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:6px;padding:2rem;margin-bottom:1.25rem}
+.calc-card-hdr{display:flex;align-items:flex-start;gap:.9rem;margin-bottom:1.5rem}
+.calc-card-icon{width:40px;height:40px;border-radius:6px;background:rgba(91,111,212,.1);border:1px solid rgba(91,111,212,.2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.calc-card-title{font-size:.9rem;font-weight:600;margin-bottom:.15rem}
+.calc-card-sub{font-size:.75rem;color:var(--muted);font-weight:300}
+.cg2{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.cg3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.85rem}
+.cf{display:flex;flex-direction:column;gap:.35rem}
+.cf label{font-size:.68rem;color:var(--muted);font-weight:500;letter-spacing:.05em;text-transform:uppercase}
+.cf input[type=number],.cf select{background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:4px;padding:.5rem .7rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:.82rem;width:100%;transition:border-color .2s}
+.cf input:focus,.cf select:focus{outline:none;border-color:var(--blue)}
+.cf select option{background:#1a1f3a}
+.calc-result-bar{background:linear-gradient(110deg,rgba(91,111,212,.1),rgba(196,109,181,.07));border:1px solid rgba(91,111,212,.2);border-radius:4px;padding:1.1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.75rem}
+.crb-item .rl{font-size:.65rem;color:var(--muted);margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em}
+.crb-item .rv{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.svc-hdr-row{display:grid;grid-template-columns:18px 1fr 95px 80px 65px;gap:.4rem .65rem;align-items:center;padding-bottom:.5rem;border-bottom:1px solid var(--border);margin-bottom:.25rem}
+.svc-hdr-row span{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+.svc-row{display:grid;grid-template-columns:18px 1fr 95px 80px 65px;gap:.4rem .65rem;align-items:center;padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.03)}
+.svc-row:last-child{border-bottom:none}
+.svc-row input[type=checkbox]{width:14px;height:14px;accent-color:#7B8FE4;cursor:pointer;flex-shrink:0}
+.svc-label{font-size:.78rem;color:rgba(255,255,255,.8);font-weight:300;cursor:pointer}
+.svc-inp{background:rgba(255,255,255,.04);border:1px solid rgba(91,111,212,.15);border-radius:3px;padding:.28rem .45rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:.72rem;text-align:right;width:100%}
+.svc-h{font-size:.72rem;color:#8B9FE4;text-align:right;font-weight:500}
+.slider-w{margin-bottom:1.25rem}
+.slider-w .sl-top{display:flex;justify-content:space-between;font-size:.68rem;margin-bottom:.45rem}
+.slider-w .sl-top span:first-child{color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:500}
+.slider-w .sl-top span:last-child{color:var(--white);font-weight:600}
+.slider-w input[type=range]{width:100%;accent-color:#7B8FE4;cursor:pointer}
+.sl-tip{font-size:.7rem;color:rgba(255,255,255,.25);margin-top:.3rem;font-weight:300;line-height:1.5}
+.fator{margin-bottom:1.25rem}
+.fator-title{font-size:.75rem;font-weight:600;margin-bottom:.55rem;color:rgba(255,255,255,.8)}
+.fopts{display:flex;gap:.4rem;flex-wrap:wrap}
+.fopt{padding:.35rem .8rem;border-radius:2px;border:1px solid var(--border);font-size:.7rem;cursor:pointer;background:transparent;color:var(--muted);transition:all .15s;user-select:none;font-family:'DM Sans',sans-serif}
+.fopt.sel{background:rgba(91,111,212,.15);border-color:rgba(91,111,212,.4);color:var(--white)}
+.fopt.sel.yw{background:rgba(243,156,18,.1);border-color:rgba(243,156,18,.35);color:#f39c12}
+.fopt.sel.rd{background:rgba(231,76,60,.1);border-color:rgba(231,76,60,.35);color:#e74c3c}
+.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;flex-wrap:wrap;gap:1rem}
+.resultado{background:linear-gradient(135deg,rgba(91,111,212,.07),rgba(196,109,181,.05));border:1px solid rgba(91,111,212,.2);border-radius:8px;padding:2.5rem;margin-top:1.25rem}
+.res-main{text-align:center;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+.res-eyebrow{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;font-weight:500}
+.res-price{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:600;line-height:1;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.res-range{font-size:.82rem;color:var(--muted);margin-top:.5rem;font-weight:300}
+.res-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.85rem;margin-bottom:2rem}
+.res-card{background:rgba(255,255,255,.03);border-radius:4px;padding:.9rem;text-align:center}
+.res-card .rl{font-size:.65rem;color:var(--muted);margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.04em}
+.res-card .rv{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600}
+.rv.ok{color:#2ecc71}.rv.yw{color:#f39c12}.rv.bad{color:#e74c3c}
+.bk-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.8rem}
+.bk-row:last-child{border-bottom:none;font-weight:600;padding-top:.9rem;font-size:.9rem}
+.bk-label{color:var(--muted);font-weight:300}
+.bk-val{font-weight:500}
+.bk-val.grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.alert{border-radius:4px;padding:.85rem 1.1rem;font-size:.78rem;line-height:1.6;margin-bottom:.6rem;display:flex;align-items:flex-start;gap:.65rem;font-weight:300}
+.alert.danger{background:rgba(231,76,60,.06);border:1px solid rgba(231,76,60,.2);color:#e74c3c}
+.alert.yw{background:rgba(243,156,18,.06);border:1px solid rgba(243,156,18,.2);color:#f39c12}
+.alert.ok{background:rgba(46,204,113,.06);border:1px solid rgba(46,204,113,.2);color:#2ecc71}
+.alert.info{background:rgba(91,111,212,.06);border:1px solid rgba(91,111,212,.2);color:#8B9FE4}
+.prem-badge{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(110deg,rgba(196,109,181,.12),rgba(91,111,212,.12));border:1px solid rgba(196,109,181,.25);padding:.3rem .8rem;border-radius:2px;font-size:.65rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#C46DB5}
+
+/* ── CONTRATO TAB ── */
+.contract-panel{padding:5rem 5%;background:var(--ink)}
+.contract-inner{max-width:800px;margin:0 auto;text-align:center}
+.contract-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem;margin:3rem 0}
+.cf-item{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:6px;padding:1.5rem;text-align:center}
+.cf-item .fi{font-size:1.5rem;margin-bottom:.75rem}
+.cf-item h3{font-size:.82rem;font-weight:600;margin-bottom:.3rem}
+.cf-item p{font-size:.72rem;color:var(--muted);line-height:1.6;font-weight:300}
+
+/* ── SOBRE ── */
+.sobre{background:var(--ink2);padding:5rem 5%}
 .sobre-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1100px;margin:0 auto}
-.sobre-photo{border-radius:16px;overflow:hidden;aspect-ratio:3/4}
+.sobre-photo{border-radius:6px;overflow:hidden;aspect-ratio:3/4}
 .sobre-photo img{width:100%;height:100%;object-fit:cover;object-position:top}
-.sobre-text p{font-size:.93rem;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:1.1rem}
-.sobre-text p strong{color:#fff}
-.sobre-badges{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1.75rem}
-.sbadge{background:rgba(91,111,212,.1);border:1px solid rgba(91,111,212,.25);padding:.35rem .9rem;border-radius:100px;font-size:.72rem;font-weight:600;color:#8B9FE4}
+.sobre-text p{font-size:.9rem;color:var(--muted);line-height:1.85;margin-bottom:1rem;font-weight:300}
+.sobre-text p strong{color:var(--white);font-weight:500}
+.sobre-badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.75rem}
+.sbadge{background:rgba(255,255,255,.04);border:1px solid var(--border);padding:.3rem .85rem;border-radius:2px;font-size:.68rem;font-weight:500;color:rgba(255,255,255,.6);letter-spacing:.03em}
 
-/* NÚMEROS */
-.numeros-bar{background:var(--navy-mid);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);padding:3rem 5%}
-.numeros-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.num-item{padding:1.75rem;text-align:center;border-right:1px solid var(--border)}
-.num-item:last-child{border-right:none}
-.num-val{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:.4rem}
-.num-label{font-size:.75rem;color:var(--muted);font-weight:500}
-
-/* FINAL CTA */
-#cta-final{background:var(--navy-deep);padding:7rem 5%;text-align:center;position:relative;overflow:hidden}
-.cta-glow{position:absolute;width:600px;height:400px;border-radius:50%;background:radial-gradient(ellipse,rgba(91,111,212,.12) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
-#cta-final h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;max-width:660px;margin:0 auto 1rem;line-height:1.2;position:relative;z-index:1}
-#cta-final p{font-size:.95rem;color:var(--muted);max-width:460px;margin:0 auto 2.5rem;line-height:1.75;position:relative;z-index:1}
+/* ── CTA FINAL ── */
+#cta-final{background:var(--ink);padding:8rem 5%;text-align:center;position:relative;overflow:hidden}
+#cta-final::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(91,111,212,.1) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+#cta-final h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:600;max-width:660px;margin:0 auto 1rem;line-height:1.15;position:relative;z-index:1}
+#cta-final p{font-size:.9rem;color:var(--muted);max-width:460px;margin:0 auto 2.5rem;line-height:1.8;font-weight:300;position:relative;z-index:1}
 .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
-.btn-wpp{background:#25D366;color:#fff;padding:.9rem 2rem;border-radius:100px;font-size:.85rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:background .2s,transform .15s;box-shadow:0 4px 16px rgba(37,211,102,.25)}
+.btn-wpp{background:#25D366;color:#fff;padding:.85rem 2rem;border-radius:3px;font-size:.82rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:background .2s,transform .15s;box-shadow:0 4px 20px rgba(37,211,102,.2)}
 .btn-wpp:hover{background:#20BA5A;transform:translateY(-2px)}
-.btn-ig{background:linear-gradient(135deg,#E1306C,#833AB4);color:#fff;padding:.9rem 2rem;border-radius:100px;font-size:.85rem;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:opacity .2s,transform .15s}
+.btn-ig{background:linear-gradient(135deg,#E1306C,#833AB4);color:#fff;padding:.85rem 2rem;border-radius:3px;font-size:.82rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:opacity .2s,transform .15s}
 .btn-ig:hover{opacity:.88;transform:translateY(-2px)}
 
-/* FOOTER */
-footer{background:var(--navy-deep);padding:2.5rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--border-light)}
-.footer-logo{height:28px;opacity:.7}
-footer p{font-size:.73rem;color:rgba(255,255,255,.28)}
+/* ── FOOTER ── */
+footer{background:var(--ink);padding:2.5rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--border)}
+.footer-logo{height:26px;opacity:.5}
+footer p{font-size:.7rem;color:rgba(255,255,255,.25);font-weight:300}
 .footer-links{display:flex;gap:1.5rem}
-.footer-links a{font-size:.73rem;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
-.footer-links a:hover{color:#8B9FE4}
+.footer-links a{font-size:.7rem;color:rgba(255,255,255,.25);text-decoration:none;transition:color .2s;font-weight:300}
+.footer-links a:hover{color:rgba(255,255,255,.6)}
 
-/* WHATSAPP FLUTUANTE */
-.wpp-float{position:fixed;bottom:1.75rem;right:1.75rem;z-index:300;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s}
+/* ── WPP FLOAT ── */
+.wpp-float{position:fixed;bottom:1.75rem;right:1.75rem;z-index:300;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:transform .2s}
 .wpp-float:hover{transform:scale(1.1)}
-.wpp-float svg{width:28px;height:28px;fill:#fff}
+.wpp-float svg{width:26px;height:26px;fill:#fff}
 
-/* RESPONSIVE */
+/* ── RESPONSIVE ── */
 @media(max-width:900px){
-  #hero{grid-template-columns:1fr}.hero-photo-col{display:none}
-  .hero-content{padding:4rem 6%}
-  .bpo-intro,.mentoria-hero,.sobre-inner{grid-template-columns:1fr;gap:3rem}
-  .conexao-hero{grid-template-columns:1fr}
-  .conexao-photo-side{display:none}
-  .conexao-content-side{padding:4rem 6%}
-  .numeros-grid{grid-template-columns:1fr 1fr}
-  .num-item:nth-child(2){border-right:none}
-  .num-item:nth-child(3){border-right:1px solid var(--border);border-top:1px solid var(--border)}
-  .num-item:nth-child(4){border-top:1px solid var(--border)}
-  .results-grid{grid-template-columns:1fr 1fr}
+  #hero,.bpo-hero,.ment-hero,.cx-hero,.sobre-inner{grid-template-columns:1fr}
+  .hero-img,.bpo-photo,.cx-photo{display:none}
+  .ment-photo{order:1;min-height:280px}
+  .ment-content{order:2}
+  .bpo-content,.ment-content,.cx-content{padding:3.5rem 5%}
   .nav-links{display:none}
+  .strip-grid{grid-template-columns:1fr 1fr}
+  .strip-item:nth-child(2){border-right:none}
+  .strip-item:nth-child(3){border-top:1px solid var(--border)}
+  .strip-item:nth-child(4){border-top:1px solid var(--border)}
 }
 @media(max-width:600px){
-  section,.bpo-intro,.mentoria-hero,.conexao-content-side,.conexao-beneficios,.conexao-como,.conexao-cta,.programas,.depoimentos,.servicos-bpo,.como-funciona,.bpo-cta,.calc-section,.sobre-section{padding:3.5rem 5%}
-  .hero-actions,.cta-btns{flex-direction:column}
-  .hero-actions a,.cta-btns a{text-align:center;justify-content:center}
-  .results-grid{grid-template-columns:1fr 1fr}
-  .c-row{flex-wrap:wrap}.c-row label{width:100%}
+  section,.bpo-content,.ment-content,.cx-content,.steps-section,.svcs-section,.progs,.deps,.cx-bens,.cx-plans,.cx-cta,.contract-panel,.sobre,.calc-wrap{padding:3rem 5%}
+  .cg2,.cg3{grid-template-columns:1fr}
+  .svc-row,.svc-hdr-row{grid-template-columns:18px 1fr 75px 60px}
+  .svc-row .svc-h,.svc-hdr-row span:last-child{display:none}
+  .res-price{font-size:2.8rem}
+  h1.hero-h{font-size:2.2rem}
 }
 
-/* ── ABA CALCULADORA ESTRATÉGICA ── */
-#panel-calc .page{max-width:100%;padding:3rem 5% 4rem}
-#panel-calc .hdr{padding:2rem 0 1.5rem}
-
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --navy:#1E2347;--deep:#0f1128;--blue:#5B6FD4;--purple:#9B6FBF;--pink:#C46DB5;
-  --grad:linear-gradient(110deg,#5B6FD4,#9B6FBF,#C46DB5);
-  --grad-r:linear-gradient(110deg,#C46DB5,#9B6FBF,#5B6FD4);
-  --border:rgba(91,111,212,0.18);--muted:rgba(255,255,255,0.5);
-  --success:#2ecc71;--warn:#f39c12;--danger:#e74c3c;
-}
-html{scroll-behavior:smooth}
-body{font-family:'Manrope',sans-serif;background:var(--deep);color:#fff;min-height:100vh}
-.page{max-width:1000px;margin:0 auto;padding:2rem 1.5rem 6rem}
-
-/* HEADER */
-.hdr{text-align:center;padding:3rem 0 2.5rem}
-.hdr .badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(91,111,212,.1);border:1px solid rgba(91,111,212,.3);padding:.4rem 1.1rem;border-radius:100px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8B9FE4;margin-bottom:1.25rem}
-.hdr h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.15;margin-bottom:.75rem}
-.grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hdr p{font-size:.95rem;color:var(--muted);max-width:560px;margin:0 auto;line-height:1.7}
-
-/* PILARES NAV */
-.pilares{display:flex;gap:0;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:2rem}
-.pilar-btn{flex:1;padding:1rem .75rem;text-align:center;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);cursor:pointer;border:none;background:none;border-right:1px solid var(--border);transition:all .2s;position:relative}
-.pilar-btn:last-child{border-right:none}
-.pilar-btn.active{background:rgba(91,111,212,.1);color:#fff}
-.pilar-btn .pnum{display:block;font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.2rem}
-.pilar-btn .ptag{font-size:.62rem;opacity:.6}
-.pilar-dot{width:8px;height:8px;border-radius:50%;position:absolute;top:10px;right:10px;background:rgba(91,111,212,.3)}
-.pilar-dot.done{background:var(--success)}
-
-/* PANELS */
-.panel{display:none}.panel.active{display:block}
-
-/* CARDS */
-.card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:16px;padding:2rem;margin-bottom:1.5rem}
-.card-hdr{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.75rem}
-.card-icon{width:44px;height:44px;border-radius:10px;background:rgba(91,111,212,.12);border:1px solid rgba(91,111,212,.25);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
-.card-title{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.2rem}
-.card-sub{font-size:.78rem;color:var(--muted)}
-
-/* FORMS */
-.field{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
-.field label{font-size:.73rem;color:var(--muted);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
-.field input[type=number],.field select{background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.55rem .8rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem;width:100%}
-.field input:focus,.field select:focus{outline:none;border-color:var(--blue)}
-.field select option{background:#1E2347}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
-
-/* SLIDER */
-.slider-wrap{margin-bottom:1.25rem}
-.slider-wrap label{font-size:.73rem;color:var(--muted);font-weight:600;letter-spacing:.05em;text-transform:uppercase;display:flex;justify-content:space-between;margin-bottom:.5rem}
-.slider-wrap label span{color:#fff;font-weight:700}
-input[type=range]{width:100%;accent-color:#7B8FE4;cursor:pointer}
-
-/* SERVIÇOS TABLE */
-.svc-grid{display:grid;gap:.5rem}
-.svc-row{display:grid;grid-template-columns:20px 1fr 90px 90px 70px;gap:.5rem .75rem;align-items:center;padding:.65rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
-.svc-row:last-child{border-bottom:none}
-.svc-row input[type=checkbox]{width:15px;height:15px;accent-color:#7B8FE4;cursor:pointer;flex-shrink:0}
-.svc-name{font-size:.82rem;color:rgba(255,255,255,.85)}
-.svc-input{background:rgba(255,255,255,.05);border:1px solid rgba(91,111,212,.2);border-radius:6px;padding:.3rem .5rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.78rem;text-align:right;width:100%}
-.svc-h{font-size:.78rem;color:#8B9FE4;text-align:right;font-weight:600}
-.svc-hdr{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
-
-/* FATORES */
-.fator{margin-bottom:1.5rem}
-.fator-title{font-size:.82rem;font-weight:700;margin-bottom:.75rem;color:rgba(255,255,255,.9)}
-.fator-opts{display:flex;gap:.5rem;flex-wrap:wrap}
-.fopt{padding:.4rem .9rem;border-radius:100px;border:.5px solid var(--border);font-size:.75rem;cursor:pointer;background:transparent;color:var(--muted);transition:all .15s;user-select:none}
-.fopt.sel{background:rgba(91,111,212,.18);border-color:rgba(91,111,212,.5);color:#fff}
-.fopt.sel.warn{background:rgba(243,156,18,.12);border-color:rgba(243,156,18,.4);color:#f39c12}
-.fopt.sel.danger{background:rgba(231,76,60,.12);border-color:rgba(231,76,60,.4);color:#e74c3c}
-
-/* RESULTADO */
-.resultado{background:linear-gradient(135deg,rgba(91,111,212,.08),rgba(196,109,181,.06));border:1px solid rgba(91,111,212,.25);border-radius:20px;padding:2.5rem;margin-top:1.5rem}
-.res-main{text-align:center;margin-bottom:2rem}
-.res-label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
-.res-price{font-family:'Space Grotesk',sans-serif;font-size:3.5rem;font-weight:700;line-height:1;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.res-range{font-size:.88rem;color:var(--muted);margin-top:.5rem}
-.res-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:2rem}
-.res-card{background:rgba(255,255,255,.04);border-radius:12px;padding:1rem;text-align:center}
-.res-card .rl{font-size:.7rem;color:var(--muted);margin-bottom:.3rem}
-.res-card .rv{font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:700}
-.rv.ok{color:var(--success)}.rv.warn{color:var(--warn)}.rv.bad{color:var(--danger)}
-
-/* ALERTAS */
-.alert{border-radius:10px;padding:1rem 1.25rem;font-size:.82rem;line-height:1.6;margin-bottom:.75rem;display:flex;align-items:flex-start;gap:.75rem}
-.alert.danger{background:rgba(231,76,60,.08);border:1px solid rgba(231,76,60,.25);color:#e74c3c}
-.alert.warn{background:rgba(243,156,18,.08);border:1px solid rgba(243,156,18,.25);color:#f39c12}
-.alert.ok{background:rgba(46,204,113,.08);border:1px solid rgba(46,204,113,.25);color:#2ecc71}
-.alert.info{background:rgba(91,111,212,.08);border:1px solid rgba(91,111,212,.25);color:#8B9FE4}
-
-/* BREAKDOWN */
-.breakdown{margin-top:1.5rem}
-.bk-row{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem}
-.bk-row:last-child{border-bottom:none;font-weight:700;font-size:.9rem;padding-top:.9rem}
-.bk-label{color:var(--muted)}
-.bk-val{font-weight:600;color:#fff}
-.bk-val.grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-
-/* BOTÕES */
-.btn-grad{background:var(--grad);color:#fff;border:none;padding:.75rem 1.75rem;border-radius:100px;font-family:'Manrope',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;transition:opacity .2s,transform .15s}
-.btn-grad:hover{opacity:.88;transform:translateY(-1px)}
-.btn-outline{background:none;border:1px solid var(--border);color:var(--muted);padding:.75rem 1.75rem;border-radius:100px;font-family:'Manrope',sans-serif;font-size:.85rem;cursor:pointer;transition:all .2s}
-.btn-outline:hover{border-color:var(--blue);color:#fff}
-.nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;flex-wrap:wrap;gap:1rem}
-
-/* PREMIUM TAG */
-.premium-badge{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(110deg,rgba(196,109,181,.15),rgba(91,111,212,.15));border:1px solid rgba(196,109,181,.3);padding:.35rem .85rem;border-radius:100px;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#C46DB5}
-
-/* TOOLTIP */
-.tip{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:.35rem;line-height:1.5}
-
-@media(max-width:680px){
-  .g2,.g3{grid-template-columns:1fr}
-  .pilares{flex-wrap:wrap}
-  .pilar-btn{min-width:50%;border-bottom:1px solid var(--border)}
-  .svc-row{grid-template-columns:20px 1fr 75px 60px}
-  .svc-row .svc-h{display:none}
-  .res-price{font-size:2.5rem}
-}
-
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp .7s ease forwards;opacity:0}
+.d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}.d4{animation-delay:.55s}
 </style>
 </head>
 <body>
@@ -388,154 +363,119 @@ input[type=range]{width:100%;accent-color:#7B8FE4;cursor:pointer}
     <li><a href="#" onclick="showTab('bpo');return false">BPO Financeiro</a></li>
     <li><a href="#" onclick="showTab('mentoria');return false">Mentoria</a></li>
     <li><a href="#" onclick="showTab('conexao');return false">Conexão BPO</a></li>
-    <li><a href="#" onclick="showTab('calc');return false">Quanto Cobrar?</a></li>
+    <li><a href="#" onclick="showTab('calc');return false">Precificação</a></li>
     <li><a href="#" onclick="showTab('contrato');return false">Contrato</a></li>
   </ul>
-  <a href="https://wa.me/5511917101173" class="nav-cta" target="_blank" rel="noopener">Falar Agora</a>
+  <a href="https://wa.me/5511917101173" class="nav-cta" target="_blank" rel="noopener">Falar agora</a>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-grid"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
   <div class="hero-content">
-    <div class="hero-tag"><span></span>BPO Financeiro para Infoprodutores</div>
-    <h1>Transformamos empresas em <span class="grad-text">negócios de resultado.</span></h1>
-    <p class="hero-sub">BPO Financeiro especializado em negócios digitais. Cuidamos do financeiro do seu infonegócio para você focar no que realmente importa: criar, lançar e escalar.</p>
-    <div class="hero-actions">
-      <a href="https://wa.me/5511917101173" class="btn-grad" target="_blank" rel="noopener">💬 Falar pelo WhatsApp</a>
+    <div class="hero-eyebrow fade-up"><span>BPO Financeiro para Infoprodutores</span></div>
+    <h1 class="hero-h fade-up d1">Transformamos empresas em <em>negócios de resultado.</em></h1>
+    <p class="hero-sub fade-up d2">BPO Financeiro especializado em negócios digitais. Cuidamos do financeiro do seu infonegócio para você focar no que realmente importa — criar, lançar e escalar.</p>
+    <div class="hero-actions fade-up d3">
+      <a href="https://wa.me/5511917101173" class="btn-primary" target="_blank" rel="noopener">💬 Falar pelo WhatsApp</a>
       <a href="#tabs-nav" class="btn-ghost">Explorar serviços ↓</a>
     </div>
-    <div class="hero-proof">
+    <div class="hero-proof fade-up d4">
       <div class="avatars"><span>AB</span><span>CR</span><span>MF</span><span>TS</span></div>
       <div class="proof-text"><strong>+200 empresas atendidas</strong>já transformaram sua gestão financeira</div>
     </div>
   </div>
-  <div class="hero-photo-col">
-    <img src="foto-hero.jpg" alt="Claudia Bernardo — Empreenda BPO"/>
-    <div class="hero-photo-overlay"></div>
+  <div class="hero-img">
+    <img src="foto-hero.jpg" alt="Claudia Bernardo"/>
+    <div class="hero-img-overlay"></div>
+    <div class="hero-img-overlay2"></div>
   </div>
 </section>
 
-<!-- NUMBERS BAR -->
-<div class="numeros-bar">
-  <div class="numeros-grid">
-    <div class="num-item"><div class="num-val">200+</div><div class="num-label">Empresas atendidas</div></div>
-    <div class="num-item"><div class="num-val">20+</div><div class="num-label">Anos de experiência</div></div>
-    <div class="num-item"><div class="num-val">500+</div><div class="num-label">Profissionais mentorados</div></div>
-    <div class="num-item"><div class="num-val">98%</div><div class="num-label">Satisfação dos clientes</div></div>
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-grid">
+    <div class="strip-item"><div class="strip-num">200+</div><div class="strip-label">Empresas atendidas</div></div>
+    <div class="strip-item"><div class="strip-num">20+</div><div class="strip-label">Anos de experiência</div></div>
+    <div class="strip-item"><div class="strip-num">500+</div><div class="strip-label">Profissionais mentorados</div></div>
+    <div class="strip-item"><div class="strip-num">98%</div><div class="strip-label">Satisfação dos clientes</div></div>
   </div>
 </div>
 
 <!-- TABS NAV -->
 <div id="tabs-nav">
-  <div class="tabs-container">
-    <button class="tab-btn active" onclick="showTab('bpo')">📊 BPO Financeiro</button>
-    <button class="tab-btn" onclick="showTab('mentoria')">🚀 Mentoria</button>
-    <button class="tab-btn" onclick="showTab('conexao')">🤝 Conexão BPO</button>
-    <button class="tab-btn" onclick="showTab('calc')">🧮 Quanto Cobrar?</button>
-    <button class="tab-btn" onclick="showTab('contrato')">📄 Contrato</button>
+  <div class="tabs-wrap">
+    <button class="tab-btn active" onclick="showTab('bpo')">Seja nossa cliente</button>
+    <button class="tab-btn" onclick="showTab('mentoria')">Mentoria BPO</button>
+    <button class="tab-btn" onclick="showTab('conexao')">Conexão BPO</button>
+    <button class="tab-btn" onclick="showTab('calc')">Precificação</button>
+    <button class="tab-btn" onclick="showTab('contrato')">Contrato</button>
   </div>
 </div>
 
-<script>
-// Funções globais declaradas ANTES do conteúdo para garantir disponibilidade
-window.showTab = function(t){
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));  var panel = document.getElementById('panel-'+t);
-  if(panel) panel.classList.add('active');
-  var idx={bpo:0,mentoria:1,conexao:2,calc:3,contrato:4}[t];
-  var btns = document.querySelectorAll('.tab-btn');
-  if(btns[idx]) btns[idx].classList.add('active');
-  var nav = document.getElementById('tabs-nav');
-  if(nav) nav.scrollIntoView({behavior:'smooth',block:'start'});
-  if(t==='calc'){setTimeout(function(){
-    if(typeof buildSvcs==='function'){buildSvcs();}
-    if(typeof calc==='function'){calc();}
-    var p1=document.getElementById('p1');
-    if(p1&&!p1.classList.contains('active')){
-      document.querySelectorAll('#panel-calc .calc-inner').forEach(p=>p.classList.remove('active'));
-      p1.classList.add('active');
-      document.querySelectorAll('.pilar-btn')[0].classList.add('active');
-    }
-  },150);}
-}
-window.switchPlano = function(p){
-  document.querySelectorAll('#panel-calc .calc-tab').forEach(function(b,i){b.classList.toggle('active',['basico','intermediario','avancado'][i]===p);});
-  document.querySelectorAll('#panel-calc .calc-panel').forEach(function(el){el.classList.remove('active');});
-  var el=document.getElementById('plano-'+p);
-  if(el) el.classList.add('active');
-  if(typeof calcFinal==='function') calcFinal();
-}
-</script>
-
-<!-- ═══ ABA 1: BPO FINANCEIRO ═══ -->
+<!-- ═══ ABA 1: BPO / CLIENTES ═══ -->
 <div class="tab-panel active" id="panel-bpo">
 
-  <div class="bpo-intro">
+  <div class="bpo-hero">
     <div class="bpo-photo">
       <img src="foto-laptop.jpg" alt="Claudia Bernardo trabalhando"/>
-      <div class="bpo-photo-badge">
-        <div class="bv">R$ 48k+</div>
-        <div class="bl">resultado médio do cliente/mês</div>
-      </div>
     </div>
-    <div class="bpo-text">
-      <span class="section-tag">BPO Financeiro</span>
-      <h2 class="section-title">BPO Financeiro feito para <span class="grad-text">quem vive do digital</span></h2>
-      <p>Você é infoProdutor — seu tempo vale ouro e sua energia precisa estar em <strong>criar conteúdo, lançar e vender.</strong> Não em reconciliar Hotmart com banco, entender comissão de afiliado ou montar DRE de lançamento.</p>
-      <p>A Empreenda BPO entende a <strong>lógica do negócio digital</strong>: lançamentos sazonais, múltiplas plataformas, coprodução, afiliados, receita recorrente. Cuidamos de tudo isso com processos e relatórios feitos para a sua realidade.</p>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.75rem">
-        <a href="https://wa.me/5511917101173" class="btn-grad" target="_blank" rel="noopener">💬 Quero contratar o BPO</a>
-        <a href="#" onclick="showTab('calc');return false" class="btn-ghost">🧮 Simular valor</a>
+    <div class="bpo-content">
+      <div class="bpo-badge">Para infoprodutores</div>
+      <span class="eyebrow">Seja nossa cliente</span>
+      <h2 class="section-title" style="font-family:'Cormorant Garamond',serif">Seu financeiro nas mãos de quem <em style="font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">entende do seu negócio</em></h2>
+      <p>Você é infoprodutor — seu tempo vale ouro e sua energia precisa estar em criar conteúdo, lançar e vender. <strong>Não em reconciliar Hotmart com banco</strong>, entender comissão de afiliado ou montar DRE de lançamento.</p>
+      <p>A Empreenda BPO entende a lógica do negócio digital: lançamentos sazonais, múltiplas plataformas, coprodução, afiliados, receita recorrente. <strong>Cuidamos de tudo com processos e relatórios feitos para sua realidade.</strong></p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem">
+        <a href="https://wa.me/5511917101173" class="btn-primary" target="_blank" rel="noopener">💬 Quero ser cliente</a>
+        <a href="#" onclick="showTab('calc');return false" class="btn-ghost">🧮 Simular investimento</a>
       </div>
     </div>
   </div>
 
-  <div class="como-funciona">
+  <div class="steps-section">
     <div style="max-width:1100px;margin:0 auto">
-      <span class="section-tag">Como funciona</span>
-      <h2 class="section-title">Do diagnóstico ao financeiro <span class="grad-text">rodando em 30 dias</span></h2>
-      <div class="steps">
-        <div class="step"><div class="step-num">01</div><h3>Diagnóstico gratuito</h3><p>Entendemos seu modelo de negócio digital, plataformas usadas, volume e desafios atuais.</p></div>
+      <span class="eyebrow">Como funciona</span>
+      <h2 class="section-title" style="font-family:'Cormorant Garamond',serif">Do diagnóstico aos <span class="grad-text">resultados em 30 dias</span></h2>
+      <div class="steps-grid">
+        <div class="step"><div class="step-num">01</div><h3>Diagnóstico gratuito</h3><p>Entendemos seu modelo de negócio digital, plataformas usadas, volume e desafios atuais — sem custo.</p></div>
         <div class="step"><div class="step-num">02</div><h3>Proposta sob medida</h3><p>Montamos um plano financeiro adaptado à sua realidade — lançamentos, assinaturas ou perpétuo.</p></div>
         <div class="step"><div class="step-num">03</div><h3>Implantação e integração</h3><p>Conectamos suas plataformas, organizamos o histórico e estruturamos todos os processos.</p></div>
-        <div class="step"><div class="step-num">04</div><h3>Gestão contínua</h3><p>Financeiro operando, relatórios mensais e suporte em cada lançamento do seu calendário.</p></div>
+        <div class="step"><div class="step-num">04</div><h3>Gestão contínua</h3><p>Financeiro operando, relatórios mensais e suporte especializado em cada lançamento.</p></div>
       </div>
     </div>
   </div>
 
-  <div class="servicos-bpo">
+  <div class="svcs-section">
     <div style="max-width:1100px;margin:0 auto">
-      <span class="section-tag">Serviços incluídos</span>
-      <h2 class="section-title">Tudo que o negócio digital <span class="grad-text">precisa em um só lugar</span></h2>
-      <div class="servicos-grid">
-        <div class="sc"><div class="sc-icon">💳</div><h3>Conciliação de plataformas</h3><p>Hotmart, Kiwify, Eduzz, Monetizze e outras — conciliamos tudo automaticamente com seu banco.</p><div class="sc-tags"><span class="stag">Hotmart</span><span class="stag">Kiwify</span><span class="stag">Eduzz</span><span class="stag">Multi-plataforma</span></div></div>
-        <div class="sc"><div class="sc-icon">🤝</div><h3>Gestão de afiliados e coprodução</h3><p>Calculamos e controlamos comissões de afiliados e divisão de receita em coproduções sem erro.</p><div class="sc-tags"><span class="stag">Afiliados</span><span class="stag">Coprodução</span><span class="stag">Comissões</span></div></div>
-        <div class="sc"><div class="sc-icon">📈</div><h3>Fluxo de caixa do lançamento</h3><p>Visão financeira completa antes, durante e depois de cada lançamento — sem sustos no final.</p><div class="sc-tags"><span class="stag">Lançamento</span><span class="stag">Projeções</span><span class="stag">Pós-lançamento</span></div></div>
-        <div class="sc"><div class="sc-icon">📊</div><h3>DRE para negócio digital</h3><p>Relatório de resultado adaptado à realidade do infoProdutor — por produto, por lançamento, por canal.</p><div class="sc-tags"><span class="stag">DRE</span><span class="stag">Por produto</span><span class="stag">Dashboard</span></div></div>
-        <div class="sc"><div class="sc-icon">🎯</div><h3>Controladoria estratégica</h3><p>Planejamento financeiro, metas de receita e análise de margem por produto digital.</p><div class="sc-tags"><span class="stag">Planejamento</span><span class="stag">Metas</span><span class="stag">Margem</span></div></div>
-        <div class="sc"><div class="sc-icon">🗂️</div><h3>Gestão fiscal e documental</h3><p>NFs, contratos, comprovantes e obrigações fiscais do negócio digital organizados e em dia.</p><div class="sc-tags"><span class="stag">NF</span><span class="stag">Fiscal</span><span class="stag">Contratos</span></div></div>
-        <div class="sc" style="border-color:rgba(196,109,181,0.4)"><div class="sc-icon">💎</div><h3>Valuation do negócio digital</h3><p>Descobrimos quanto vale seu negócio digital — para vender, captar investidores, fazer sociedade ou simplesmente saber onde você está.</p><div class="sc-tags"><span class="stag">Avaliação de empresa</span><span class="stag">M&A</span><span class="stag">Investimento</span><span class="stag">Sociedade</span></div></div>
-      </div>
-      <div style="margin-top:2rem;background:linear-gradient(100deg,rgba(91,111,212,0.12),rgba(196,109,181,0.12));border:1px solid rgba(196,109,181,0.3);border-radius:14px;padding:1.75rem 2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap">
-        <div style="font-size:2rem;flex-shrink:0">💎</div>
-        <div style="flex:1;min-width:200px">
-          <div style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.35rem">Valuation exclusivo para negócios digitais</div>
-          <div style="font-size:.83rem;color:rgba(255,255,255,.6);line-height:1.6">Somos especialistas em BPO Financeiro para infoprodutores e também fazemos valuation de negócios digitais. Avaliamos seu negócio digital com metodologias adaptadas à realidade de receita recorrente, lançamentos e ativos digitais.</div>
-        </div>
-        <a href="https://wa.me/5511917101173" class="btn-grad" style="flex-shrink:0;white-space:nowrap" target="_blank" rel="noopener">Quero saber o valor do meu negócio →</a>
+      <span class="eyebrow">Serviços incluídos</span>
+      <h2 class="section-title" style="font-family:'Cormorant Garamond',serif">Tudo que o negócio digital <span class="grad-text">precisa em um só lugar</span></h2>
+      <div class="svcs-grid">
+        <div class="svc"><div class="svc-icon">💳</div><h3>Conciliação de plataformas</h3><p>Hotmart, Kiwify, Eduzz, Monetizze e outras — conciliamos tudo com seu banco automaticamente.</p><div class="svc-tags"><span class="stag">Hotmart</span><span class="stag">Kiwify</span><span class="stag">Multi-plataforma</span></div></div>
+        <div class="svc"><div class="svc-icon">🤝</div><h3>Afiliados e coprodução</h3><p>Calculamos e controlamos comissões de afiliados e divisão de receita em coproduções sem erro.</p><div class="svc-tags"><span class="stag">Afiliados</span><span class="stag">Coprodução</span><span class="stag">Comissões</span></div></div>
+        <div class="svc"><div class="svc-icon">📈</div><h3>Fluxo de caixa do lançamento</h3><p>Visão financeira completa antes, durante e depois de cada lançamento — sem sustos no final.</p><div class="svc-tags"><span class="stag">Lançamento</span><span class="stag">Projeções</span><span class="stag">Pós-launch</span></div></div>
+        <div class="svc"><div class="svc-icon">📊</div><h3>DRE para negócio digital</h3><p>Relatório de resultado adaptado ao infoProdutor — por produto, por lançamento, por canal.</p><div class="svc-tags"><span class="stag">DRE</span><span class="stag">Por produto</span><span class="stag">Dashboard</span></div></div>
+        <div class="svc"><div class="svc-icon">🎯</div><h3>Controladoria estratégica</h3><p>Planejamento financeiro, metas de receita e análise de margem por produto digital.</p><div class="svc-tags"><span class="stag">Planejamento</span><span class="stag">Metas</span><span class="stag">Margem</span></div></div>
+        <div class="svc"><div class="svc-icon">🗂️</div><h3>Gestão fiscal e documental</h3><p>NFs, contratos, comprovantes e obrigações fiscais do negócio digital organizados e em dia.</p><div class="svc-tags"><span class="stag">NF</span><span class="stag">Fiscal</span><span class="stag">Contratos</span></div></div>
       </div>
     </div>
   </div>
 
-  <div class="bpo-cta">
-    <span class="section-tag" style="margin:0 auto .9rem">Próximo passo</span>
-    <h3>Pronto para ter o financeiro do seu <span class="grad-text">negócio digital organizado?</span></h3>
-    <p>Fale com a nossa equipe agora e receba um diagnóstico gratuito do financeiro do seu infonegócio.</p>
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-      <a href="https://wa.me/5511917101173" class="btn-grad" target="_blank" rel="noopener">💬 Solicitar diagnóstico gratuito</a>
+  <div class="val-banner">
+    <div class="icon">💎</div>
+    <div style="flex:1;min-width:200px">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;margin-bottom:.3rem">Valuation do seu negócio digital</h3>
+      <p style="font-size:.82rem;color:var(--muted);line-height:1.65;font-weight:300">Somos especialistas em BPO Financeiro para infoprodutores e também fazemos valuation de negócios digitais. Avaliamos com metodologias adaptadas à realidade de receita recorrente, lançamentos e ativos digitais.</p>
     </div>
+    <a href="https://wa.me/5511917101173" class="btn-primary" style="flex-shrink:0;white-space:nowrap" target="_blank" rel="noopener">Quero saber o valor do meu negócio →</a>
+  </div>
+
+  <div class="cta-strip" style="margin-top:3rem">
+    <span class="eyebrow" style="margin:0 auto .9rem">Próximo passo</span>
+    <h3>Pronto para ter o financeiro do seu <span class="grad-text">negócio digital em ordem?</span></h3>
+    <p>Fale com a nossa equipe e receba um diagnóstico financeiro gratuito do seu infonegócio.</p>
+    <a href="https://wa.me/5511917101173" class="btn-primary" target="_blank" rel="noopener">💬 Solicitar diagnóstico gratuito</a>
   </div>
 
 </div>
@@ -543,28 +483,28 @@ window.switchPlano = function(p){
 <!-- ═══ ABA 2: MENTORIA ═══ -->
 <div class="tab-panel" id="panel-mentoria">
 
-  <div class="mentoria-hero">
-    <div class="mentoria-photo">
-      <img src="foto-sentada.jpg" alt="Claudia Bernardo — Mentoria BPO"/>
-    </div>
-    <div class="mentoria-text">
-      <span class="section-tag">Mentoria BPO</span>
-      <h2 class="section-title">Construa um escritório de BPO <span class="grad-text">sólido e lucrativo</span></h2>
+  <div class="ment-hero">
+    <div class="ment-content">
+      <span class="eyebrow">Mentoria BPO</span>
+      <h2 class="section-title" style="font-family:'Cormorant Garamond',serif">Construa um escritório de BPO <span class="grad-text">sólido e lucrativo</span></h2>
       <p>Você quer entrar no mercado de BPO Financeiro ou já tem um escritório mas quer <strong>escalar de verdade?</strong> A mentoria da Claudia Bernardo é o caminho mais direto para um negócio estruturado e rentável.</p>
-      <p>Com metodologia própria desenvolvida ao longo de 20 anos de operação real, você aprende o que funciona — sem atalhos e sem enrolação.</p>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.75rem">
-        <a href="https://wa.me/5511917101173" class="btn-grad" target="_blank" rel="noopener">💬 Quero participar da mentoria</a>
+      <p>Com metodologia própria desenvolvida ao longo de <strong>20 anos de operação real</strong>, você aprende o que funciona — sem atalhos e sem enrolação.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem">
+        <a href="https://wa.me/5511917101173" class="btn-primary" target="_blank" rel="noopener">💬 Quero participar da mentoria</a>
       </div>
+    </div>
+    <div class="ment-photo">
+      <img src="foto-sentada.jpg" alt="Claudia Bernardo"/>
     </div>
   </div>
 
-  <div class="programas">
+  <div class="progs">
     <div style="max-width:1100px;margin:0 auto">
-      <span class="section-tag">Programas</span>
-      <h2 class="section-title">Escolha o caminho <span class="grad-text">certo para você</span></h2>
-      <div class="prog-grid">
-        <div class="prog-card feat">
-          <span class="feat-badge">Mais procurado</span>
+      <span class="eyebrow">Programas</span>
+      <h2 class="section-title" style="font-family:'Cormorant Garamond',serif">Escolha o caminho <span class="grad-text">certo para você</span></h2>
+      <div class="progs-grid">
+        <div class="prog feat">
+          <span class="feat-tag">Mais procurado</span>
           <h3>Mentoria Individual</h3>
           <p>Acompanhamento personalizado direto com a Claudia para acelerar o crescimento do seu escritório de BPO.</p>
           <ul class="prog-list">
@@ -575,9 +515,9 @@ window.switchPlano = function(p){
             <li>Templates e processos exclusivos</li>
             <li>Gravação de todas as sessões</li>
           </ul>
-          <a href="https://wa.me/5511917101173" class="btn-grad" target="_blank" rel="noopener">Quero saber mais →</a>
+          <a href="https://wa.me/5511917101173" class="btn-primary" target="_blank" rel="noopener">Quero saber mais →</a>
         </div>
-        <div class="prog-card">
+        <div class="prog">
           <h3>Mentoria em Grupo</h3>
           <p>Aprendizado coletivo com profissionais de BPO em diferentes estágios — troca de experiências reais.</p>
           <ul class="prog-list">
@@ -589,9 +529,9 @@ window.switchPlano = function(p){
           </ul>
           <a href="https://wa.me/5511917101173" class="btn-ghost" target="_blank" rel="noopener">Saber mais →</a>
         </div>
-        <div class="prog-card">
+        <div class="prog">
           <h3>Treinamentos & Infoprodutos</h3>
-          <p>Cursos e materiais digitais para aprender no seu ritmo — do básico ao avançado em BPO Financeiro.</p>
+          <p>Cursos e materiais digitais para aprender BPO Financeiro no seu ritmo — do básico ao avançado.</p>
           <ul class="prog-list">
             <li>Acesso vitalício ao conteúdo</li>
             <li>Módulos práticos e diretos</li>
@@ -605,14 +545,14 @@ window.switchPlano = function(p){
     </div>
   </div>
 
-  <div class="depoimentos">
+  <div class="deps">
     <div style="max-width:1100px;margin:0 auto">
-      <span class="section-tag">Resultados reais</span>
-      <h2 class="section-title">Quem já passou pela <span class="grad-text">mentoria fala por nós</span></h2>
-      <div class="dep-grid">
-        <div class="dep-card"><div class="dep-stars">★★★★★</div><p>"Entrei na mentoria sem saber nada sobre BPO. Em 3 meses já tinha meus primeiros clientes e um processo estruturado. A Claudia ensina do zero com muita didática e clareza."</p><div class="dep-cite"><div class="dep-av">CM</div><div><div class="dep-name">Camila M.</div><div class="dep-role">Aluna — Iniciante no BPO Financeiro</div></div></div></div>
-        <div class="dep-card"><div class="dep-stars">★★★★★</div><p>"Eu era contadora e não sabia como transformar meu conhecimento em um negócio de BPO. A mentoria me deu o modelo, os processos e a confiança para cobrar o valor certo."</p><div class="dep-cite"><div class="dep-av">RF</div><div><div class="dep-name">Renata F.</div><div class="dep-role">Aluna — Contadora em transição para BPO</div></div></div></div>
-        <div class="dep-card"><div class="dep-stars">★★★★★</div><p>"O que mais me surpreendeu foi a parte de precificação. Eu cobrava muito abaixo do mercado. Depois da mentoria aprendi a calcular meu custo/hora e hoje tenho margem real."</p><div class="dep-cite"><div class="dep-av">TS</div><div><div class="dep-name">Thiago S.</div><div class="dep-role">Aluno — Operador de BPO Financeiro</div></div></div></div>
+      <span class="eyebrow">Resultados reais</span>
+      <h2 class="section-title" style="font-family:'Cormorant Garamond',serif">Quem já passou pela <span class="grad-text">mentoria fala por nós</span></h2>
+      <div class="deps-grid">
+        <div class="dep"><div class="dep-stars">★★★★★</div><p>"Entrei na mentoria sem saber nada sobre BPO. Em 3 meses já tinha meus primeiros clientes e um processo estruturado. A Claudia ensina do zero com muita didática e clareza."</p><div class="dep-cite"><div class="dep-av">CM</div><div><div class="dep-name">Camila M.</div><div class="dep-role">Iniciante no BPO Financeiro</div></div></div></div>
+        <div class="dep"><div class="dep-stars">★★★★★</div><p>"Eu era contadora e não sabia como transformar meu conhecimento em um negócio de BPO. A mentoria me deu o modelo, os processos e a confiança para cobrar o valor certo."</p><div class="dep-cite"><div class="dep-av">RF</div><div><div class="dep-name">Renata F.</div><div class="dep-role">Contadora em transição para BPO</div></div></div></div>
+        <div class="dep"><div class="dep-stars">★★★★★</div><p>"O que mais me surpreendeu foi a parte de precificação. Eu cobrava muito abaixo do mercado. Depois da mentoria aprendi a calcular meu custo/hora e hoje tenho margem real."</p><div class="dep-cite"><div class="dep-av">TS</div><div><div class="dep-name">Thiago S.</div><div class="dep-role">Operador de BPO Financeiro</div></div></div></div>
       </div>
     </div>
   </div>
@@ -622,480 +562,282 @@ window.switchPlano = function(p){
 <!-- ═══ ABA 3: CONEXÃO BPO ═══ -->
 <div class="tab-panel" id="panel-conexao">
 
-  <div class="conexao-hero">
-    <div class="conexao-photo-side">
-      <img src="foto-chao.jpg" alt="Claudia Bernardo — Conexão BPO"/>
+  <div class="cx-hero">
+    <div class="cx-photo">
+      <img src="foto-chao.jpg" alt="Claudia Bernardo"/>
     </div>
-    <div class="conexao-content-side">
-      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.5rem">
-        <img src="logo-conexao.png" alt="Conexão BPO" style="height:52px;border-radius:8px"/>
-        <div class="conexao-logo-text">Conexão BPO</div>
+    <div class="cx-content">
+      <div class="cx-logo-row">
+        <img src="logo-conexao.png" alt="Conexão BPO"/>
+        <div class="cx-name">Conexão BPO</div>
       </div>
-      <div class="conexao-tagline">A comunidade de quem vive o BPO Financeiro</div>
+      <div class="cx-tag">A comunidade de quem vive o BPO Financeiro</div>
       <p>A <strong>Conexão BPO</strong> é a comunidade criada para profissionais de BPO Financeiro que querem crescer com suporte, conteúdo de qualidade e uma rede de pessoas que entendem sua realidade.</p>
-      <p>Aqui você não fica sozinho. Encontra <strong>pessoas que passaram pelos mesmos desafios</strong> e que estão dispostas a compartilhar o que funciona de verdade — sem enrolação.</p>
-      <div class="conexao-stats">
-        <div class="c-stat"><div class="c-stat-val">1.000+</div><div class="c-stat-label">Membros ativos</div></div>
-        <div class="c-stat"><div class="c-stat-val">500+</div><div class="c-stat-label">Profissionais mentorados</div></div>
-        <div class="c-stat"><div class="c-stat-val">30+</div><div class="c-stat-label">Eventos realizados</div></div>
-        <div class="c-stat"><div class="c-stat-val">20+</div><div class="c-stat-label">Anos de experiência</div></div>
+      <p>Aqui você não fica sozinho. Encontra <strong>pessoas que passaram pelos mesmos desafios</strong> e que compartilham o que funciona de verdade.</p>
+      <div class="cx-stats">
+        <div class="cx-stat"><div class="cx-stat-val">1.000+</div><div class="cx-stat-label">Membros ativos</div></div>
+        <div class="cx-stat"><div class="cx-stat-val">500+</div><div class="cx-stat-label">Profissionais mentorados</div></div>
+        <div class="cx-stat"><div class="cx-stat-val">30+</div><div class="cx-stat-label">Eventos realizados</div></div>
+        <div class="cx-stat"><div class="cx-stat-val">20+</div><div class="cx-stat-label">Anos de experiência</div></div>
       </div>
       <div style="display:flex;gap:1rem;flex-wrap:wrap">
-        <a href="https://www.comunidadeconexaobpo.com.br" class="btn-grad" target="_blank" rel="noopener">🔐 Já sou membro — Entrar</a>
-        <a href="https://wa.me/5511917101173" class="btn-ghost" target="_blank" rel="noopener">💬 Falar pelo WhatsApp</a>
+        <a href="https://www.comunidadeconexaobpo.com.br" class="btn-primary" target="_blank" rel="noopener">🔐 Já sou membro — Entrar</a>
+        <a href="https://wa.me/5511917101173" class="btn-ghost" target="_blank" rel="noopener">💬 WhatsApp</a>
       </div>
     </div>
   </div>
 
-  <!-- PARA QUEM É -->
-  <div class="conexao-beneficios" style="background:var(--navy-deep)">
+  <div class="cx-bens" style="background:var(--ink)">
     <div style="max-width:1100px;margin:0 auto">
-      <span class="section-tag">Para quem é</span>
-      <h2 class="section-title">A Conexão BPO é para <span class="grad-text">você que...</span></h2>
-      <div class="ben-grid" style="margin-top:2.5rem">
-        <div class="ben-card"><div class="ben-icon">🌱</div><h3>Está começando no BPO</h3><p>Quer entrar no mercado com base sólida, aprendendo com quem já percorreu esse caminho.</p></div>
-        <div class="ben-card"><div class="ben-icon">📈</div><h3>Quer escalar seu escritório</h3><p>Já tem clientes mas precisa de processos, ferramentas e estratégias para crescer mais.</p></div>
-        <div class="ben-card"><div class="ben-icon">🤝</div><h3>Busca uma rede de apoio</h3><p>Quer trocar experiências reais com outros profissionais sérios do mercado de BPO.</p></div>
-        <div class="ben-card"><div class="ben-icon">💡</div><h3>Quer se manter atualizado</h3><p>Precisa acompanhar as tendências, ferramentas e oportunidades do setor financeiro.</p></div>
+      <span class="eyebrow">O que você encontra</span>
+      <h2 class="section-title" style="font-family:'Cormorant Garamond',serif">Muito mais do que uma <span class="grad-text">comunidade comum</span></h2>
+      <div class="cx-bens-grid">
+        <div class="cx-ben"><div class="bi">📚</div><h3>Conteúdo exclusivo</h3><p>Materiais, templates e treinamentos produzidos por quem vive o BPO na prática todos os dias.</p></div>
+        <div class="cx-ben"><div class="bi">🎓</div><h3>Mentorias ao vivo</h3><p>Encontros periódicos com a Claudia e convidados especiais do mercado financeiro.</p></div>
+        <div class="cx-ben"><div class="bi">🛠️</div><h3>Templates prontos</h3><p>Propostas, contratos, planilhas e processos que você usa imediatamente no seu escritório.</p></div>
+        <div class="cx-ben"><div class="bi">🤝</div><h3>Networking qualificado</h3><p>Conexão com profissionais sérios de BPO de todo o Brasil — sem spam, sem enrolação.</p></div>
+        <div class="cx-ben"><div class="bi">💼</div><h3>Oportunidades reais</h3><p>Indicações de clientes, parcerias estratégicas e vagas exclusivas para membros.</p></div>
+        <div class="cx-ben"><div class="bi">💬</div><h3>Suporte contínuo</h3><p>Tire dúvidas e receba feedback de outros profissionais a qualquer momento.</p></div>
       </div>
     </div>
   </div>
 
-  <!-- O QUE VOCÊ RECEBE -->
-  <div class="conexao-beneficios">
-    <div style="max-width:1100px;margin:0 auto">
-      <span class="section-tag">O que está incluso</span>
-      <h2 class="section-title">Tudo que você precisa para <span class="grad-text">crescer no BPO</span></h2>
-      <div class="ben-grid">
-        <div class="ben-card"><div class="ben-icon">📚</div><h3>Conteúdo exclusivo</h3><p>Materiais, templates e treinamentos produzidos por quem vive o BPO Financeiro na prática todos os dias.</p></div>
-        <div class="ben-card"><div class="ben-icon">🎓</div><h3>Mentorias ao vivo</h3><p>Encontros periódicos com a Claudia e convidados especiais para aprendizado aprofundado.</p></div>
-        <div class="ben-card"><div class="ben-icon">🛠️</div><h3>Templates prontos</h3><p>Propostas, contratos, planilhas e processos que você pode usar imediatamente no seu escritório.</p></div>
-        <div class="ben-card"><div class="ben-icon">🤝</div><h3>Networking qualificado</h3><p>Conexão com profissionais sérios do mercado de BPO de todo o Brasil — sem spam, sem enrolação.</p></div>
-        <div class="ben-card"><div class="ben-icon">💼</div><h3>Oportunidades reais</h3><p>Indicações de clientes, parcerias estratégicas e vagas exclusivas para membros da comunidade.</p></div>
-        <div class="ben-card"><div class="ben-icon">💬</div><h3>Suporte contínuo</h3><p>Tire dúvidas, compartilhe casos e receba feedback de outros profissionais a qualquer momento.</p></div>
+  <div class="cx-plans">
+    <div style="max-width:780px;margin:0 auto;text-align:center">
+      <span class="eyebrow" style="margin:0 auto .9rem">Faça parte agora</span>
+      <h2 class="section-title" style="font-family:'Cormorant Garamond',serif;margin-bottom:.5rem">Escolha seu plano e entre na <span class="grad-text">Conexão BPO</span></h2>
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:2.5rem;font-weight:300">Acesso imediato após a assinatura.</p>
+      <div class="plans-grid">
+        <div class="plan">
+          <div class="plan-period">Mensal</div>
+          <div class="plan-desc">Flexibilidade total</div>
+          <a href="https://pay.kiwify.com.br/MfrUsPo" class="btn-primary" style="width:100%;justify-content:center;font-size:.78rem;padding:.7rem 1rem" target="_blank" rel="noopener">Assinar mensal</a>
+        </div>
+        <div class="plan featured">
+          <span class="plan-pop">Mais popular</span>
+          <div class="plan-period">Trimestral</div>
+          <div class="plan-desc">Melhor custo-benefício</div>
+          <a href="https://pay.kiwify.com.br/zrfBdss" class="btn-primary" style="width:100%;justify-content:center;font-size:.78rem;padding:.7rem 1rem" target="_blank" rel="noopener">Assinar trimestral</a>
+        </div>
+        <div class="plan">
+          <div class="plan-period">Anual</div>
+          <div class="plan-desc">Máxima economia</div>
+          <a href="https://pay.kiwify.com.br/Ox0ttIv" class="btn-primary" style="width:100%;justify-content:center;font-size:.78rem;padding:.7rem 1rem" target="_blank" rel="noopener">Assinar anual</a>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- COMO FUNCIONA -->
-  <div class="conexao-como">
-    <div style="max-width:1100px;margin:0 auto">
-      <span class="section-tag">Como participar</span>
-      <h2 class="section-title">Escolha seu plano e <span class="grad-text">comece agora</span></h2>
-      <div class="como-grid">
-        <div class="como-item"><div class="como-num">1</div><h3>Escolha seu plano</h3><p>Mensal, trimestral ou anual — escolha o que faz mais sentido para você agora.</p></div>
-        <div class="como-item"><div class="como-num">2</div><h3>Faça sua assinatura</h3><p>Pagamento seguro pela Kiwify. Em minutos você já tem acesso completo.</p></div>
-        <div class="como-item"><div class="como-num">3</div><h3>Acesse a comunidade</h3><p>Entre em www.comunidadeconexaobpo.com.br com seu login e senha cadastrados.</p></div>
-        <div class="como-item"><div class="como-num">4</div><h3>Comece a crescer</h3><p>Acesse o conteúdo, interaja com a comunidade e acelere seu negócio de BPO.</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CTA FINAL CONEXÃO -->
-  <div class="conexao-cta">
-    <span class="section-tag" style="margin:0 auto .9rem">Faça parte agora</span>
-    <div style="display:flex;align-items:center;justify-content:center;gap:.75rem;margin-bottom:.75rem">
-      <img src="logo-conexao.png" alt="Conexão BPO" style="height:44px;border-radius:8px"/>
-      <h3 style="margin:0">Escolha seu plano e entre na <span class="grad-text">Conexão BPO</span></h3>
-    </div>
-    <p>Acesso imediato após a assinatura. Cancele quando quiser.</p>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;max-width:700px;margin:0 auto 2rem">
-      <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center">
-        <div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem">Mensal</div>
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem">Flexibilidade total</div>
-        <a href="https://pay.kiwify.com.br/MfrUsPo" class="btn-grad" style="width:100%;justify-content:center;font-size:.8rem;padding:.7rem 1rem" target="_blank" rel="noopener">Assinar mensal</a>
-      </div>
-      <div style="background:linear-gradient(140deg,rgba(91,111,212,.15),rgba(196,109,181,.1));border:1px solid rgba(91,111,212,.5);border-radius:14px;padding:1.5rem;text-align:center;position:relative">
-        <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .85rem;border-radius:100px;white-space:nowrap">Mais popular</div>
-        <div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem">Trimestral</div>
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem">Melhor custo-benefício</div>
-        <a href="https://pay.kiwify.com.br/zrfBdss" class="btn-grad" style="width:100%;justify-content:center;font-size:.8rem;padding:.7rem 1rem" target="_blank" rel="noopener">Assinar trimestral</a>
-      </div>
-      <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center">
-        <div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem">Anual</div>
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem">Máxima economia</div>
-        <a href="https://pay.kiwify.com.br/Ox0ttIv" class="btn-grad" style="width:100%;justify-content:center;font-size:.8rem;padding:.7rem 1rem" target="_blank" rel="noopener">Assinar anual</a>
-      </div>
-    </div>
-
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-      <a href="https://www.comunidadeconexaobpo.com.br" class="btn-ghost" target="_blank" rel="noopener">🔐 Já sou membro — Acessar</a>
+  <div class="cx-cta">
+    <div class="cx-cta-logo"><img src="logo-conexao.png" alt="Conexão BPO"/></div>
+    <h3>Já é membro? <span class="grad-text">Acesse sua conta</span></h3>
+    <p>Entre na comunidade e continue crescendo junto com os melhores profissionais de BPO do Brasil.</p>
+    <div class="cx-cta-btns">
+      <a href="https://www.comunidadeconexaobpo.com.br" class="btn-primary" target="_blank" rel="noopener">🔐 Acessar a comunidade</a>
       <a href="https://wa.me/5511917101173" class="btn-ghost" target="_blank" rel="noopener">💬 Tenho dúvidas</a>
     </div>
   </div>
 
 </div>
 
-<!-- ═══ ABA 4: CALCULADORA ═══ -->
+<!-- ═══ ABA 4: CALCULADORA / PRECIFICAÇÃO ═══ -->
 <div class="tab-panel" id="panel-calc">
-  <div class="calc-section">
-    <div style="max-width:960px;margin:0 auto">
-      <span class="section-tag">Ferramenta gratuita</span>
-      <h2 class="section-title">Quanto Cobrar pelo <span class="grad-text">meu BPO?</span></h2>
-      <p class="section-lead">Metodologia real baseada em custo/hora + serviços contratados + margem de lucro. Do jeito que profissional de BPO calcula de verdade.</p>
-
-      <div class="calc-container" style="margin-top:2.5rem">
-
-        <!-- PASSO 1: CUSTO/HORA -->
-        <div class="calc-card" style="margin-bottom:1.5rem">
-          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap">
-            <div style="background:var(--grad);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;color:#fff">1</div>
-            <div>
-              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem">Seus custos mensais do negócio</div>
-              <div style="font-size:.78rem;color:var(--muted);margin-top:.15rem">Preencha seus custos reais para calcular seu custo/hora</div>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem 2rem">
-            <div style="display:flex;flex-direction:column;gap:.4rem">
-              <label style="font-size:.78rem;color:var(--muted)">Aluguel / Condomínio (R$)</label>
-              <input type="number" id="c-aluguel" value="0" min="0" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-            <div style="display:flex;flex-direction:column;gap:.4rem">
-              <label style="font-size:.78rem;color:var(--muted)">Internet + Telefone (R$)</label>
-              <input type="number" id="c-internet" value="160" min="0" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-            <div style="display:flex;flex-direction:column;gap:.4rem">
-              <label style="font-size:.78rem;color:var(--muted)">Sistema de gestão financeira (R$)</label>
-              <input type="number" id="c-sistema" value="500" min="0" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-            <div style="display:flex;flex-direction:column;gap:.4rem">
-              <label style="font-size:.78rem;color:var(--muted)">Equipamentos / Depreciação (R$)</label>
-              <input type="number" id="c-equip" value="200" min="0" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-            <div style="display:flex;flex-direction:column;gap:.4rem">
-              <label style="font-size:.78rem;color:var(--muted)">Funcionários / Prestadores (R$)</label>
-              <input type="number" id="c-func" value="0" min="0" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-            <div style="display:flex;flex-direction:column;gap:.4rem">
-              <label style="font-size:.78rem;color:var(--muted)">Pró-labore (R$)</label>
-              <input type="number" id="c-prolabore" value="3000" min="0" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-            <div style="display:flex;flex-direction:column;gap:.4rem">
-              <label style="font-size:.78rem;color:var(--muted)">Marketing / Anúncios (R$)</label>
-              <input type="number" id="c-marketing" value="300" min="0" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-            <div style="display:flex;flex-direction:column;gap:.4rem">
-              <label style="font-size:.78rem;color:var(--muted)">Outros custos (R$)</label>
-              <input type="number" id="c-outros" value="200" min="0" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-          </div>
-          <hr class="c-divider" style="border:none;border-top:1px solid var(--border-light);margin:1.5rem 0">
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem 2rem;margin-bottom:1.25rem">
-            <div style="display:flex;flex-direction:column;gap:.4rem">
-              <label style="font-size:.78rem;color:var(--muted)">Horas trabalhadas por dia</label>
-              <input type="number" id="c-hdia" value="6" min="1" max="16" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-            <div style="display:flex;flex-direction:column;gap:.4rem">
-              <label style="font-size:.78rem;color:var(--muted)">Dias trabalhados por mês</label>
-              <input type="number" id="c-dmes" value="21" min="1" max="31" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-            <div style="display:flex;flex-direction:column;gap:.4rem">
-              <label style="font-size:.78rem;color:var(--muted)">Margem de segurança</label>
-              <select id="c-margem" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-                <option value="1.0">0%</option>
-                <option value="1.1" selected>10%</option>
-                <option value="1.15">15%</option>
-                <option value="1.2">20%</option>
-              </select>
-            </div>
-          </div>
-          <div style="background:linear-gradient(100deg,rgba(91,111,212,.15),rgba(196,109,181,.1));border:1px solid rgba(91,111,212,.3);border-radius:12px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
-            <div><div style="font-size:.73rem;color:var(--muted);margin-bottom:.3rem">Total custos/mês</div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:700" id="r-custo-total">R$ 0</div></div>
-            <div><div style="font-size:.73rem;color:var(--muted);margin-bottom:.3rem">Horas/mês</div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:700" id="r-horas-mes">126h</div></div>
-            <div style="text-align:right"><div style="font-size:.73rem;color:var(--muted);margin-bottom:.3rem">Seu custo/hora</div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text" id="r-custo-hora">R$ 0</div></div>
-          </div>
-        </div>
-
-        <!-- PASSO 2: SERVIÇOS -->
-        <div class="calc-card" style="margin-bottom:1.5rem">
-          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap">
-            <div style="background:var(--grad);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;color:#fff">2</div>
-            <div>
-              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem">Serviços incluídos no contrato</div>
-              <div style="font-size:.78rem;color:var(--muted);margin-top:.15rem">Marque os serviços e informe o volume mensal para calcular as horas</div>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:auto 1fr auto auto;gap:.6rem .75rem;align-items:center;margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--border-light)">
-            <div></div>
-            <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em">Serviço</div>
-            <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:center">Volume/mês</div>
-            <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:center">H/mês</div>
-          </div>
-          <div id="svc-lista"></div>
-          <div style="margin-top:1.25rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
-            <div><div style="font-size:.72rem;color:var(--muted)">Total horas do cliente/mês</div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700" id="r-horas-cliente">0,00h</div></div>
-            <div style="text-align:right"><div style="font-size:.72rem;color:var(--muted)">Custo de atender este cliente</div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700" id="r-custo-cliente">R$ 0</div></div>
-          </div>
-        </div>
-
-        <!-- PASSO 3: PREÇO FINAL -->
-        <div class="calc-card">
-          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap">
-            <div style="background:var(--grad);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;color:#fff">3</div>
-            <div>
-              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem">Margem de lucro e preço final</div>
-              <div style="font-size:.78rem;color:var(--muted);margin-top:.15rem">Defina sua margem e regime tributário para calcular o preço</div>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem 2rem;margin-bottom:1.5rem">
-            <div style="display:flex;flex-direction:column;gap:.4rem">
-              <label style="font-size:.78rem;color:var(--muted)">Margem de lucro desejada</label>
-              <select id="c-lucro" oninput="calcFinal()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-                <option value="1.5">50%</option>
-                <option value="1.6">60%</option>
-                <option value="1.7">70%</option>
-                <option value="1.8" selected>80%</option>
-                <option value="2.0">100%</option>
-                <option value="2.5">150%</option>
-              </select>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:.4rem">
-              <label style="font-size:.78rem;color:var(--muted)">Regime tributário</label>
-              <select id="c-imposto" oninput="calcFinal()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-                <option value="0">MEI — 0%</option>
-                <option value="0.06" selected>Simples Nacional — 6%</option>
-                <option value="0.116">Lucro Presumido — 11,6%</option>
-                <option value="0.155">Lucro Real — 15,5%</option>
-              </select>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-top:.5rem">
-            <div class="res-card"><div class="res-label">Custo do cliente</div><div class="res-val" id="f-custo">R$ 0</div></div>
-            <div class="res-card"><div class="res-label">Preço sugerido</div><div class="res-val highlight" id="f-preco">R$ 0</div></div>
-            <div class="res-card"><div class="res-label">Imposto estimado</div><div class="res-val" id="f-imposto">R$ 0</div></div>
-            <div class="res-card"><div class="res-label">Lucro líquido</div><div class="res-val highlight" id="f-lucro">R$ 0</div></div>
-          </div>
-          <div class="calc-tip" style="margin-top:1.25rem">💡 Esses valores são a base — o preço final pode ser ajustado conforme a complexidade e perfil do cliente. Use como piso, nunca como teto.</div>
-        </div>
-
-      </div>
-    </div>
+  <div style="padding:3rem 5% 1rem;background:var(--ink);text-align:center">
+    <span class="eyebrow" style="margin:0 auto .9rem">Ferramenta estratégica</span>
+    <h2 class="section-title" style="font-family:'Cormorant Garamond',serif;text-align:center">Quanto Cobrar pelo <span class="grad-text">meu BPO?</span></h2>
+    <p class="section-lead" style="margin:0 auto;text-align:center">Precificação inteligente em 3 pilares: tempo operacional, complexidade estratégica e valor percebido.</p>
   </div>
-</div>
+  <div class="calc-wrap">
+    <div class="pilares">
+      <button class="pilar-btn active" onclick="goP(1)"><span class="pnum">1</span>Operacional<span class="pilar-dot" id="dot1"></span></button>
+      <button class="pilar-btn" onclick="goP(2)"><span class="pnum">2</span>Complexidade<span class="pilar-dot" id="dot2"></span></button>
+      <button class="pilar-btn" onclick="goP(3)"><span class="pnum">3</span>Valor Percebido<span class="pilar-dot" id="dot3"></span></button>
+      <button class="pilar-btn" onclick="goP(4)"><span class="pnum">→</span>Resultado<span class="pilar-dot" id="dot4"></span></button>
+    </div>
 
-
-
-      <div class="calc-container" style="margin-top:2.5rem">
-
-        <!-- PASSO 1: CUSTO/HORA -->
-        <div class="calc-card" style="margin-bottom:1.5rem">
-          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap">
-            <div style="background:var(--grad);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0">1</div>
-            <div>
-              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem">Seus custos mensais do negócio</div>
-              <div style="font-size:.78rem;color:var(--muted);margin-top:.15rem">Preencha seus custos reais para calcular seu custo/hora</div>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem 2rem">
-            <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:.5rem">
-              <label style="font-size:.8rem;color:var(--muted)">Aluguel / Condomínio (R$)</label>
-              <input type="number" id="c-aluguel" value="0" min="0" oninput="calcHora()" style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-            <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:.5rem">
-              <label style="font-size:.8rem;color:var(--muted)">Internet + Telefone (R$)</label>
-              <input type="number" id="c-internet" value="160" min="0" oninput="calcHora()" style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-            <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:.5rem">
-              <label style="font-size:.8rem;color:var(--muted)">Sistema de gestão financeira (R$)</label>
-              <input type="number" id="c-sistema" value="4590" min="0" oninput="calcHora()" style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-            <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:.5rem">
-              <label style="font-size:.8rem;color:var(--muted)">Equipamentos / Depreciação (R$)</label>
-              <input type="number" id="c-equip" value="1850" min="0" oninput="calcHora()" style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-            <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:.5rem">
-              <label style="font-size:.8rem;color:var(--muted)">Funcionários / Prestadores (R$)</label>
-              <input type="number" id="c-func" value="9000" min="0" oninput="calcHora()" style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-            <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:.5rem">
-              <label style="font-size:.8rem;color:var(--muted)">Pró-labore (R$)</label>
-              <input type="number" id="c-prolabore" value="1500" min="0" oninput="calcHora()" style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-            <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:.5rem">
-              <label style="font-size:.8rem;color:var(--muted)">Marketing / Anúncios (R$)</label>
-              <input type="number" id="c-marketing" value="950" min="0" oninput="calcHora()" style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-            <div style="display:flex;flex-direction:column;gap:.4rem;margin-bottom:.5rem">
-              <label style="font-size:.8rem;color:var(--muted)">Alimentação / Outros (R$)</label>
-              <input type="number" id="c-outros" value="2000" min="0" oninput="calcHora()" style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem">
-            </div>
-          </div>
-          <hr class="c-divider">
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem 2rem;margin-bottom:1rem">
-            <div style="display:flex;flex-direction:column;gap:.4rem"><label style="font-size:.8rem;color:var(--muted)">Horas trabalhadas por dia</label><input type="number" id="c-hdia" value="6" min="1" max="16" oninput="calcHora()" style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem"></div>
-            <div style="display:flex;flex-direction:column;gap:.4rem"><label style="font-size:.8rem;color:var(--muted)">Dias trabalhados por mês</label><input type="number" id="c-dmes" value="21" min="1" max="31" oninput="calcHora()" style="width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.5rem .75rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.85rem"></div>
-            <div class="c-row" style="margin-bottom:0"><label>Margem de segurança</label>
-              <select id="c-margem" oninput="calcHora()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.35rem .6rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.82rem">
-                <option value="1.0">0%</option>
-                <option value="1.1" selected>10%</option>
-                <option value="1.15">15%</option>
-                <option value="1.2">20%</option>
-              </select>
-            </div>
-          </div>
-          <div style="background:linear-gradient(100deg,rgba(91,111,212,.15),rgba(196,109,181,.1));border:1px solid rgba(91,111,212,.3);border-radius:12px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
-            <div>
-              <div style="font-size:.75rem;color:var(--muted);margin-bottom:.3rem">Total custos/mês</div>
-              <div style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700" id="r-custo-total">R$ 0</div>
-            </div>
-            <div>
-              <div style="font-size:.75rem;color:var(--muted);margin-bottom:.3rem">Horas/mês</div>
-              <div style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700" id="r-horas-mes">126h</div>
-            </div>
-            <div style="text-align:right">
-              <div style="font-size:.75rem;color:var(--muted);margin-bottom:.3rem">Seu custo/hora</div>
-              <div style="font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text" id="r-custo-hora">R$ 0</div>
-            </div>
+    <!-- P1 -->
+    <div class="panel calc-inner active" id="p1">
+      <div class="calc-card">
+        <div class="calc-card-hdr"><div class="calc-card-icon">⚙️</div><div><div class="calc-card-title">Seus custos operacionais mensais</div><div class="calc-card-sub">Preencha seus custos reais para calcular o custo/hora verdadeiro</div></div></div>
+        <div class="cg3">
+          <div class="cf"><label>Pró-labore (R$)</label><input type="number" id="o-prolabore" value="3000" min="0" oninput="calc()"></div>
+          <div class="cf"><label>Funcionários / Prestadores (R$)</label><input type="number" id="o-func" value="0" min="0" oninput="calc()"></div>
+          <div class="cf"><label>Sistema de gestão (R$)</label><input type="number" id="o-sistema" value="500" min="0" oninput="calc()"></div>
+          <div class="cf"><label>Aluguel / Infraestrutura (R$)</label><input type="number" id="o-aluguel" value="0" min="0" oninput="calc()"></div>
+          <div class="cf"><label>Internet + Telefone (R$)</label><input type="number" id="o-internet" value="200" min="0" oninput="calc()"></div>
+          <div class="cf"><label>Equipamentos (R$)</label><input type="number" id="o-equip" value="150" min="0" oninput="calc()"></div>
+          <div class="cf"><label>Marketing (R$)</label><input type="number" id="o-mkt" value="300" min="0" oninput="calc()"></div>
+          <div class="cf"><label>Capacitação (R$)</label><input type="number" id="o-cursos" value="200" min="0" oninput="calc()"></div>
+          <div class="cf"><label>Outros (R$)</label><input type="number" id="o-outros" value="0" min="0" oninput="calc()"></div>
+        </div>
+        <div class="cg3" style="margin-top:.75rem">
+          <div class="cf"><label>Horas/dia</label><input type="number" id="o-hdia" value="6" min="1" max="12" oninput="calc()"></div>
+          <div class="cf"><label>Dias/mês</label><input type="number" id="o-dmes" value="21" min="10" max="31" oninput="calc()"></div>
+          <div class="cf"><label>% do tempo neste cliente</label>
+            <select id="o-perc" oninput="calc()">
+              <option value="1">100% (cliente único)</option>
+              <option value="0.5">50% do tempo</option>
+              <option value="0.33">33% (1 de 3)</option>
+              <option value="0.25">25% (1 de 4)</option>
+              <option value="0.2">20% (1 de 5)</option>
+              <option value="0.1">10% (1 de 10+)</option>
+            </select>
           </div>
         </div>
+        <div class="calc-result-bar">
+          <div class="crb-item"><div class="rl">Custo total/mês</div><div class="rv" id="r-total-custo">R$ 0</div></div>
+          <div class="crb-item"><div class="rl">Horas/mês</div><div class="rv" id="r-hmes">126h</div></div>
+          <div class="crb-item"><div class="rl">Custo/hora real</div><div class="rv" id="r-ch">R$ 0</div></div>
+          <div class="crb-item"><div class="rl">Custo alocado neste cliente</div><div class="rv" id="r-custo-cliente">R$ 0</div></div>
+        </div>
+      </div>
 
-        <!-- PASSO 2: PLANO -->
-        <div class="calc-card" style="margin-bottom:1.5rem">
-          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap">
-            <div style="background:var(--grad);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0">2</div>
-            <div>
-              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem">Escolha o plano e as tarefas</div>
-              <div style="font-size:.78rem;color:var(--muted);margin-top:.15rem">Cada tarefa tem um tempo estimado — o total define o custo do plano</div>
-            </div>
-          </div>
-
-          <div class="calc-tabs" style="margin-bottom:1.5rem">
-            <button class="calc-tab active" onclick="switchPlano('basico')">🟢 Plano Básico</button>
-            <button class="calc-tab" onclick="switchPlano('intermediario')">🟡 Intermediário</button>
-            <button class="calc-tab" onclick="switchPlano('avancado')">🔴 Avançado</button>
-          </div>
-
-          <!-- BÁSICO -->
-          <div class="calc-panel active" id="plano-basico">
-            <div style="font-size:.78rem;color:var(--muted);margin-bottom:1.25rem;padding:.6rem 1rem;background:rgba(255,255,255,.03);border-radius:8px">📌 Público: MEIs e Microempresas com faturamento até R$ 180k/ano e pequeno volume de transações</div>
-            <div style="display:grid;grid-template-columns:1fr auto auto;gap:.5rem .75rem;align-items:center;margin-bottom:.5rem">
-              <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em">Tarefa</div>
-              <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:center">H/mês</div>
-              <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:center">Ativo</div>
-            </div>
-            <div id="tasks-basico"></div>
-          </div>
-
-          <!-- INTERMEDIÁRIO -->
-          <div class="calc-panel" id="plano-intermediario">
-            <div style="font-size:.78rem;color:var(--muted);margin-bottom:1.25rem;padding:.6rem 1rem;background:rgba(255,255,255,.03);border-radius:8px">📌 Público: Empresas de pequeno e médio porte com volume considerável de transações</div>
-            <div style="display:grid;grid-template-columns:1fr auto auto;gap:.5rem .75rem;align-items:center;margin-bottom:.5rem">
-              <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em">Tarefa</div>
-              <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:center">H/mês</div>
-              <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:center">Ativo</div>
-            </div>
-            <div id="tasks-intermediario"></div>
-          </div>
-
-          <!-- AVANÇADO -->
-          <div class="calc-panel" id="plano-avancado">
-            <div style="font-size:.78rem;color:var(--muted);margin-bottom:1.25rem;padding:.6rem 1rem;background:rgba(255,255,255,.03);border-radius:8px">📌 Público: Empresas de médio porte com alto volume de transações e personalizações</div>
-            <div style="display:grid;grid-template-columns:1fr auto auto;gap:.5rem .75rem;align-items:center;margin-bottom:.5rem">
-              <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em">Tarefa</div>
-              <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:center">H/mês</div>
-              <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;text-align:center">Ativo</div>
-            </div>
-            <div id="tasks-avancado"></div>
-          </div>
-
-          <div style="margin-top:1.25rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem">
-            <div><div style="font-size:.72rem;color:var(--muted)">Total de horas do plano</div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700" id="r-horas-plano">0,00h</div></div>
-            <div><div style="font-size:.72rem;color:var(--muted)">Custo do plano</div><div style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700" id="r-custo-plano">R$ 0</div></div>
+      <div class="calc-card">
+        <div class="calc-card-hdr">
+          <div class="calc-card-icon">⏱️</div>
+          <div>
+            <div class="calc-card-title">Serviços e volume operacional</div>
+            <div class="calc-card-sub">Tempo médio base × volume = horas reais do cliente &nbsp;<button onclick="toggleTempos()" style="background:none;border:1px solid var(--border);color:#8B9FE4;font-size:.6rem;padding:.15rem .5rem;border-radius:3px;cursor:pointer;font-family:'DM Sans',sans-serif" id="btn-tempos">editar tempos</button></div>
           </div>
         </div>
-
-        <!-- PASSO 3: PREÇO FINAL -->
-        <div class="calc-card">
-          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap">
-            <div style="background:var(--grad);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0">3</div>
-            <div>
-              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem">Margem de lucro e preço final</div>
-              <div style="font-size:.78rem;color:var(--muted);margin-top:.15rem">Defina sua margem e veja o preço sugerido para o cliente</div>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem 2rem;margin-bottom:1.5rem">
-            <div class="c-row" style="margin-bottom:0">
-              <label>Margem de lucro desejada</label>
-              <select id="c-lucro" oninput="calcFinal()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.35rem .6rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.82rem">
-                <option value="1.5">50%</option>
-                <option value="1.6">60%</option>
-                <option value="1.7">70%</option>
-                <option value="1.8" selected>80%</option>
-                <option value="2.0">100%</option>
-                <option value="2.5">150%</option>
-              </select>
-            </div>
-            <div class="c-row" style="margin-bottom:0">
-              <label>Impostos sobre faturamento</label>
-              <select id="c-imposto" oninput="calcFinal()" style="background:rgba(255,255,255,.06);border:1px solid var(--border);border-radius:8px;padding:.35rem .6rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.82rem">
-                <option value="0">0% (MEI)</option>
-                <option value="0.06" selected>6% (Simples)</option>
-                <option value="0.116">11,6% (Lucro Presumido)</option>
-                <option value="0.155">15,5% (Lucro Real)</option>
-              </select>
-            </div>
-          </div>
-          <div class="results-grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr))">
-            <div class="res-card"><div class="res-label">Custo do plano</div><div class="res-val" id="f-custo">R$ 0</div></div>
-            <div class="res-card"><div class="res-label">Preço sugerido</div><div class="res-val highlight" id="f-preco">R$ 0</div></div>
-            <div class="res-card"><div class="res-label">Imposto estimado</div><div class="res-val" id="f-imposto">R$ 0</div></div>
-            <div class="res-card"><div class="res-label">Seu lucro líquido</div><div class="res-val highlight" id="f-lucro">R$ 0</div></div>
-          </div>
-          <div class="calc-tip" style="margin-top:1.25rem">💡 Esses valores são a base — o preço final pode ser ajustado conforme complexidade, periodicidade e perfil do cliente. Use como piso, nunca como teto.</div>
+        <div class="svc-hdr-row">
+          <span></span><span>Serviço</span><span style="text-align:center">Volume</span><span style="text-align:center">H/exec</span><span style="text-align:right">Total h</span>
         </div>
+        <div id="svc-lista"></div>
+        <div style="margin-top:1rem;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:4px;padding:.9rem 1.1rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+          <div><div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.2rem">Total horas/mês</div><div style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text" id="r-hop">0,00h</div></div>
+          <div style="text-align:right"><div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.2rem">Base técnica</div><div style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text" id="r-base">R$ 0</div></div>
+        </div>
+      </div>
+      <div class="nav-btns"><div></div><button class="btn-primary" onclick="goP(2)">Próximo: Complexidade →</button></div>
+    </div>
 
+    <!-- P2 -->
+    <div class="panel calc-inner" id="p2">
+      <div class="calc-card">
+        <div class="calc-card-hdr"><div class="calc-card-icon">📊</div><div><div class="calc-card-title">Perfil operacional do cliente</div><div class="calc-card-sub">Volume e estrutura que impactam a carga de trabalho</div></div></div>
+        <div class="cg2">
+          <div class="cf"><label>Contas bancárias</label>
+            <select id="c-contas" oninput="calc()">
+              <option value="1">1 conta</option><option value="1.2" selected>2 a 3 contas</option><option value="1.5">4 a 6 contas</option><option value="1.8">7 ou mais</option>
+            </select>
+          </div>
+          <div class="cf"><label>Bancos diferentes</label>
+            <select id="c-bancos" oninput="calc()">
+              <option value="1" selected>1 banco</option><option value="1.15">2 bancos</option><option value="1.3">3 bancos</option><option value="1.5">4 ou mais</option>
+            </select>
+          </div>
+          <div class="cf"><label>Volume de movimentações/mês</label>
+            <select id="c-mov" oninput="calc()">
+              <option value="1">Até 100</option><option value="1.2" selected>101 a 300</option><option value="1.5">301 a 600</option><option value="1.8">601 a 1.000</option><option value="2.2">Acima de 1.000</option>
+            </select>
+          </div>
+          <div class="cf"><label>Empresas do grupo</label>
+            <select id="c-empresas" oninput="calc()">
+              <option value="1" selected>1 empresa</option><option value="1.5">2 empresas</option><option value="1.9">3 empresas</option><option value="2.4">4 ou mais</option>
+            </select>
+          </div>
+        </div>
+        <div class="cg3" style="margin-top:.5rem">
+          <div class="fator"><div class="fator-title">DRE e relatórios gerenciais</div><div class="fopts"><div class="fopt sel" data-id="c-dre" data-val="1" onclick="selFopt(this)">Não precisa</div><div class="fopt yw" data-id="c-dre" data-val="1.15" onclick="selFopt(this)">Básico</div><div class="fopt rd" data-id="c-dre" data-val="1.35" onclick="selFopt(this)">Completo + análise</div></div></div>
+          <div class="fator"><div class="fator-title">Urgência operacional</div><div class="fopts"><div class="fopt sel" data-id="c-urgencia" data-val="1" onclick="selFopt(this)">Normal</div><div class="fopt yw" data-id="c-urgencia" data-val="1.15" onclick="selFopt(this)">Moderada</div><div class="fopt rd" data-id="c-urgencia" data-val="1.35" onclick="selFopt(this)">Alta urgência</div></div></div>
+          <div class="fator"><div class="fator-title">Plataformas digitais</div><div class="fopts"><div class="fopt sel" data-id="c-plat" data-val="1" onclick="selFopt(this)">Nenhuma</div><div class="fopt yw" data-id="c-plat" data-val="1.2" onclick="selFopt(this)">1 a 2</div><div class="fopt rd" data-id="c-plat" data-val="1.4" onclick="selFopt(this)">3 ou mais</div></div></div>
+        </div>
+      </div>
+
+      <div class="calc-card">
+        <div class="calc-card-hdr"><div class="calc-card-icon">🧠</div><div><div class="calc-card-title">Complexidade estratégica</div><div class="calc-card-sub">Dois clientes com o mesmo volume podem ter valores completamente diferentes</div></div></div>
+        <div class="cg2">
+          <div class="fator"><div class="fator-title">Nível de desorganização financeira</div><div class="fopts"><div class="fopt sel" data-id="c-desordem" data-val="1" onclick="selFopt(this)">Organizado</div><div class="fopt" data-id="c-desordem" data-val="1.1" onclick="selFopt(this)">Leve</div><div class="fopt yw" data-id="c-desordem" data-val="1.25" onclick="selFopt(this)">Bastante</div><div class="fopt rd" data-id="c-desordem" data-val="1.45" onclick="selFopt(this)">Caos total</div></div></div>
+          <div class="fator"><div class="fator-title">Maturidade financeira do cliente</div><div class="fopts"><div class="fopt sel" data-id="c-maturidade" data-val="1" onclick="selFopt(this)">Alta</div><div class="fopt" data-id="c-maturidade" data-val="1.1" onclick="selFopt(this)">Média</div><div class="fopt yw" data-id="c-maturidade" data-val="1.25" onclick="selFopt(this)">Baixa</div><div class="fopt rd" data-id="c-maturidade" data-val="1.4" onclick="selFopt(this)">Nenhuma</div></div></div>
+          <div class="fator"><div class="fator-title">Suporte consultivo exigido</div><div class="fopts"><div class="fopt sel" data-id="c-consultivo" data-val="1" onclick="selFopt(this)">Só executa</div><div class="fopt" data-id="c-consultivo" data-val="1.15" onclick="selFopt(this)">Análise básica</div><div class="fopt yw" data-id="c-consultivo" data-val="1.3" onclick="selFopt(this)">Consultivo</div><div class="fopt rd" data-id="c-consultivo" data-val="1.5" onclick="selFopt(this)">CFO terceirizado</div></div></div>
+          <div class="fator"><div class="fator-title">Dificuldade de comunicação</div><div class="fopts"><div class="fopt sel" data-id="c-comunicacao" data-val="1" onclick="selFopt(this)">Ótima</div><div class="fopt" data-id="c-comunicacao" data-val="1.08" onclick="selFopt(this)">Boa</div><div class="fopt yw" data-id="c-comunicacao" data-val="1.18" onclick="selFopt(this)">Difícil</div><div class="fopt rd" data-id="c-comunicacao" data-val="1.3" onclick="selFopt(this)">Muito difícil</div></div></div>
+          <div class="fator"><div class="fator-title">Risco operacional</div><div class="fopts"><div class="fopt sel" data-id="c-risco" data-val="1" onclick="selFopt(this)">Baixo</div><div class="fopt" data-id="c-risco" data-val="1.1" onclick="selFopt(this)">Médio</div><div class="fopt yw" data-id="c-risco" data-val="1.25" onclick="selFopt(this)">Alto</div><div class="fopt rd" data-id="c-risco" data-val="1.4" onclick="selFopt(this)">Crítico</div></div></div>
+          <div class="fator"><div class="fator-title">Tomada de decisão envolvida</div><div class="fopts"><div class="fopt sel" data-id="c-decisao" data-val="1" onclick="selFopt(this)">Só executa</div><div class="fopt" data-id="c-decisao" data-val="1.1" onclick="selFopt(this)">Suporte</div><div class="fopt yw" data-id="c-decisao" data-val="1.25" onclick="selFopt(this)">Decide operacional</div><div class="fopt rd" data-id="c-decisao" data-val="1.4" onclick="selFopt(this)">Estratégico</div></div></div>
+        </div>
+      </div>
+      <div class="nav-btns"><button class="btn-ghost" onclick="goP(1)">← Voltar</button><button class="btn-primary" onclick="goP(3)">Próximo: Valor Percebido →</button></div>
+    </div>
+
+    <!-- P3 -->
+    <div class="panel calc-inner" id="p3">
+      <div class="calc-card">
+        <div class="calc-card-hdr"><div class="calc-card-icon">💎</div><div><div class="calc-card-title">Posicionamento e valor percebido</div><div class="calc-card-sub">Eleve o preço conforme sua autoridade, especialização e impacto gerado</div></div></div>
+        <div class="slider-w"><div class="sl-top"><span>Experiência e autoridade</span><span id="lbl-exp">Intermediário (+20%)</span></div><input type="range" id="v-exp" min="1" max="1.8" step="0.05" value="1.2" oninput="updLabel('v-exp','lbl-exp',expLbl);calc()"><div class="sl-tip">Quanto maior sua experiência comprovada, maior a percepção de valor do cliente</div></div>
+        <div class="slider-w"><div class="sl-top"><span>Especialização no nicho</span><span id="lbl-nicho">Especialista no nicho (+25%)</span></div><input type="range" id="v-nicho" min="1" max="1.6" step="0.05" value="1.25" oninput="updLabel('v-nicho','lbl-nicho',nichoLbl);calc()"><div class="sl-tip">Especialistas cobram mais que generalistas. Quanto mais específico seu nicho, maior o valor.</div></div>
+        <div class="slider-w"><div class="sl-top"><span>Posicionamento premium da marca</span><span id="lbl-pos">Profissional (+15%)</span></div><input type="range" id="v-pos" min="1" max="1.5" step="0.05" value="1.15" oninput="updLabel('v-pos','lbl-pos',posLbl);calc()"><div class="sl-tip">Site, processo, proposta e onboarding profissional elevam a percepção de valor</div></div>
+        <div class="slider-w"><div class="sl-top"><span>Urgência e escassez</span><span id="lbl-urg">Agenda disponível (0%)</span></div><input type="range" id="v-urg" min="1" max="1.4" step="0.05" value="1" oninput="updLabel('v-urg','lbl-urg',urgLbl);calc()"><div class="sl-tip">Quando sua agenda está cheia, o preço pode — e deve — subir</div></div>
+        <div class="slider-w"><div class="sl-top"><span>Impacto gerado no cliente</span><span id="lbl-imp">Operacional (+0%)</span></div><input type="range" id="v-imp" min="1" max="1.6" step="0.05" value="1" oninput="updLabel('v-imp','lbl-imp',impLbl);calc()"><div class="sl-tip">Quanto mais você impacta a tomada de decisão e o crescimento, mais vale</div></div>
+        <div class="cg2" style="margin-top:.75rem">
+          <div class="fator"><div class="fator-title">Exclusividade do serviço</div><div class="fopts"><div class="fopt sel" data-id="v-exclus" data-val="1" onclick="selFopt(this)">Padrão de mercado</div><div class="fopt" data-id="v-exclus" data-val="1.1" onclick="selFopt(this)">Diferenciado</div><div class="fopt yw" data-id="v-exclus" data-val="1.2" onclick="selFopt(this)">Exclusivo no nicho</div></div></div>
+          <div class="fator"><div class="fator-title">Regime tributário</div><div class="fopts"><div class="fopt sel" data-id="v-imposto" data-val="0" onclick="selFopt(this)">MEI (0%)</div><div class="fopt" data-id="v-imposto" data-val="0.06" onclick="selFopt(this)">Simples (6%)</div><div class="fopt yw" data-id="v-imposto" data-val="0.116" onclick="selFopt(this)">Lucro Presumido</div><div class="fopt rd" data-id="v-imposto" data-val="0.155" onclick="selFopt(this)">Lucro Real</div></div></div>
+        </div>
+      </div>
+      <div class="nav-btns"><button class="btn-ghost" onclick="goP(2)">← Voltar</button><button class="btn-primary" onclick="goP(4)">Ver Resultado →</button></div>
+    </div>
+
+    <!-- P4 RESULTADO -->
+    <div class="panel calc-inner" id="p4">
+      <div id="alertas" style="margin-bottom:1rem"></div>
+      <div class="resultado">
+        <div class="res-main">
+          <div class="res-eyebrow">Preço recomendado para este cliente</div>
+          <div class="res-price" id="res-preco">R$ 0</div>
+          <div class="res-range" id="res-range">Faixa ideal: R$ 0 — R$ 0</div>
+          <div style="margin-top:.75rem" id="res-premium-badge"></div>
+        </div>
+        <div class="res-cards">
+          <div class="res-card"><div class="rl">Base técnica</div><div class="rv" id="rc-base">R$ 0</div></div>
+          <div class="res-card"><div class="rl">× Complexidade</div><div class="rv yw" id="rc-comp">×1,0</div></div>
+          <div class="res-card"><div class="rl">× Valor percebido</div><div class="rv" style="color:#C46DB5" id="rc-vp">×1,0</div></div>
+          <div class="res-card"><div class="rl">Margem real</div><div class="rv" id="rc-margem">0%</div></div>
+          <div class="res-card"><div class="rl">Impostos</div><div class="rv yw" id="rc-imp">R$ 0</div></div>
+          <div class="res-card"><div class="rl">Lucro líquido</div><div class="rv ok" id="rc-lucro">R$ 0</div></div>
+        </div>
+        <div>
+          <div class="bk-row"><span class="bk-label">Custo operacional alocado</span><span class="bk-val" id="bk-custo">R$ 0</span></div>
+          <div class="bk-row"><span class="bk-label">Fator de complexidade estratégica</span><span class="bk-val" id="bk-comp">×1,00</span></div>
+          <div class="bk-row"><span class="bk-label">Fator de valor percebido</span><span class="bk-val" style="color:#C46DB5" id="bk-vp">×1,00</span></div>
+          <div class="bk-row"><span class="bk-label">Preço antes dos impostos</span><span class="bk-val" id="bk-prev">R$ 0</span></div>
+          <div class="bk-row"><span class="bk-label">Impostos estimados</span><span class="bk-val yw" id="bk-imp">R$ 0</span></div>
+          <div class="bk-row"><span class="bk-label grad">💎 Preço final recomendado</span><span class="bk-val grad" id="bk-final">R$ 0</span></div>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
+        <button class="btn-ghost" onclick="goP(1)">← Recalcular</button>
+        <a href="https://wa.me/5511917101173" class="btn-primary" target="_blank" rel="noopener">💬 Falar com a Claudia</a>
       </div>
     </div>
+
   </div>
 </div>
 
 <!-- ═══ ABA 5: CONTRATO ═══ -->
 <div class="tab-panel" id="panel-contrato">
-  <div style="padding:5rem 5%;background:var(--navy-deep)">
-    <div style="max-width:800px;margin:0 auto;text-align:center">
-      <span class="section-tag" style="margin:0 auto 1rem">Ferramenta gratuita</span>
-      <h2 class="section-title">Gere seu <span class="grad-text">contrato de BPO</span> personalizado</h2>
-      <p class="section-lead" style="margin:0 auto 2.5rem">Preencha os dados do seu escritório e do cliente, selecione os serviços, defina os valores e baixe o contrato pronto em Word (.docx) — com todas as cláusulas revisadas e adequadas à legislação vigente.</p>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-bottom:3rem">
-        <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center">
-          <div style="font-size:1.8rem;margin-bottom:.75rem">⚖️</div>
-          <div style="font-size:.88rem;font-weight:700;margin-bottom:.35rem">Juridicamente revisado</div>
-          <div style="font-size:.78rem;color:var(--muted)">Cláusulas alinhadas ao Código Civil e LGPD</div>
-        </div>
-        <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center">
-          <div style="font-size:1.8rem;margin-bottom:.75rem">✏️</div>
-          <div style="font-size:.88rem;font-weight:700;margin-bottom:.35rem">100% personalizável</div>
-          <div style="font-size:.78rem;color:var(--muted)">Dados do prestador, cliente, serviços e valores</div>
-        </div>
-        <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center">
-          <div style="font-size:1.8rem;margin-bottom:.75rem">⬇️</div>
-          <div style="font-size:.88rem;font-weight:700;margin-bottom:.35rem">Download em Word</div>
-          <div style="font-size:.78rem;color:var(--muted)">Arquivo .docx pronto para assinar digitalmente</div>
-        </div>
-        <div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center">
-          <div style="font-size:1.8rem;margin-bottom:.75rem">🆓</div>
-          <div style="font-size:.88rem;font-weight:700;margin-bottom:.35rem">Totalmente gratuito</div>
-          <div style="font-size:.78rem;color:var(--muted)">Sem cadastro, sem limite de uso</div>
-        </div>
+  <div class="contract-panel">
+    <div class="contract-inner">
+      <span class="eyebrow" style="margin:0 auto .9rem">Ferramenta gratuita</span>
+      <h2 class="section-title" style="font-family:'Cormorant Garamond',serif;text-align:center">Gere seu <span class="grad-text">contrato de BPO</span> personalizado</h2>
+      <p class="section-lead" style="margin:0 auto 2.5rem;text-align:center">Preencha os dados, selecione os serviços, defina os valores e baixe o contrato pronto em Word — com todas as cláusulas revisadas e adequadas à legislação vigente.</p>
+      <div class="contract-features">
+        <div class="cf-item"><div class="fi">⚖️</div><h3>Juridicamente revisado</h3><p>Cláusulas alinhadas ao Código Civil e LGPD</p></div>
+        <div class="cf-item"><div class="fi">✏️</div><h3>100% personalizável</h3><p>Dados do prestador, cliente, serviços e valores</p></div>
+        <div class="cf-item"><div class="fi">⬇️</div><h3>Download em Word</h3><p>Arquivo .docx pronto para assinar digitalmente</p></div>
+        <div class="cf-item"><div class="fi">🆓</div><h3>Totalmente gratuito</h3><p>Sem cadastro, sem limite de uso</p></div>
       </div>
-
-      <a href="gerador-contrato.html" class="btn-grad" style="font-size:.95rem;padding:1rem 2.5rem" target="_blank">
-        📄 Acessar o Gerador de Contrato →
-      </a>
-      <p style="font-size:.75rem;color:var(--muted);margin-top:1rem">Abre em uma nova aba — preencha no seu ritmo</p>
+      <a href="gerador-contrato.html" class="btn-primary" style="font-size:.9rem;padding:1rem 2.5rem" target="_blank">📄 Acessar o Gerador de Contrato →</a>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:1rem;font-weight:300">Abre em uma nova aba — preencha no seu ritmo</p>
     </div>
   </div>
 </div>
-<div class="sobre-section">
+
+<!-- SOBRE -->
+<div class="sobre">
   <div class="sobre-inner">
-    <div class="sobre-photo">
-      <img src="foto-close.jpg" alt="Claudia Bernardo"/>
-    </div>
+    <div class="sobre-photo"><img src="foto-close.jpg" alt="Claudia Bernardo"/></div>
     <div class="sobre-text">
-      <span class="section-tag">Sobre Claudia Bernardo</span>
-      <h2 class="section-title">A especialista que <span class="grad-text">viveu sua realidade</span></h2>
+      <span class="eyebrow">Sobre Claudia Bernardo</span>
+      <h2 class="section-title" style="font-family:'Cormorant Garamond',serif">A especialista que <span class="grad-text">viveu sua realidade</span></h2>
       <p><strong>Claudia Bernardo</strong> é fundadora da Empreenda BPO e da Conexão BPO, especialista em BPO Financeiro com foco em negócios digitais e infoprodutores — com mais de 20 anos de experiência no mercado financeiro. Baseada em <strong>Barueri/SP</strong>, atende clientes em todo o Brasil.</p>
       <p>Percebeu que os infoprodutores tinham uma dor específica: faturavam muito, mas não sabiam o lucro real por produto, não controlavam comissões de afiliados e não entendiam o financeiro do lançamento. Desenvolveu então uma metodologia exclusiva para esse mercado.</p>
       <p>Hoje, além de atender infoprodutores com o BPO da Empreenda, <strong>mentora centenas de profissionais</strong> que querem construir escritórios de BPO especializados em negócios digitais.</p>
@@ -1114,10 +856,9 @@ window.switchPlano = function(p){
 
 <!-- CTA FINAL -->
 <section id="cta-final">
-  <div class="cta-glow"></div>
-  <span class="section-tag" style="margin:0 auto 1rem">Próximo passo</span>
-  <h2>Pronto para ter o financeiro do seu <span class="grad-text">negócio digital em ordem?</span></h2>
-  <p>Fale agora com a Empreenda BPO — o BPO Financeiro especializado em infoprodutores do Brasil.</p>
+  <span class="eyebrow" style="margin:0 auto 1rem">Próximo passo</span>
+  <h2>Pronto para transformar sua empresa em um <span class="grad-text">negócio de resultado?</span></h2>
+  <p>Fale agora com a Empreenda BPO e descubra qual solução é ideal para o seu momento.</p>
   <div class="cta-btns">
     <a href="https://wa.me/5511917101173" class="btn-wpp" target="_blank" rel="noopener">💬 WhatsApp — Fale Agora</a>
     <a href="https://instagram.com/empreendabpo" class="btn-ig" target="_blank" rel="noopener">📱 @empreendabpo</a>
@@ -1136,186 +877,90 @@ window.switchPlano = function(p){
   </div>
 </footer>
 
-<!-- WhatsApp flutuante -->
-<a href="https://wa.me/5511917101173" class="wpp-float" target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<!-- WPP FLUTUANTE -->
+<a href="https://wa.me/5511917101173" class="wpp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <script>
-// tabs já declaradas globalmente acima
-
-// Serviços reais do PDF com tempo estimado em horas/execução
-const SERVICOS = [
-  {id:'conciliacao', nome:'Conciliação bancária',           hUnit:0.25,  vol:'contas',      def:2,  checked:true},
-  {id:'agendamento', nome:'Agendamento bancário',           hUnit:0.05,  vol:'agendamentos', def:20, checked:false},
-  {id:'relatorios',  nome:'Relatórios de desempenho mensal',hUnit:1.5,   vol:'relatórios',  def:1,  checked:true},
-  {id:'nf',          nome:'Emissão de notas fiscais',       hUnit:0.025, vol:'notas',        def:20, checked:false},
-  {id:'boletos',     nome:'Emissão de boletos',             hUnit:0.025, vol:'boletos',      def:10, checked:false},
-  {id:'inadimp',     nome:'Controle de inadimplentes',      hUnit:0.5,   vol:'clientes',     def:5,  checked:true},
-  {id:'cpagar',      nome:'Contas a pagar e receber',       hUnit:0.033, vol:'lançamentos',  def:50, checked:true},
-  {id:'docs',        nome:'Gestão de documentos',           hUnit:0.016, vol:'documentos',   def:50, checked:true},
-  {id:'cartao',      nome:'Conciliação de cartão de crédito',hUnit:0.5,  vol:'faturas',      def:1,  checked:false},
-  {id:'contab',      nome:'Envio à contabilidade',          hUnit:1.0,   vol:'envios',       def:1,  checked:false},
-  {id:'plataformas', nome:'Conciliação de plataformas digitais',hUnit:0.5,vol:'plataformas', def:1,  checked:false},
-  {id:'reuniao',     nome:'Reunião mensal de resultados',   hUnit:1.0,   vol:'reuniões',     def:1,  checked:false},
-  {id:'indicadores', nome:'Indicadores de performance',     hUnit:1.0,   vol:'indicadores',  def:3,  checked:false},
-  {id:'consultoria', nome:'Consultoria empresarial',        hUnit:1.5,   vol:'horas',        def:1,  checked:false},
-  {id:'planejamento',nome:'Planejamento estratégico',       hUnit:3.0,   vol:'sessões',      def:1,  checked:false},
-];
-
-function fmt(v){return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:2})}
-function fmtH(v){return v.toFixed(2).replace('.',',')+'h'}
-
-function buildSvcs(){
-  const el=document.getElementById('svc-lista');
-  if(!el)return;
-  el.innerHTML=SERVICOS.map(s=>`
-    <div style="display:grid;grid-template-columns:20px 1fr 110px 70px;gap:.5rem .75rem;align-items:center;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.05)">
-      <input type="checkbox" id="chk-${s.id}" ${s.checked?'checked':''} onchange="calcFinal()" style="cursor:pointer;width:15px;height:15px;accent-color:#7B8FE4;flex-shrink:0">
-      <label for="chk-${s.id}" style="font-size:.82rem;color:rgba(255,255,255,.85);cursor:pointer">${s.nome}</label>
-      <div style="display:flex;align-items:center;gap:.3rem">
-        <input type="number" id="vol-${s.id}" value="${s.def}" min="0" oninput="calcFinal()" style="width:60px;background:rgba(255,255,255,.05);border:1px solid rgba(91,111,212,.2);border-radius:6px;padding:.3rem .5rem;color:#fff;font-family:'Manrope',sans-serif;font-size:.78rem;text-align:right">
-        <span style="font-size:.7rem;color:var(--muted)">${s.vol}</span>
-      </div>
-      <div style="font-size:.78rem;color:#8B9FE4;text-align:right;font-weight:600" id="h-${s.id}">0,00h</div>
-    </div>`).join('');
-  calcFinal();
-}
-
-function getCustoHora(){
-  const ids=['c-aluguel','c-internet','c-sistema','c-equip','c-func','c-prolabore','c-marketing','c-outros'];
-  const total=ids.reduce((s,id)=>s+(+(document.getElementById(id)?.value||0)),0);
-  const hdia=+(document.getElementById('c-hdia')?.value||6);
-  const dmes=+(document.getElementById('c-dmes')?.value||21);
-  const margem=+(document.getElementById('c-margem')?.value||1.1);
-  const hmes=hdia*dmes;
-  const custoH=hmes>0?(total/hmes)*margem:0;
-  const rTotal=document.getElementById('r-custo-total');
-  const rHmes=document.getElementById('r-horas-mes');
-  const rCH=document.getElementById('r-custo-hora');
-  if(rTotal)rTotal.textContent=fmt(total);
-  if(rHmes)rHmes.textContent=hmes+'h';
-  if(rCH)rCH.textContent=fmt(custoH);
-  return custoH;
-}
-
-function calcHora(){getCustoHora();calcFinal();}
-
-function calcFinal(){
-  const custoH=getCustoHora();
-  let horasTotal=0;
-  SERVICOS.forEach(s=>{
-    const chk=document.getElementById('chk-'+s.id);
-    const vol=+(document.getElementById('vol-'+s.id)?.value||s.def);
-    const hEl=document.getElementById('h-'+s.id);
-    if(chk&&chk.checked){
-      const h=s.hUnit*vol;
-      horasTotal+=h;
-      if(hEl)hEl.textContent=fmtH(h);
-    } else {
-      if(hEl)hEl.textContent='—';
+// ── TABS ──
+window.showTab=function(t){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  var panel=document.getElementById('panel-'+t);
+  if(panel)panel.classList.add('active');
+  var idx={bpo:0,mentoria:1,conexao:2,calc:3,contrato:4}[t];
+  var btns=document.querySelectorAll('.tab-btn');
+  if(btns[idx])btns[idx].classList.add('active');
+  document.getElementById('tabs-nav').scrollIntoView({behavior:'smooth',block:'start'});
+  if(t==='calc'){setTimeout(function(){
+    if(typeof buildSvcs==='function')buildSvcs();
+    if(typeof calc==='function')calc();
+    var p1=document.getElementById('p1');
+    if(p1&&!p1.classList.contains('active')){
+      document.querySelectorAll('#panel-calc .calc-inner').forEach(p=>p.classList.remove('active'));
+      p1.classList.add('active');
+      document.querySelectorAll('.pilar-btn')[0].classList.add('active');
     }
-  });
-  const custoCliente=horasTotal*custoH;
-  const lucroMult=+(document.getElementById('c-lucro')?.value||1.8);
-  const impostoPct=+(document.getElementById('c-imposto')?.value||0.06);
-  const preco=custoCliente*lucroMult;
-  const imposto=preco*impostoPct;
-  const lucro=preco-custoCliente-imposto;
-  const rHC=document.getElementById('r-horas-cliente');
-  const rCC=document.getElementById('r-custo-cliente');
-  if(rHC)rHC.textContent=fmtH(horasTotal);
-  if(rCC)rCC.textContent=fmt(custoCliente);
-  const fC=document.getElementById('f-custo');
-  const fP=document.getElementById('f-preco');
-  const fI=document.getElementById('f-imposto');
-  const fL=document.getElementById('f-lucro');
-  if(fC)fC.textContent=fmt(custoCliente);
-  if(fP)fP.textContent=fmt(preco);
-  if(fI)fI.textContent=fmt(imposto);
-  if(fL)fL.textContent=fmt(lucro);
+  },100);}
 }
 
-document.addEventListener('DOMContentLoaded',function(){buildSvcs();calcFinal();});
-if(document.readyState!=='loading'){buildSvcs();calcFinal();}
-
-// ── CALCULADORA ESTRATÉGICA ──
-
+// ── CALCULATOR ──
 let editTempos=false;
+const foptState={};
 
-// SERVIÇOS com tempo base editável
 const SVCS=[
-  {id:'cpagar',   nome:'Contas a pagar',                  hBase:0.05, vol:50,  unid:'lançamentos', ativo:true},
-  {id:'creceber', nome:'Contas a receber',                hBase:0.04, vol:30,  unid:'lançamentos', ativo:true},
-  {id:'concil',   nome:'Conciliação bancária',            hBase:0.25, vol:2,   unid:'contas',      ativo:true},
-  {id:'fecha',    nome:'Fechamento mensal',               hBase:2.0,  vol:1,   unid:'fechamentos', ativo:true},
-  {id:'relat',    nome:'Relatórios gerenciais',           hBase:1.5,  vol:1,   unid:'relatórios',  ativo:true},
-  {id:'atend',    nome:'Atendimento e suporte',           hBase:0.5,  vol:5,   unid:'demandas',    ativo:true},
-  {id:'reuniao',  nome:'Reuniões gerenciais',             hBase:1.5,  vol:1,   unid:'reuniões',    ativo:false},
-  {id:'control',  nome:'Controladoria e análise',         hBase:3.0,  vol:1,   unid:'análises',    ativo:false},
-  {id:'nf',       nome:'Emissão de notas fiscais',        hBase:0.025,vol:20,  unid:'notas',       ativo:false},
-  {id:'boletos',  nome:'Emissão de boletos',              hBase:0.025,vol:10,  unid:'boletos',     ativo:false},
-  {id:'agend',    nome:'Agendamento bancário',            hBase:0.05, vol:20,  unid:'agendamentos',ativo:false},
-  {id:'inadimp',  nome:'Controle de inadimplentes',       hBase:0.5,  vol:5,   unid:'clientes',    ativo:false},
-  {id:'plat',     nome:'Conciliação plataformas digitais',hBase:0.5,  vol:1,   unid:'plataformas', ativo:false},
-  {id:'cartao',   nome:'Conciliação de cartão',           hBase:0.5,  vol:1,   unid:'faturas',     ativo:false},
-  {id:'planej',   nome:'Planejamento estratégico',        hBase:3.0,  vol:1,   unid:'sessões',     ativo:false},
+  {id:'cpagar',   nome:'Contas a pagar',                   hBase:0.05,  vol:50,  unid:'lançamentos',  ativo:true},
+  {id:'creceber', nome:'Contas a receber',                  hBase:0.04,  vol:30,  unid:'lançamentos',  ativo:true},
+  {id:'concil',   nome:'Conciliação bancária',              hBase:0.25,  vol:2,   unid:'contas',       ativo:true},
+  {id:'fecha',    nome:'Fechamento mensal',                 hBase:2.0,   vol:1,   unid:'fechamentos',  ativo:true},
+  {id:'relat',    nome:'Relatórios gerenciais',             hBase:1.5,   vol:1,   unid:'relatórios',   ativo:true},
+  {id:'atend',    nome:'Atendimento e suporte',             hBase:0.5,   vol:5,   unid:'demandas',     ativo:true},
+  {id:'reuniao',  nome:'Reuniões gerenciais',               hBase:1.5,   vol:1,   unid:'reuniões',     ativo:false},
+  {id:'control',  nome:'Controladoria e análise',           hBase:3.0,   vol:1,   unid:'análises',     ativo:false},
+  {id:'nf',       nome:'Emissão de notas fiscais',          hBase:0.025, vol:20,  unid:'notas',        ativo:false},
+  {id:'boletos',  nome:'Emissão de boletos',                hBase:0.025, vol:10,  unid:'boletos',      ativo:false},
+  {id:'agend',    nome:'Agendamento bancário',              hBase:0.05,  vol:20,  unid:'agendamentos', ativo:false},
+  {id:'inadimp',  nome:'Controle de inadimplentes',         hBase:0.5,   vol:5,   unid:'clientes',     ativo:false},
+  {id:'plat',     nome:'Conciliação plataformas digitais',  hBase:0.5,   vol:1,   unid:'plataformas',  ativo:false},
+  {id:'cartao',   nome:'Conciliação de cartão',             hBase:0.5,   vol:1,   unid:'faturas',      ativo:false},
+  {id:'planej',   nome:'Planejamento estratégico',          hBase:3.0,   vol:1,   unid:'sessões',      ativo:false},
 ];
 
-// Fopt state
-const foptState={};
+document.querySelectorAll('.fopt.sel').forEach(el=>{foptState[el.dataset.id]=parseFloat(el.dataset.val);});
 
 function selFopt(el){
   const id=el.dataset.id;
-  const val=parseFloat(el.dataset.val);
   document.querySelectorAll(`[data-id="${id}"]`).forEach(e=>e.classList.remove('sel'));
   el.classList.add('sel');
-  foptState[id]=val;
+  foptState[id]=parseFloat(el.dataset.val);
   calc();
 }
 
-// Init fopt defaults
-document.querySelectorAll('.fopt.sel').forEach(el=>{
-  foptState[el.dataset.id]=parseFloat(el.dataset.val);
-});
-
-// Labels sliders
-const expLbl=v=>{const p=Math.round((v-1)*100);return p===0?'Iniciante (base)':p<=20?`Intermediário (+${p}%)`:p<=50?`Experiente (+${p}%)`:`Referência no mercado (+${p}%)`};
+const expLbl=v=>{const p=Math.round((v-1)*100);return p===0?'Iniciante (base)':p<=20?`Intermediário (+${p}%)`:p<=50?`Experiente (+${p}%)`:`Referência (+${p}%)`};
 const nichoLbl=v=>{const p=Math.round((v-1)*100);return p===0?'Generalista (base)':p<=15?`Nicho definido (+${p}%)`:p<=30?`Especialista no nicho (+${p}%)`:`Referência no nicho (+${p}%)`};
-const posLbl=v=>{const p=Math.round((v-1)*100);return p===0?'Presença básica (base)':p<=15?`Profissional (+${p}%)`:p<=30?`Premium (+${p}%)`:`Autoridade máxima (+${p}%)`};
-const urgLbl=v=>{const p=Math.round((v-1)*100);return p===0?'Agenda disponível (0%)':p<=15?`Agenda parcialmente cheia (+${p}%)`:p<=25?`Poucos horários (+${p}%)`:`Agenda lotada (+${p}%)`};
-const impLbl=v=>{const p=Math.round((v-1)*100);return p===0?'Operacional (+0%)':p<=20?`Tático (+${p}%)`:p<=40?`Estratégico (+${p}%)`:`Transformacional (+${p}%)`};
+const posLbl=v=>{const p=Math.round((v-1)*100);return p===0?'Presença básica (base)':p<=15?`Profissional (+${p}%)`:p<=30?`Premium (+${p}%)`:`Autoridade (+${p}%)`};
+const urgLbl=v=>{const p=Math.round((v-1)*100);return p===0?'Agenda disponível (0%)':p<=15?`Parcialmente cheia (+${p}%)`:p<=25?`Poucos horários (+${p}%)`:`Lotada (+${p}%)`};
+const impLbl=v=>{const p=Math.round((v-1)*100);return p===0?'Operacional (0%)':p<=20?`Tático (+${p}%)`:p<=40?`Estratégico (+${p}%)`:`Transformacional (+${p}%)`};
 
-function updLabel(inputId,labelId,fn){
-  const v=parseFloat(document.getElementById(inputId).value);
-  document.getElementById(labelId).textContent=fn(v);
-}
+function updLabel(id,lid,fn){const v=parseFloat(document.getElementById(id)?.value||1);const el=document.getElementById(lid);if(el)el.textContent=fn(v);}
+['exp','nicho','pos','urg','imp'].forEach(k=>{const fns={exp:expLbl,nicho:nichoLbl,pos:posLbl,urg:urgLbl,imp:impLbl};updLabel('v-'+k,'lbl-'+k,fns[k]);});
 
-// Init labels
-['exp','nicho','pos','urg','imp'].forEach(k=>{
-  const fns={exp:expLbl,nicho:nichoLbl,pos:posLbl,urg:urgLbl,imp:impLbl};
-  updLabel('v-'+k,'lbl-'+k,fns[k]);
-});
-
-function toggleTempos(){
-  editTempos=!editTempos;
-  document.getElementById('btn-tempos').textContent=editTempos?'fechar':'editar';
-  buildSvcs();
-}
+function toggleTempos(){editTempos=!editTempos;const btn=document.getElementById('btn-tempos');if(btn)btn.textContent=editTempos?'fechar':'editar tempos';buildSvcs();}
 
 function buildSvcs(){
   const el=document.getElementById('svc-lista');
   if(!el)return;
   el.innerHTML=SVCS.map((s,i)=>`
-    <div class="svc-row" id="row-${s.id}">
+    <div class="svc-row">
       <input type="checkbox" id="chk-${s.id}" ${s.ativo?'checked':''} onchange="SVCS[${i}].ativo=this.checked;calc()">
-      <label for="chk-${s.id}" class="svc-name">${s.nome}</label>
-      <div style="display:flex;align-items:center;gap:.3rem">
-        <input type="number" class="svc-input" id="vol-${s.id}" value="${s.vol}" min="0" style="width:55px" oninput="SVCS[${i}].vol=+this.value;calc()">
-        <span style="font-size:.68rem;color:var(--muted);white-space:nowrap">${s.unid}</span>
+      <label for="chk-${s.id}" class="svc-label">${s.nome}</label>
+      <div style="display:flex;align-items:center;gap:.25rem">
+        <input type="number" class="svc-inp" id="vol-${s.id}" value="${s.vol}" min="0" style="width:50px" oninput="SVCS[${i}].vol=+this.value;calc()">
+        <span style="font-size:.62rem;color:var(--muted);white-space:nowrap">${s.unid}</span>
       </div>
-      ${editTempos?`<input type="number" class="svc-input" id="hb-${s.id}" value="${s.hBase}" min="0" step="0.01" style="width:65px" oninput="SVCS[${i}].hBase=+this.value;calc()">`:
-      `<span style="font-size:.75rem;color:rgba(255,255,255,.3);text-align:center">${s.hBase.toFixed(3)}h</span>`}
+      ${editTempos?`<input type="number" class="svc-inp" id="hb-${s.id}" value="${s.hBase}" min="0" step="0.01" style="width:60px" oninput="SVCS[${i}].hBase=+this.value;calc()">`:
+      `<span style="font-size:.68rem;color:rgba(255,255,255,.25);text-align:center">${s.hBase.toFixed(3)}h</span>`}
       <span class="svc-h" id="h-${s.id}">—</span>
     </div>`).join('');
   calc();
@@ -1325,26 +970,18 @@ function fmt(v){return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'
 function fmtD(v){return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:2})}
 function fmtH(v){return v.toFixed(2).replace('.',',')+'h'}
 function fmtX(v){return '×'+v.toFixed(2).replace('.',',')}
-
-function getN(id,def=0){return+(document.getElementById(id)?.value||def);}
-function getFopt(id,def=1){return foptState[id]||def;}
-function getSlider(id,def=1){return+(document.getElementById(id)?.value||def);}
+function gN(id,def=0){return+(document.getElementById(id)?.value||def);}
+function gF(id,def=1){return foptState[id]??def;}
+function gS(id,def=1){return+(document.getElementById(id)?.value||def);}
 
 function calc(){
-  // ── PILAR 1: CUSTO/HORA ──
-  const custos=[
-    getN('o-prolabore',3000),getN('o-func'),getN('o-sistema',500),
-    getN('o-aluguel'),getN('o-internet',200),getN('o-equip',150),
-    getN('o-mkt',300),getN('o-cursos',200),getN('o-outros')
-  ];
+  const custos=[gN('o-prolabore',3000),gN('o-func'),gN('o-sistema',500),gN('o-aluguel'),gN('o-internet',200),gN('o-equip',150),gN('o-mkt',300),gN('o-cursos',200),gN('o-outros')];
   const totalCusto=custos.reduce((a,b)=>a+b,0);
-  const hdia=getN('o-hdia',6),dmes=getN('o-dmes',21);
+  const hdia=gN('o-hdia',6),dmes=gN('o-dmes',21);
   const hmes=hdia*dmes;
   const ch=hmes>0?totalCusto/hmes:0;
-  const percCliente=getN('o-perc',1)||1;
-  const custoAlocado=totalCusto*percCliente;
-
-  // Horas operacionais
+  const perc=gN('o-perc',1)||1;
+  const custoAloc=totalCusto*perc;
   let hopTotal=0;
   SVCS.forEach(s=>{
     const h=s.ativo?(s.hBase*s.vol):0;
@@ -1352,107 +989,34 @@ function calc(){
     const el=document.getElementById('h-'+s.id);
     if(el)el.textContent=s.ativo?fmtH(h):'—';
   });
-  const baseTecnica=hopTotal*ch;
-
-  // Update P1
-  const rTC=document.getElementById('r-total-custo');
-  const rHM=document.getElementById('r-hmes');
-  const rCH=document.getElementById('r-ch');
-  const rCC=document.getElementById('r-custo-cliente');
-  const rHop=document.getElementById('r-hop');
-  const rBase=document.getElementById('r-base');
-  if(rTC)rTC.textContent=fmt(totalCusto);
-  if(rHM)rHM.textContent=hmes+'h';
-  if(rCH)rCH.textContent=fmtD(ch);
-  if(rCC)rCC.textContent=fmt(custoAlocado);
-  if(rHop)rHop.textContent=fmtH(hopTotal);
-  if(rBase)rBase.textContent=fmt(baseTecnica);
-
-  // ── PILAR 2: COMPLEXIDADE ──
-  const fComp=
-    (getN('c-contas',1.2)||1.2)*
-    (getN('c-bancos',1)||1)*
-    (getN('c-mov',1.2)||1.2)*
-    (getN('c-empresas',1)||1)*
-    getFopt('c-dre',1)*
-    getFopt('c-urgencia',1)*
-    getFopt('c-desordem',1)*
-    getFopt('c-maturidade',1)*
-    getFopt('c-consultivo',1)*
-    getFopt('c-comunicacao',1)*
-    getFopt('c-risco',1)*
-    getFopt('c-decisao',1);
-
-  // ── PILAR 3: VALOR PERCEBIDO ──
-  const fVP=
-    getSlider('v-exp',1.2)*
-    getSlider('v-nicho',1.25)*
-    getSlider('v-pos',1.15)*
-    getSlider('v-urg',1)*
-    getSlider('v-imp',1)*
-    getFopt('v-exclus',1);
-
-  const impostoPct=getFopt('v-imposto',0.06);
-
-  // ── CÁLCULO FINAL ──
-  // Usa MAX entre custo alocado e base técnica
-  const baseCalc=Math.max(baseTecnica,custoAlocado*0.3);
+  const baseTec=hopTotal*ch;
+  const set=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v;};
+  set('r-total-custo',fmt(totalCusto));set('r-hmes',hmes+'h');set('r-ch',fmtD(ch));set('r-custo-cliente',fmt(custoAloc));set('r-hop',fmtH(hopTotal));set('r-base',fmt(baseTec));
+  const fComp=gN('c-contas',1.2)*gN('c-bancos',1)*gN('c-mov',1.2)*gN('c-empresas',1)*gF('c-dre',1)*gF('c-urgencia',1)*gF('c-plat',1)*gF('c-desordem',1)*gF('c-maturidade',1)*gF('c-consultivo',1)*gF('c-comunicacao',1)*gF('c-risco',1)*gF('c-decisao',1);
+  const fVP=gS('v-exp',1.2)*gS('v-nicho',1.25)*gS('v-pos',1.15)*gS('v-urg',1)*gS('v-imp',1)*gF('v-exclus',1);
+  const impostoPct=gF('v-imposto',0.06);
+  const baseCalc=Math.max(baseTec,custoAloc*0.3);
   const precoAntes=baseCalc*fComp*fVP;
   const imposto=precoAntes*impostoPct;
   const precoFinal=precoAntes+imposto;
-  const lucroLiq=precoFinal-custoAlocado-imposto;
-  const margemReal=custoAlocado>0?((precoFinal-custoAlocado)/precoFinal*100):0;
-
-  // Faixas
-  const precoMin=precoFinal*0.85;
-  const preco=precoFinal;
-  const precoPremium=precoFinal*1.3;
-
-  // ── UPDATE RESULTADO ──
-  const els={
-    'res-preco':fmt(preco),
-    'res-range':`Faixa ideal: ${fmt(precoMin)} — ${fmt(precoPremium)}`,
-    'rc-base':fmt(baseCalc),
-    'rc-comp':fmtX(fComp),
-    'rc-vp':fmtX(fVP),
-    'rc-margem':Math.round(margemReal)+'%',
-    'rc-imp':fmt(imposto),
-    'rc-lucro':fmt(lucroLiq),
-    'bk-custo':fmt(custoAlocado),
-    'bk-comp':fmtX(fComp),
-    'bk-vp':fmtX(fVP),
-    'bk-prev':fmt(precoAntes),
-    'bk-imp':fmt(imposto),
-    'bk-final':fmt(preco),
-  };
-  for(const[id,val] of Object.entries(els)){
-    const el=document.getElementById(id);
-    if(el)el.textContent=val;
-  }
-
-  // Cor margem
-  const rcM=document.getElementById('rc-margem');
-  if(rcM){rcM.className='rv '+(margemReal>=50?'ok':margemReal>=30?'warn':'bad');}
-  const rcL=document.getElementById('rc-lucro');
-  if(rcL){rcL.className='rv '+(lucroLiq>0?'ok':'bad');}
-
-  // Badge premium
+  const lucroLiq=precoFinal-custoAloc-imposto;
+  const margemReal=custoAloc>0?((precoFinal-custoAloc)/precoFinal*100):0;
+  const precoMin=precoFinal*0.85,precoPremium=precoFinal*1.3;
+  set('res-preco',fmt(precoFinal));set('res-range',`Faixa ideal: ${fmt(precoMin)} — ${fmt(precoPremium)}`);
+  set('rc-base',fmt(baseCalc));set('rc-comp',fmtX(fComp));set('rc-vp',fmtX(fVP));
+  set('rc-margem',Math.round(margemReal)+'%');set('rc-imp',fmt(imposto));set('rc-lucro',fmt(lucroLiq));
+  set('bk-custo',fmt(custoAloc));set('bk-comp',fmtX(fComp));set('bk-vp',fmtX(fVP));set('bk-prev',fmt(precoAntes));set('bk-imp',fmt(imposto));set('bk-final',fmt(precoFinal));
+  const rcM=document.getElementById('rc-margem');if(rcM)rcM.className='rv '+(margemReal>=50?'ok':margemReal>=30?'yw':'bad');
+  const rcL=document.getElementById('rc-lucro');if(rcL)rcL.className='rv '+(lucroLiq>0?'ok':'bad');
   const pb=document.getElementById('res-premium-badge');
-  if(pb){
-    if(fVP>=1.8)pb.innerHTML='<span class="premium-badge">💎 Posicionamento Premium</span>';
-    else if(fVP>=1.4)pb.innerHTML='<span class="premium-badge">⭐ Posicionamento Profissional</span>';
-    else pb.innerHTML='';
-  }
-
-  // Alertas
+  if(pb)pb.innerHTML=fVP>=1.8?'<span class="prem-badge">💎 Posicionamento Premium</span>':fVP>=1.4?'<span class="prem-badge">⭐ Posicionamento Profissional</span>':'';
   const alertas=document.getElementById('alertas');
   if(alertas){
     const msgs=[];
-    if(preco<custoAlocado*1.3)msgs.push({t:'danger',i:'⚠️',m:'Preço muito baixo! Está abaixo do mínimo recomendado. Você terá dificuldade de sustentar a operação.'});
-    if(margemReal<30)msgs.push({t:'warn',i:'⚠️',m:'Margem abaixo de 30%. Considere aumentar o valor percebido ou reduzir o escopo.'});
+    if(precoFinal<custoAloc*1.3)msgs.push({t:'danger',i:'⚠️',m:'Preço muito baixo! Abaixo do mínimo recomendado — você não conseguirá sustentar a operação.'});
+    if(margemReal<30&&margemReal>0)msgs.push({t:'yw',i:'⚠️',m:'Margem abaixo de 30%. Considere aumentar o valor percebido ou revisar o escopo.'});
     if(margemReal>=50)msgs.push({t:'ok',i:'✅',m:'Margem saudável! Esse preço sustenta sua operação com qualidade.'});
-    if(fVP>=1.5)msgs.push({t:'info',i:'💎',m:'Seu posicionamento premium justifica esse preço. Comunique bem seu diferencial na proposta.'});
-    if(fComp>=3)msgs.push({t:'warn',i:'🎯',m:'Cliente de alta complexidade. Certifique-se que o contrato cobre revisão de escopo.'});
+    if(fVP>=1.5)msgs.push({t:'info',i:'💎',m:'Posicionamento premium detectado. Comunique bem seu diferencial na proposta.'});
     alertas.innerHTML=msgs.map(m=>`<div class="alert ${m.t}"><span>${m.i}</span><span>${m.m}</span></div>`).join('');
   }
 }
@@ -1462,18 +1026,13 @@ function goP(n){
   document.querySelectorAll('.pilar-btn').forEach(b=>b.classList.remove('active'));
   var pEl=document.getElementById('p'+n);if(pEl)pEl.classList.add('active');
   document.querySelectorAll('.pilar-btn')[n-1].classList.add('active');
-  for(let i=1;i<n;i++){
-    const d=document.getElementById('dot'+i);
-    if(d)d.classList.add('done');
-  }
+  for(let i=1;i<n;i++){const d=document.getElementById('dot'+i);if(d)d.classList.add('done');}
   document.getElementById('tabs-nav').scrollIntoView({behavior:'smooth',block:'start'});
   if(n===4)calc();
 }
 
-// Init
-buildSvcs();
-calc();
-
+document.addEventListener('DOMContentLoaded',function(){buildSvcs();calc();});
+if(document.readyState!=='loading'){buildSvcs();calc();}
 </script>
 </body>
 </html>
