@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Gerador de Contrato BPO | Empreenda BPO</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1a2f5a;--navy2:#0f1f3d;
+  --blue:#4A6FD4;--purple:#7B5FBF;--pink:#A84DAA;
+  --grad:linear-gradient(110deg,#4A6FD4,#7B5FBF,#A84DAA);
+  --white:#fff;--ink:#f7f9ff;--ink2:#f0f4ff;
+  --text:#1a2f5a;--text2:#2d4070;--text3:#4a5a80;--muted:#6b7a99;
+  --border:rgba(26,47,90,.09);--border2:rgba(74,111,212,.2);
+  --shadow:0 1px 4px rgba(26,47,90,.07);--shadow-md:0 4px 20px rgba(26,47,90,.1);
+}
+body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--text);min-height:100vh}
+.wrap{max-width:860px;margin:0 auto;padding:2rem 1.25rem 5rem}
+.hdr{text-align:center;padding:2.5rem 0 2rem}
+.hdr h1{font-family:'Space Grotesk',sans-serif;font-size:1.9rem;font-weight:700;margin-bottom:.4rem;color:var(--navy)}
+.hdr p{color:var(--muted);font-size:.9rem}
+.grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.steps{display:flex;background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:2rem;box-shadow:var(--shadow)}
+.sbtn{flex:1;padding:.85rem .4rem;text-align:center;font-size:.68rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);cursor:pointer;border:none;background:none;border-right:1px solid var(--border);transition:all .2s}
+.sbtn:last-child{border-right:none}
+.sbtn.active{background:var(--ink2);color:var(--navy)}
+.sbtn .sn{display:block;font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.15rem}
+.panel{display:none}.panel.active{display:block}
+.card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.75rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.card h2{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.25rem;color:var(--navy)}
+.card .sub{font-size:.78rem;color:var(--muted);margin-bottom:1.25rem}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.full{grid-column:1/-1}
+.fld{display:flex;flex-direction:column;gap:.35rem}
+.fld label{font-size:.71rem;color:var(--text3);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.fld input,.fld select{background:var(--ink);border:1px solid var(--border);border-radius:6px;padding:.55rem .8rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.85rem;transition:border-color .2s}
+.fld input:focus,.fld select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(74,111,212,.08)}
+.fld input::placeholder{color:var(--muted)}
+.fld select option{background:#fff;color:var(--text)}
+.fld input[type=file]{padding:.4rem .6rem;cursor:pointer}
+.logo-preview{max-height:60px;border-radius:6px;margin-top:.5rem;display:none;border:1px solid var(--border)}
+.hint{font-size:.68rem;color:var(--muted);margin-top:.2rem}
+.svc-tbl{width:100%;border-collapse:collapse;margin-top:.5rem}
+.svc-tbl th{font-size:.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;padding:.45rem .65rem;border-bottom:2px solid var(--border);text-align:left}
+.svc-tbl td{padding:.4rem .65rem;border-bottom:1px solid var(--border)}
+.svc-tbl input[type=text]{background:var(--ink);border:1px solid var(--border);border-radius:5px;padding:.3rem .55rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.78rem;width:100%}
+.svc-tbl input[type=text]:focus{outline:none;border-color:var(--blue)}
+.svc-tbl input[type=checkbox]{width:15px;height:15px;accent-color:var(--blue);cursor:pointer}
+.nav{display:flex;justify-content:space-between;margin-top:1.25rem;align-items:center}
+.btn-bk{background:none;border:1px solid var(--border2);color:var(--blue);padding:.6rem 1.4rem;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.8rem;cursor:pointer;font-weight:500;transition:all .2s}
+.btn-bk:hover{background:var(--ink2);border-color:var(--blue)}
+.btn-nx{background:var(--grad);color:#fff;border:none;padding:.6rem 1.6rem;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer;box-shadow:0 2px 10px rgba(74,111,212,.2);transition:opacity .2s}
+.btn-nx:hover{opacity:.88}
+.btn-dl{background:var(--grad);color:#fff;border:none;padding:.75rem 1.8rem;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;box-shadow:0 4px 18px rgba(74,111,212,.25);transition:opacity .2s,transform .15s}
+.btn-dl:hover{opacity:.88;transform:translateY(-1px)}
+.btn-dl:disabled{opacity:.5;cursor:not-allowed}
+#prev{background:#fff;color:#000;border-radius:8px;padding:2.5rem 2rem;font-family:'Times New Roman',serif;font-size:13px;line-height:1.85;max-height:600px;overflow-y:auto;margin-top:1.25rem;border:1px solid var(--border);box-shadow:var(--shadow)}
+#prev h1{font-size:15px;text-align:center;font-weight:bold;margin:0 0 1.25rem;text-transform:uppercase}
+#prev h2{font-size:13px;text-align:center;font-weight:bold;margin:1rem 0 .4rem;text-transform:uppercase}
+#prev p{margin-bottom:.6rem;text-align:justify}
+#prev .cl{font-weight:bold;text-align:center;margin:.9rem 0 .3rem}
+#prev table{width:100%;border-collapse:collapse;margin:.75rem 0}
+#prev table th,#prev table td{border:1px solid #000;padding:.35rem .5rem;font-size:12px}
+#prev table th{background:#d0d8f0;text-align:center;font-weight:bold}
+#prev .linha{border-top:1px solid #000;margin-top:2rem;padding-top:.35rem;text-align:center;font-size:12px}
+#prev .logo-area{text-align:center;margin-bottom:1rem}
+#prev .logo-area img{max-height:70px}
+#status{font-size:.82rem;color:var(--blue);margin-top:.75rem;text-align:center;min-height:1.2rem;font-weight:500}
+@media(max-width:620px){.g2{grid-template-columns:1fr}.steps{flex-wrap:wrap}.sbtn{min-width:33%;border-bottom:1px solid var(--border)}}
+</style>
+</head>
+<body>
+
+<!-- NAV consistente com o site principal -->
+<nav style="background:var(--navy);padding:.9rem 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(26,47,90,.15)">
+  <a href="index.html" style="display:flex;align-items:center;gap:.6rem;text-decoration:none">
+    <img src="logo-dark.png" alt="Empreenda BPO" style="height:28px"/>
+  </a>
+  <a href="index.html" style="font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">← Voltar ao site</a>
+</nav>
+
+<div class="wrap">
+  <div class="hdr">
+    <div style="font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.75rem">Ferramenta gratuita</div>
+    <h1>Gerador de <span class="grad-text">Contrato BPO</span></h1>
+    <p>Preencha os dados, visualize e baixe em Word (.docx) — jurídico e personalizado</p>
+  </div>
+
+  <div class="steps">
+    <button class="sbtn active" onclick="go(1)"><span class="sn">1</span>Contratada</button>
+    <button class="sbtn" onclick="go(2)"><span class="sn">2</span>Contratante</button>
+    <button class="sbtn" onclick="go(3)"><span class="sn">3</span>Serviços</button>
+    <button class="sbtn" onclick="go(4)"><span class="sn">4</span>Valores</button>
+    <button class="sbtn" onclick="go(5)"><span class="sn">5</span>Dados Finais</button>
+    <button class="sbtn" onclick="go(6)"><span class="sn">6</span>Baixar</button>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="panel active" id="s1">
+    <div class="card">
+      <h2>Dados da Contratada (seu escritório de BPO)</h2>
+      <p class="sub">Esses dados aparecem como a empresa prestadora do serviço</p>
+      <div class="g2">
+        <div class="fld full"><label>Logo do escritório (PNG ou JPG)</label>
+          <input type="file" id="ct_logo" accept="image/*" onchange="prevLogo(this)"/>
+          <img id="logo_prev" class="logo-preview"/>
+        </div>
+        <div class="fld full"><label>Razão Social</label><input type="text" id="ct_razao" placeholder="EMPREENDA BPO LTDA"/></div>
+        <div class="fld"><label>CNPJ</label><input type="text" id="ct_cnpj" placeholder="00.000.000/0001-00" maxlength="18" oninput="mCNPJ(this)"/></div>
+        <div class="fld"><label>Nome do Responsável</label><input type="text" id="ct_resp" placeholder="Cláudia Bernardo"/></div>
+        <div class="fld full"><label>Endereço completo</label><input type="text" id="ct_end" placeholder="Av. Exemplo, 1000 – Bairro – Cidade/UF – CEP"/></div>
+        <div class="fld"><label>CPF do Responsável</label><input type="text" id="ct_cpf" placeholder="000.000.000-00" maxlength="14" oninput="mCPF(this)"/></div>
+        <div class="fld"><label>Cargo do Responsável</label><input type="text" id="ct_cargo" placeholder="Sócia Administradora"/></div>
+        <div class="fld"><label>E-mail (para cláusula LGPD)</label><input type="text" id="ct_email" placeholder="contato@seuescritorio.com.br"/></div>
+        <div class="fld"><label>Feriado municipal local</label><input type="text" id="ct_feriado" placeholder="ex: 25 de janeiro (Aniversário de Barueri)"/></div>
+      </div>
+    </div>
+    <div class="nav"><div></div><button class="btn-nx" onclick="go(2)">Próximo →</button></div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="panel" id="s2">
+    <div class="card">
+      <h2>Dados da Contratante (cliente)</h2>
+      <p class="sub">Informações da empresa que está contratando o serviço de BPO</p>
+      <div class="g2">
+        <div class="fld full"><label>Razão Social</label><input type="text" id="cc_razao" placeholder="EMPRESA DO CLIENTE LTDA"/></div>
+        <div class="fld"><label>CNPJ</label><input type="text" id="cc_cnpj" placeholder="00.000.000/0001-00" maxlength="18" oninput="mCNPJ(this)"/></div>
+        <div class="fld"><label>Nome do Responsável</label><input type="text" id="cc_resp" placeholder="Nome do responsável"/></div>
+        <div class="fld full"><label>Endereço completo</label><input type="text" id="cc_end" placeholder="Rua Exemplo, 100 – Bairro – Cidade/UF – CEP"/></div>
+        <div class="fld"><label>CPF do Responsável</label><input type="text" id="cc_cpf" placeholder="000.000.000-00" maxlength="14" oninput="mCPF(this)"/></div>
+        <div class="fld"><label>Cargo do Responsável</label><input type="text" id="cc_cargo" placeholder="Administrador(a)"/></div>
+        <div class="fld"><label>Sistema de Gestão Financeira</label><input type="text" id="cc_sistema" placeholder="ex: Conta Azul, Omie, Nibo..."/></div>
+      </div>
+    </div>
+    <div class="nav"><button class="btn-bk" onclick="go(1)">← Voltar</button><button class="btn-nx" onclick="go(3)">Próximo →</button></div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="panel" id="s3">
+    <div class="card">
+      <h2>Serviços Contratados</h2>
+      <p class="sub">Marque os serviços e preencha os limites de volume para cada um</p>
+      <table class="svc-tbl">
+        <thead><tr><th style="width:36px"></th><th>Serviço</th><th style="width:200px">Limite / Volume</th></tr></thead>
+        <tbody>
+          <tr><td><input type="checkbox" checked data-s="conciliacao"></td><td>Conciliação bancária</td><td><input type="text" id="l-conciliacao" placeholder="ex: Até 3 contas"></td></tr>
+          <tr><td><input type="checkbox" data-s="agendamento"></td><td>Agendamento bancário</td><td><input type="text" id="l-agendamento" placeholder="ex: Até 50/mês"></td></tr>
+          <tr><td><input type="checkbox" checked data-s="relatorios"></td><td>Relatórios de desempenho financeiro mensal</td><td><input type="text" id="l-relatorios" placeholder="ex: 1 relatório/mês"></td></tr>
+          <tr><td><input type="checkbox" data-s="nf"></td><td>Emissão de notas fiscais</td><td><input type="text" id="l-nf" placeholder="ex: Até 50/mês"></td></tr>
+          <tr><td><input type="checkbox" data-s="boletos"></td><td>Emissão de boletos</td><td><input type="text" id="l-boletos" placeholder="ex: Até 30/mês"></td></tr>
+          <tr><td><input type="checkbox" checked data-s="inadimplentes"></td><td>Controle de inadimplentes</td><td><input type="text" id="l-inadimplentes" placeholder="ex: Alertas mensais"></td></tr>
+          <tr><td><input type="checkbox" checked data-s="cpagar"></td><td>Controle de contas a pagar e receber</td><td><input type="text" id="l-cpagar" placeholder="ex: Até 7 contas"></td></tr>
+          <tr><td><input type="checkbox" checked data-s="docs"></td><td>Gestão de documentos</td><td><input type="text" id="l-docs" placeholder="ex: Até 100/mês"></td></tr>
+          <tr><td><input type="checkbox" data-s="cartao"></td><td>Conciliação de fatura de cartão</td><td><input type="text" id="l-cartao" placeholder="ex: Até 2 faturas"></td></tr>
+          <tr><td><input type="checkbox" data-s="contabilidade"></td><td>Envio de documentos à contabilidade</td><td><input type="text" id="l-contabilidade" placeholder="ex: Mensal"></td></tr>
+          <tr><td><input type="checkbox" data-s="plataformas"></td><td>Conciliação de outras plataformas</td><td><input type="text" id="l-plataformas" placeholder="ex: Hotmart, Kiwify"></td></tr>
+          <tr><td><input type="checkbox" data-s="reuniao"></td><td>Reunião mensal online ou presencial</td><td><input type="text" id="l-reuniao" placeholder="ex: 1/mês (1h)"></td></tr>
+          <tr><td><input type="checkbox" data-s="indicadores"></td><td>Indicadores de performance</td><td><input type="text" id="l-indicadores" placeholder="ex: Até 3 indicadores"></td></tr>
+          <tr><td><input type="checkbox" data-s="consultoria"></td><td>Consultoria empresarial</td><td><input type="text" id="l-consultoria" placeholder="ex: Sob demanda"></td></tr>
+          <tr><td><input type="checkbox" data-s="planejamento"></td><td>Planejamento estratégico</td><td><input type="text" id="l-planejamento" placeholder="ex: Trimestral"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="nav"><button class="btn-bk" onclick="go(2)">← Voltar</button><button class="btn-nx" onclick="go(4)">Próximo →</button></div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="panel" id="s4">
+    <div class="card">
+      <h2>Valores e Vigência</h2>
+      <p class="sub">Defina o valor mensal, forma de pagamento e prazo do contrato</p>
+      <div class="g2">
+        <div class="fld"><label>Valor mensal (R$)</label><input type="number" id="v_val" placeholder="1500" oninput="atualizaExt()"/></div>
+        <div class="fld"><label>Valor por extenso</label><input type="text" id="v_ext" placeholder="gerado automaticamente" readonly style="opacity:.65"/></div>
+        <div class="fld"><label>Dia de vencimento</label><input type="number" id="v_dia" placeholder="5" min="1" max="28"/></div>
+        <div class="fld"><label>Forma de pagamento</label>
+          <select id="v_forma">
+            <option value="boleto bancário">Boleto bancário</option>
+            <option value="PIX ou transferência bancária">PIX / Transferência</option>
+            <option value="débito automático">Débito automático</option>
+          </select>
+        </div>
+        <div class="fld"><label>Índice de reajuste anual</label>
+          <select id="v_reajuste">
+            <option value="INPC (Índice Nacional de Preços ao Consumidor — IBGE)">INPC — IBGE (recomendado)</option>
+            <option value="IPCA (Índice Nacional de Preços ao Consumidor Amplo — IBGE)">IPCA — IBGE</option>
+            <option value="IGP-M (Índice Geral de Preços do Mercado — FGV)">IGP-M — FGV</option>
+            <option value="variação do Salário Mínimo Nacional">Salário Mínimo*</option>
+          </select>
+          <span class="hint">*Salário Mínimo é vedado como indexador pela CF/88 (art. 7º, IV)</span>
+        </div>
+        <div class="fld"><label>Data de início</label><input type="date" id="v_inicio"/></div>
+        <div class="fld"><label>Vigência</label>
+          <select id="v_vig">
+            <option value="6|seis">6 meses</option>
+            <option value="12|doze" selected>12 meses</option>
+            <option value="24|vinte e quatro">24 meses</option>
+            <option value="0|prazo indeterminado">Prazo indeterminado</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="nav"><button class="btn-bk" onclick="go(3)">← Voltar</button><button class="btn-nx" onclick="go(5)">Próximo →</button></div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="panel" id="s5">
+    <div class="card">
+      <h2>Dados finais</h2>
+      <p class="sub">Cidade, foro e data de assinatura do contrato</p>
+      <div class="g2">
+        <div class="fld"><label>Cidade de assinatura</label><input type="text" id="f_cidade" placeholder="Barueri"/></div>
+        <div class="fld"><label>Data de assinatura</label><input type="date" id="f_data"/></div>
+        <div class="fld full"><label>Foro competente (cláusula 28ª)</label>
+          <input type="text" id="f_foro" placeholder="ex: Barueri — SP"/>
+          <span class="hint">Comarca onde serão resolvidas eventuais disputas</span>
+        </div>
+      </div>
+    </div>
+    <div class="nav"><button class="btn-bk" onclick="go(4)">← Voltar</button><button class="btn-nx" onclick="gerarPreview()">Ver preview →</button></div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="panel" id="s6">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+      <div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700">Preview do contrato</h2>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:.2rem">Role para revisar — depois clique em baixar</p>
+      </div>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap;align-items:center">
+        <button class="btn-bk" onclick="go(5)">← Editar</button>
+        <button class="btn-dl" id="btn-dl" onclick="baixarWord()">⬇ Baixar Word (.docx)</button>
+      </div>
+    </div>
+    <div id="status"></div>
+    <div id="prev"></div>
+  </div>
+</div>
+
+<script>
+let cur=1,logoBase64=null,logoMime='image/png';
+
+function go(n){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('s'+n).classList.add('active');
+  document.querySelectorAll('.sbtn')[n-1].classList.add('active');
+  cur=n;window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function prevLogo(inp){
+  const f=inp.files[0];if(!f)return;
+  logoMime=f.type||'image/png';
+  const r=new FileReader();
+  r.onload=e=>{
+    logoBase64=e.target.result;
+    document.getElementById('logo_prev').src=e.target.result;
+    document.getElementById('logo_prev').style.display='block';
+  };r.readAsDataURL(f);
+}
+
+function mCNPJ(el){let v=el.value.replace(/\D/g,'').slice(0,14);if(v.length>12)v=v.slice(0,2)+'.'+v.slice(2,5)+'.'+v.slice(5,8)+'/'+v.slice(8,12)+'-'+v.slice(12);else if(v.length>8)v=v.slice(0,2)+'.'+v.slice(2,5)+'.'+v.slice(5,8)+'/'+v.slice(8);else if(v.length>5)v=v.slice(0,2)+'.'+v.slice(2,5)+'.'+v.slice(5);else if(v.length>2)v=v.slice(0,2)+'.'+v.slice(2);el.value=v;}
+function mCPF(el){let v=el.value.replace(/\D/g,'').slice(0,11);if(v.length>9)v=v.slice(0,3)+'.'+v.slice(3,6)+'.'+v.slice(6,9)+'-'+v.slice(9);else if(v.length>6)v=v.slice(0,3)+'.'+v.slice(3,6)+'.'+v.slice(6);else if(v.length>3)v=v.slice(0,3)+'.'+v.slice(3);el.value=v;}
+
+const un=['','um','dois','três','quatro','cinco','seis','sete','oito','nove','dez','onze','doze','treze','quatorze','quinze','dezesseis','dezessete','dezoito','dezenove'];
+const dz=['','','vinte','trinta','quarenta','cinquenta','sessenta','setenta','oitenta','noventa'];
+const ct=['','cem','duzentos','trezentos','quatrocentos','quinhentos','seiscentos','setecentos','oitocentos','novecentos'];
+function n2w(n){if(n===0)return'zero';let s='';if(n>=1000){s=n2w(Math.floor(n/1000))+' mil';n=n%1000;if(n>0)s+=' e ';}if(n>=100){s+=ct[Math.floor(n/100)];n=n%100;if(n>0)s+=' e ';}if(n>=20){s+=dz[Math.floor(n/10)];n=n%10;if(n>0)s+=' e ';}if(n>0)s+=un[n];return s;}
+function valExt(v){const i=Math.floor(v),c=Math.round((v-i)*100);let s=n2w(i)+' real'+(i!==1?'s':'');if(c>0)s+=' e '+n2w(c)+' centavo'+(c!==1?'s':'');return s.charAt(0).toUpperCase()+s.slice(1);}
+function atualizaExt(){const v=parseFloat(document.getElementById('v_val').value)||0;document.getElementById('v_ext').value=v>0?valExt(v):'';}
+
+function fmtDt(d){if(!d)return'___/___/______';const[y,m,dia]=d.split('-');const ms=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];return`${parseInt(dia)} de ${ms[parseInt(m)-1]} de ${y}`;}
+
+function getSvcs(){
+  return Array.from(document.querySelectorAll('.svc-tbl input[type=checkbox]'))
+    .filter(c=>c.checked)
+    .map(c=>{const s=c.dataset.s;const l=document.getElementById('l-'+s)?.value||'—';const n=c.closest('tr').querySelector('td:nth-child(2)').textContent.trim();return{nome:n,lim:l};});
+}
+
+function getDados(){
+  const vig=document.getElementById('v_vig').value.split('|');
+  return{
+    ct_razao:v('ct_razao','[RAZÃO SOCIAL CONTRATADA]'),
+    ct_cnpj:v('ct_cnpj','[CNPJ]'),ct_end:v('ct_end','[ENDEREÇO]'),
+    ct_resp:v('ct_resp','[RESPONSÁVEL]'),ct_cargo:v('ct_cargo','Sócia Administradora'),
+    ct_cpf:v('ct_cpf','[CPF]'),ct_email:v('ct_email','contato@seuescritorio.com.br'),
+    ct_feriado:v('ct_feriado','feriado municipal local'),
+    cc_razao:v('cc_razao','[RAZÃO SOCIAL CONTRATANTE]'),
+    cc_cnpj:v('cc_cnpj','[CNPJ]'),cc_end:v('cc_end','[ENDEREÇO]'),
+    cc_resp:v('cc_resp','[RESPONSÁVEL]'),cc_cargo:v('cc_cargo','Administrador(a)'),
+    cc_cpf:v('cc_cpf','[CPF]'),cc_sistema:v('cc_sistema','sistema de gestão financeira'),
+    v_val:v('v_val','0'),v_ext:v('v_ext','[VALOR POR EXTENSO]'),
+    v_dia:v('v_dia','5'),v_forma:document.getElementById('v_forma').value,
+    v_reajuste:document.getElementById('v_reajuste').value,
+    v_inicio:fmtDt(document.getElementById('v_inicio').value),
+    v_vig_n:vig[0],v_vig_ext:vig[1],
+    f_cidade:v('f_cidade','Barueri'),
+    f_foro:v('f_foro',v('f_cidade','Barueri')),
+    f_data:fmtDt(document.getElementById('f_data').value),
+    svcs:getSvcs()
+  };
+}
+function v(id,def){return document.getElementById(id)?.value||def;}
+
+function gerarPreview(){
+  go(6);
+  const d=getDados();
+  const vigStr=d.v_vig_n==='0'?'prazo indeterminado':`${d.v_vig_ext} (${d.v_vig_n}) meses`;
+  const svcRows=d.svcs.map(s=>`<tr><td>${s.nome}</td><td style="text-align:center">${s.lim}</td></tr>`).join('');
+  const svcLista=d.svcs.map(s=>`<li style="margin-bottom:4px">${s.nome}${s.lim&&s.lim!=='—'?' ('+s.lim+')':''}</li>`).join('');
+  const logoHtml=logoBase64?`<div class="logo-area"><img src="${logoBase64}"/></div>`:'';
+  const vFmt=parseFloat(d.v_val).toLocaleString('pt-BR',{minimumFractionDigits:2});
+
+  document.getElementById('prev').innerHTML=`
+${logoHtml}
+<h1>CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE APOIO ADMINISTRATIVO</h1>
+<h2>I — DAS PARTES</h2>
+<p><strong>CONTRATADA: ${d.ct_razao}</strong>, pessoa jurídica de direito privado, inscrita no CNPJ sob o nº <strong>${d.ct_cnpj}</strong>, sediada na ${d.ct_end}, representada neste ato por sua ${d.ct_cargo}, Sr(a). ${d.ct_resp}, CPF ${d.ct_cpf}.</p>
+<p><strong>CONTRATANTE: ${d.cc_razao}</strong>, pessoa jurídica de direito privado, inscrita no CNPJ sob o nº <strong>${d.cc_cnpj}</strong>, sediada na ${d.cc_end}, representada neste ato pelo(a) ${d.cc_cargo}, Sr(a). ${d.cc_resp}, CPF nº ${d.cc_cpf}.</p>
+<h2>DO OBJETO DO CONTRATO</h2>
+<p class="cl">CLÁUSULA 1ª</p>
+<p>O objeto do presente consiste na prestação pela <strong>CONTRATADA</strong> à <strong>CONTRATANTE</strong> dos serviços de apoio administrativo-financeiro, utilizando o sistema <strong>${d.cc_sistema}</strong>, possibilitando estruturar os seguintes itens:</p>
+<ul style="margin:0 0 .75rem 1.5rem">${svcLista}</ul>
+<p><strong>Parágrafo Único:</strong> A disponibilização dos relatórios e funcionalidades vai de acordo com o plano contratado do sistema ${d.cc_sistema} pela <strong>CONTRATANTE</strong>.</p>
+<p class="cl">CLÁUSULA 2ª</p><p>A <strong>CONTRATADA</strong> executará os serviços diretamente no sistema ${d.cc_sistema}, adquirido pela <strong>CONTRATANTE</strong>.</p>
+<p class="cl">CLÁUSULA 3ª</p><p>A <strong>CONTRATADA</strong> limita-se nas informações repassadas pela <strong>CONTRATANTE</strong> para registrar as operações financeiras.</p>
+<p class="cl">CLÁUSULA 4ª</p><p>A <strong>CONTRATADA</strong> executará diariamente os registros financeiros da <strong>CONTRATANTE</strong>.</p>
+<p class="cl">CLÁUSULA 5ª</p><p>A <strong>CONTRATADA</strong> auxiliará a <strong>CONTRATANTE</strong> a fazer as leituras e interpretações dos seus resultados financeiros.</p>
+<h2>DAS CONDIÇÕES DE EXECUÇÃO DOS SERVIÇOS</h2>
+<p class="cl">CLÁUSULA 6ª</p><p>Os serviços serão executados nas dependências da <strong>CONTRATADA</strong>.</p>
+<p class="cl">CLÁUSULA 7ª</p><p>Horário de atendimento: segunda a sexta, das 09:00 às 16:00 (horário de Brasília). Não trabalhamos nos feriados nacionais e no feriado do município: ${d.ct_feriado}.</p>
+<p class="cl">CLÁUSULA 8ª</p><p>A documentação indispensável será fornecida pela <strong>CONTRATANTE</strong>, consistindo em: a) Informações bancárias — agência, conta e senha de consulta ao internet banking. b) Número do estabelecimento e senha de acesso ao Portal das Plataformas de recebimentos.</p>
+<h2>DOS DEVERES DA CONTRATADA</h2>
+<p class="cl">CLÁUSULA 9ª</p><p>A <strong>CONTRATADA</strong> desempenhará os serviços com todo zelo, diligência, honestidade e sigilo, observada a legislação vigente, resguardando os interesses da <strong>CONTRATANTE</strong>.</p>
+<h2>CONFIDENCIALIDADE</h2>
+<p class="cl">CLÁUSULA 10ª</p><p>As Partes se obrigam a não divulgar dados e informações sigilosas, não permitindo uso por terceiros para fins diversos do objeto deste acordo.</p>
+<p class="cl">CLÁUSULA 11ª</p><p>A <strong>CONTRATADA</strong> responsabiliza-se por todos os prepostos que atuarem nos serviços, indenizando a <strong>CONTRATANTE</strong> em caso de culpa ou dolo.</p>
+<p class="cl">CLÁUSULA 12ª</p><p>A <strong>CONTRATADA</strong> fornecerá à <strong>CONTRATANTE</strong>, através do sistema ${d.cc_sistema}, todas as informações relativas ao andamento dos serviços contratados.</p>
+<p class="cl">CLÁUSULA 13ª</p><p>A <strong>CONTRATADA</strong> não assume responsabilidade por informações inidôneas ou incompletas fornecidas pela <strong>CONTRATANTE</strong>.</p>
+<h2>NÃO SÃO DEVERES DA CONTRATADA</h2>
+<p class="cl">CLÁUSULA 14ª</p><p>Não cabe à <strong>CONTRATADA</strong>: a) Negociar com fornecedores, clientes, funcionários ou terceiros em nome da CONTRATANTE; b) Tomar decisões gerenciais; c) Efetuar qualquer ação de cobrança junto aos clientes da CONTRATANTE; d) Decidir sobre a emissão ou não de Nota Fiscal; e) Responsabilizar-se por omissões de receitas não informadas; f) Atestar a veracidade das informações fornecidas pela CONTRATANTE; g) Controlar a movimentação de dinheiro em espécie.</p>
+<h2>DOS DEVERES DA CONTRATANTE</h2>
+<p class="cl">CLÁUSULA 15ª</p><p>A <strong>CONTRATANTE</strong> obriga-se a fornecer todos os dados necessários em tempo hábil e a pagar pontualmente a mensalidade estabelecida na cláusula 16ª.</p>
+<h2>DOS VALORES E DOS REAJUSTAMENTOS</h2>
+<p class="cl">CLÁUSULA 16ª</p><p>A <strong>CONTRATANTE</strong> pagará à <strong>CONTRATADA</strong> a quantia mensal de <strong>R$ ${vFmt} (${d.v_ext})</strong> até o dia ${d.v_dia} do mês referente ao serviço prestado, através de ${d.v_forma}.</p>
+<p class="cl">CLÁUSULA 17ª</p><p>A mensalidade paga após o vencimento acarretará à <strong>CONTRATANTE</strong> multa de 2% (dois por cento) sobre o valor em atraso, mais juros moratórios de 1% (um por cento) ao mês, calculados pro rata die.</p>
+<p class="cl">CLÁUSULA 18ª</p><p>A mensalidade será reajustada anualmente, de forma automática, com base na variação acumulada do <strong>${d.v_reajuste}</strong>, considerando-se como mês a fração igual ou superior a 15 (quinze) dias.</p>
+<p class="cl">CLÁUSULA 19ª</p><p>O valor da mensalidade foi estabelecido considerando o volume de operações da <strong>CONTRATANTE</strong>, conforme tabela abaixo:</p>
+<table><thead><tr><th>Serviço</th><th>Quantidade / Limite</th></tr></thead><tbody>${svcRows}</tbody></table>
+<p class="cl">CLÁUSULA 20ª</p><p>Caso haja aumento relevante e recorrente na demanda por período igual ou superior a 3 (três) meses consecutivos, a <strong>CONTRATADA</strong> realizará revisão contratual com proposta de readequação de honorários. A <strong>CONTRATANTE</strong> poderá limitar a prestação dos serviços ao escopo original caso não formalize a readequação.</p>
+<p class="cl">CLÁUSULA 21ª</p><p>Serviços não especificados na Cláusula Primeira serão cobrados como extraordinários, mediante orçamento previamente aprovado.</p>
+<h2>DA VIGÊNCIA (DO PRAZO)</h2>
+<p class="cl">CLÁUSULA 22ª</p><p>O presente contrato se inicia em <strong>${d.v_inicio}</strong> e terá vigência por ${vigStr}, podendo ser renovado automaticamente por iguais períodos, caso não haja denúncia formal por escrito com antecedência mínima de 30 (trinta) dias.</p>
+<h2>DISPOSIÇÕES FINAIS</h2>
+<p class="cl">CLÁUSULA 23ª</p><p>Os signatários afirmam ser representantes legais competentes para assumir as obrigações descritas neste contrato.</p>
+<h2>RESCISÃO</h2>
+<p class="cl">CLÁUSULA 24ª</p><p>O contrato poderá ser rescindido por qualquer das partes mediante comunicação prévia por escrito com antecedência mínima de 30 (trinta) dias. O descumprimento implicará multa equivalente a 1 (um) honorário mensal vigente.</p>
+<p class="cl">CLÁUSULA 25ª</p><p>A <strong>CONTRATADA</strong> poderá rescindir imediatamente em caso de inadimplência da <strong>CONTRATANTE</strong> conforme cláusula 16ª.</p>
+<h2>LEI GERAL DE PROTEÇÃO DE DADOS</h2>
+<p class="cl">CLÁUSULA 26ª</p><p>As Partes declaram estar em conformidade com a Lei nº 13.709/2018 (LGPD). O tratamento de dados pessoais pela <strong>CONTRATADA</strong> ocorrerá exclusivamente para execução deste contrato (art. 7º, V, da LGPD), sendo a <strong>CONTRATADA</strong> Operadora e a <strong>CONTRATANTE</strong> Controladora. Os dados serão armazenados na plataforma <strong>${d.cc_sistema}</strong> e não serão transferidos a terceiros sem prévia autorização, salvo obrigação legal.</p>
+<p class="cl">CLÁUSULA 27ª</p><p>A <strong>CONTRATADA</strong> obriga-se a: I) tratar os dados nos limites deste Contrato; II) manter sigilo absoluto; III) comunicar incidentes de segurança. Os dados serão retidos por 5 (cinco) anos após o término do contrato. A <strong>CONTRATANTE</strong> poderá exercer os direitos do art. 18 da LGPD pelo e-mail <strong>${d.ct_email}</strong> com o assunto: <em>Solicitação LGPD</em>.</p>
+<h2>DO FORO</h2>
+<p class="cl">CLÁUSULA 28ª</p><p>Fica eleito o Foro da Comarca de <strong>${d.f_foro}</strong>, com expressa renúncia a qualquer outro, por mais privilegiado que seja, para dirimir quaisquer questões oriundas da interpretação ou execução do presente contrato.</p>
+<p style="text-align:center;margin-top:1.5rem">${d.f_cidade}, ${d.f_data}.</p>
+<div style="margin-top:2.5rem">
+  <div class="linha"><strong>CONTRATADA — ${d.ct_razao}</strong><br>${d.ct_resp} — CPF ${d.ct_cpf}</div>
+  <div class="linha"><strong>CONTRATANTE — ${d.cc_razao}</strong><br>${d.cc_resp} — CPF ${d.cc_cpf}</div>
+</div>`;
+}
+
+// ── GERAR WORD ──
+// Constrói um .docx do zero usando a spec OOXML + JSZip
+async function baixarWord(){
+  const btn=document.getElementById('btn-dl');
+  const status=document.getElementById('status');
+  btn.disabled=true;
+  status.textContent='Gerando documento...';
+
+  try{
+    const d=getDados();
+    const vigStr=d.v_vig_n==='0'?'prazo indeterminado':`${d.v_vig_ext} (${d.v_vig_n}) meses`;
+    const vFmt=parseFloat(d.v_val).toLocaleString('pt-BR',{minimumFractionDigits:2});
+
+    // Helpers XML
+    const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    const pr=(indent=0)=>`<w:pPr><w:jc w:val="${indent?'left':'both'}"/><w:spacing w:line="360" w:lineRule="auto" w:before="0" w:after="160"/>${indent?`<w:ind w:left="${indent}"/>`:''}
+<w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr></w:pPr>`;
+    const run=(t,bold=false)=>`<w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="24"/><w:szCs w:val="24"/>${bold?'<w:b/>':''}</w:rPr><w:t xml:space="preserve">${esc(t)}</w:t></w:r>`;
+    const para=(runs,opts={})=>`<w:p>${pr(opts.indent||0)}${runs}</w:p>`;
+    const titulo=t=>para(run(t,true),{center:true})+'\n';
+    const clausula=n=>`<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="360" w:lineRule="auto" w:before="180" w:after="100"/>
+<w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="24"/></w:rPr></w:pPr>
+${run(`CLÁUSULA ${n}ª`,true)}</w:p>\n`;
+    const secTitle=t=>`<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="360" w:lineRule="auto" w:before="240" w:after="160"/>
+<w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="24"/></w:rPr></w:pPr>
+${run(t,true)}</w:p>\n`;
+    const li=t=>`<w:p><w:pPr><w:jc w:val="both"/><w:spacing w:line="360" w:lineRule="auto" w:before="0" w:after="80"/>
+<w:ind w:left="720" w:hanging="360"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="24"/></w:rPr></w:pPr>
+${run(t)}</w:p>\n`;
+
+    // Tabela de serviços
+    const tblBorder=`<w:top w:val="single" w:sz="4" w:color="000000"/><w:bottom w:val="single" w:sz="4" w:color="000000"/><w:left w:val="single" w:sz="4" w:color="000000"/><w:right w:val="single" w:sz="4" w:color="000000"/>`;
+    const cell=(text,w,bold=false,shading='')=>`<w:tc><w:tcPr><w:tcW w:w="${w}" w:type="dxa"/><w:tcBorders>${tblBorder}</w:tcBorders>${shading?`<w:shd w:val="clear" w:color="auto" w:fill="${shading}"/>`:''}
+<w:tcMar><w:top w:w="80" w:type="dxa"/><w:bottom w:w="80" w:type="dxa"/><w:left w:w="120" w:type="dxa"/><w:right w:w="120" w:type="dxa"/></w:tcMar></w:tcPr>
+<w:p><w:pPr><w:jc w:val="${bold?'center':'left'}"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="22"/></w:rPr></w:pPr>${run(text,bold)}</w:p></w:tc>`;
+
+    const tblHdr=`<w:tr>${cell('Serviço',5400,true,'D0D8F0')}${cell('Quantidade / Limite',3600,true,'D0D8F0')}</w:tr>`;
+    const tblRows=d.svcs.map(s=>`<w:tr>${cell(s.nome,5400)}${cell(s.lim,3600)}</w:tr>`).join('');
+    const tabela=`<w:tbl><w:tblPr><w:tblW w:w="9000" w:type="dxa"/><w:tblBorders>${tblBorder}</w:tblBorders></w:tblPr>
+<w:tblGrid><w:gridCol w:w="5400"/><w:gridCol w:w="3600"/></w:tblGrid>
+${tblHdr}${tblRows}</w:tbl>`;
+
+    const svcLista=d.svcs.map(s=>li(`- ${s.nome}${s.lim&&s.lim!=='—'?' ('+s.lim+')':''}`)).join('');
+
+    const assinLinha=(titulo,nome,cpf)=>`<w:p>
+<w:pPr><w:jc w:val="center"/><w:spacing w:line="360" w:lineRule="auto" w:before="480" w:after="80"/>
+<w:pBdr><w:top w:val="single" w:sz="6" w:space="1" w:color="000000"/></w:pBdr></w:pPr>
+${run(titulo,true)}</w:p>
+<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="360" w:lineRule="auto" w:before="0" w:after="0"/></w:pPr>
+${run(`${nome} — CPF ${cpf}`)}</w:p>\n`;
+
+    // Logo XML para Word (se existir)
+    let logoXml='';
+    let logoRelXml='';
+    let logoContentType='';
+    if(logoBase64){
+      // Extrai só os bytes base64 (sem o prefixo data:...)
+      const b64=logoBase64.split(',')[1]||logoBase64;
+      const ext=logoMime.includes('png')?'png':'jpeg';
+      const mime=logoMime.includes('png')?'image/png':'image/jpeg';
+      zip.file(`word/media/logo.${ext}`,b64,{base64:true});
+      logoRelXml=`<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/logo.${ext}"/>`;
+      logoContentType=`<Default Extension="${ext}" ContentType="${mime}"/>`;
+      // EMU: 1 inch = 914400, logo ~4cm wide = ~1440000 EMU, altura ~1.5cm = ~540000 EMU
+      logoXml=`<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="360" w:lineRule="auto" w:before="0" w:after="240"/></w:pPr>
+<w:r><w:rPr/><w:drawing>
+<wp:inline distT="0" distB="0" distL="0" distR="0" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing">
+<wp:extent cx="1440000" cy="540000"/>
+<wp:effectExtent l="0" t="0" r="0" b="0"/>
+<wp:docPr id="1" name="Logo"/>
+<wp:cNvGraphicFramePr><a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/></wp:cNvGraphicFramePr>
+<a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+<a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+<pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+<pic:nvPicPr><pic:cNvPr id="1" name="Logo"/><pic:cNvPicPr/></pic:nvPicPr>
+<pic:blipFill><a:blip r:embed="rId2" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill>
+<pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="1440000" cy="540000"/></a:xfrm>
+<a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr>
+</pic:pic></a:graphicData></a:graphic>
+</wp:inline></w:drawing></w:r></w:p>\n`;
+    }
+
+    const body=`
+${logoXml}
+<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="360" w:lineRule="auto" w:before="0" w:after="400"/>
+<w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/></w:rPr></w:pPr>
+${`<w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="26"/><w:b/></w:rPr><w:t>CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE APOIO ADMINISTRATIVO</w:t></w:r>`}</w:p>
+
+${secTitle('I — DAS PARTES')}
+${para(run('CONTRATADA: ',true)+run(d.ct_razao,true)+run(`, pessoa jurídica de direito privado, inscrita no CNPJ sob o nº `)+run(d.ct_cnpj,true)+run(`, sediada na ${d.ct_end}, representada neste ato por sua ${d.ct_cargo}, Sr(a). ${d.ct_resp}, CPF ${d.ct_cpf}.`))}
+${para(run('CONTRATANTE: ',true)+run(d.cc_razao,true)+run(`, pessoa jurídica de direito privado, inscrita no CNPJ sob o nº `)+run(d.cc_cnpj,true)+run(`, sediada na ${d.cc_end}, representada neste ato pelo(a) ${d.cc_cargo}, Sr(a). ${d.cc_resp}, CPF nº ${d.cc_cpf}.`))}
+
+${secTitle('DO OBJETO DO CONTRATO')}
+${clausula('1')}
+${para(run('O objeto do presente consiste na prestação pela ')+run('CONTRATADA',true)+run(' à ')+run('CONTRATANTE',true)+run(` dos serviços de apoio administrativo-financeiro, utilizando o sistema `)+run(d.cc_sistema,true)+run(', possibilitando estruturar os seguintes itens:'))}
+${svcLista}
+${para(run('Parágrafo Único: ',true)+run(`A disponibilização dos relatórios e funcionalidades vai de acordo com o plano contratado do sistema ${d.cc_sistema} pela `)+run('CONTRATANTE',true)+run('.'))}
+${clausula('2')}${para(run('A ')+run('CONTRATADA',true)+run(` executará os serviços diretamente no sistema ${d.cc_sistema}, adquirido pela `)+run('CONTRATANTE',true)+run('.'))}
+${clausula('3')}${para(run('A ')+run('CONTRATADA',true)+run(' limita-se nas informações repassadas pela ')+run('CONTRATANTE',true)+run(' para registrar as operações financeiras.'))}
+${clausula('4')}${para(run('A ')+run('CONTRATADA',true)+run(' executará diariamente os registros financeiros da ')+run('CONTRATANTE',true)+run('.'))}
+${clausula('5')}${para(run('A ')+run('CONTRATADA',true)+run(' auxiliará a ')+run('CONTRATANTE',true)+run(' a fazer as leituras e interpretações dos seus resultados financeiros.'))}
+
+${secTitle('DAS CONDIÇÕES DE EXECUÇÃO DOS SERVIÇOS')}
+${clausula('6')}${para(run('Os serviços serão executados nas dependências da ')+run('CONTRATADA',true)+run('.'))}
+${clausula('7')}${para(run(`Horário de atendimento: segunda a sexta, das 09:00 às 16:00 (horário de Brasília). Não trabalhamos nos feriados nacionais e no feriado do município: ${d.ct_feriado}.`))}
+${clausula('8')}${para(run('A documentação indispensável será fornecida pela ')+run('CONTRATANTE',true)+run(', consistindo em: a) Informações bancárias — agência, conta e senha de consulta ao internet banking; b) Número do estabelecimento e senha de acesso ao Portal das Plataformas de recebimentos.'))}
+
+${secTitle('DOS DEVERES DA CONTRATADA')}
+${clausula('9')}${para(run('A ')+run('CONTRATADA',true)+run(' desempenhará os serviços com todo zelo, diligência, honestidade e sigilo, observada a legislação vigente, resguardando os interesses da ')+run('CONTRATANTE',true)+run('.'))}
+${secTitle('CONFIDENCIALIDADE')}
+${clausula('10')}${para(run('As Partes se obrigam a não divulgar dados e informações sigilosas, não permitindo uso por terceiros para fins diversos do objeto deste acordo.'))}
+${clausula('11')}${para(run('A ')+run('CONTRATADA',true)+run(' responsabiliza-se por todos os prepostos que atuarem nos serviços, indenizando a ')+run('CONTRATANTE',true)+run(' em caso de culpa ou dolo.'))}
+${clausula('12')}${para(run('A ')+run('CONTRATADA',true)+run(` fornecerá à `)+run('CONTRATANTE',true)+run(`, através do sistema ${d.cc_sistema}, todas as informações relativas ao andamento dos serviços contratados.`))}
+${clausula('13')}${para(run('A ')+run('CONTRATADA',true)+run(' não assume responsabilidade por informações inidôneas ou incompletas fornecidas pela ')+run('CONTRATANTE',true)+run('.'))}
+
+${secTitle('NÃO SÃO DEVERES DA CONTRATADA')}
+${clausula('14')}${para(run('Não cabe à ')+run('CONTRATADA',true)+run(': a) Negociar com fornecedores, clientes, funcionários ou terceiros em nome da CONTRATANTE; b) Tomar decisões gerenciais; c) Efetuar qualquer ação de cobrança junto aos clientes da CONTRATANTE; d) Decidir sobre a emissão ou não de Nota Fiscal; e) Responsabilizar-se por omissões de receitas não informadas; f) Atestar a veracidade das informações fornecidas pela CONTRATANTE; g) Controlar a movimentação de dinheiro em espécie.'))}
+
+${secTitle('DOS DEVERES DA CONTRATANTE')}
+${clausula('15')}${para(run('A ')+run('CONTRATANTE',true)+run(' obriga-se a fornecer todos os dados necessários em tempo hábil e a pagar pontualmente a mensalidade estabelecida na cláusula 16ª.'))}
+
+${secTitle('DOS VALORES E DOS REAJUSTAMENTOS')}
+${clausula('16')}${para(run('A ')+run('CONTRATANTE',true)+run(' pagará à ')+run('CONTRATADA',true)+run(' a quantia mensal de ')+run(`R$ ${vFmt} (${d.v_ext})`,true)+run(` até o dia ${d.v_dia} do mês referente ao serviço prestado, através de ${d.v_forma}.`))}
+${clausula('17')}${para(run('A mensalidade paga após o vencimento acarretará à ')+run('CONTRATANTE',true)+run(' multa de 2% (dois por cento) sobre o valor em atraso, mais juros moratórios de 1% (um por cento) ao mês, calculados pro rata die.'))}
+${clausula('18')}${para(run('A mensalidade será reajustada anualmente, de forma automática, com base na variação acumulada do ')+run(d.v_reajuste,true)+run(', considerando-se como mês a fração igual ou superior a 15 (quinze) dias.'))}
+${clausula('19')}${para(run('O valor da mensalidade foi estabelecido considerando o volume de operações da ')+run('CONTRATANTE',true)+run(', conforme tabela abaixo:'))}
+${tabela}
+${clausula('20')}${para(run('Caso haja aumento relevante e recorrente na demanda por período igual ou superior a 3 (três) meses consecutivos, a ')+run('CONTRATADA',true)+run(' realizará revisão contratual com proposta de readequação de honorários.'))}
+${clausula('21')}${para(run('Serviços não especificados na Cláusula Primeira serão cobrados como extraordinários, mediante orçamento previamente aprovado.'))}
+
+${secTitle('DA VIGÊNCIA (DO PRAZO)')}
+${clausula('22')}${para(run('O presente contrato se inicia em ')+run(d.v_inicio,true)+run(` e terá vigência por ${vigStr}, podendo ser renovado automaticamente por iguais períodos, caso não haja denúncia formal por escrito com antecedência mínima de 30 (trinta) dias.`))}
+
+${secTitle('DISPOSIÇÕES FINAIS')}
+${clausula('23')}${para(run('Os signatários afirmam ser representantes legais competentes para assumir as obrigações descritas neste contrato.'))}
+
+${secTitle('RESCISÃO')}
+${clausula('24')}${para(run('O contrato poderá ser rescindido por qualquer das partes mediante comunicação prévia por escrito com antecedência mínima de 30 (trinta) dias. O descumprimento implicará multa equivalente a 1 (um) honorário mensal vigente.'))}
+${clausula('25')}${para(run('A ')+run('CONTRATADA',true)+run(' poderá rescindir imediatamente em caso de inadimplência da ')+run('CONTRATANTE',true)+run(' conforme cláusula 16ª.'))}
+
+${secTitle('LEI GERAL DE PROTEÇÃO DE DADOS')}
+${clausula('26')}${para(run('As Partes declaram estar em conformidade com a Lei nº 13.709/2018 (LGPD). O tratamento de dados pessoais pela ')+run('CONTRATADA',true)+run(' ocorrerá exclusivamente para execução deste contrato (art. 7º, V, da LGPD), sendo a ')+run('CONTRATADA',true)+run(' Operadora e a ')+run('CONTRATANTE',true)+run(` Controladora. Os dados serão armazenados na plataforma `)+run(d.cc_sistema,true)+run(' e não serão transferidos a terceiros sem prévia autorização, salvo obrigação legal.'))}
+${clausula('27')}${para(run('A ')+run('CONTRATADA',true)+run(' obriga-se a: I) tratar os dados nos limites deste Contrato; II) manter sigilo absoluto; III) comunicar incidentes de segurança. Os dados serão retidos por 5 (cinco) anos após o término do contrato. A ')+run('CONTRATANTE',true)+run(' poderá exercer os direitos do art. 18 da LGPD pelo e-mail ')+run(d.ct_email,true)+run(' com o assunto: Solicitação LGPD.'))}
+
+${secTitle('DO FORO')}
+${clausula('28')}${para(run('Fica eleito o Foro da Comarca de ')+run(d.f_foro,true)+run(', com expressa renúncia a qualquer outro, por mais privilegiado que seja, para dirimir quaisquer questões oriundas da interpretação ou execução do presente contrato.'))}
+
+<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:line="360" w:lineRule="auto" w:before="240" w:after="0"/></w:pPr>
+${run(`${d.f_cidade}, ${d.f_data}.`)}</w:p>
+
+${assinLinha(`CONTRATADA — ${d.ct_razao}`,d.ct_resp,d.ct_cpf)}
+${assinLinha(`CONTRATANTE — ${d.cc_razao}`,d.cc_resp,d.cc_cpf)}
+`;
+
+    const docXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+  xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"
+  xmlns:v="urn:schemas-microsoft-com:vml"
+  xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing"
+  xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing"
+  xmlns:w10="urn:schemas-microsoft-com:office:word"
+  xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+  xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml"
+  xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup"
+  xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk"
+  xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml"
+  xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape"
+  mc:Ignorable="w14 wp14">
+<w:body>
+${body}
+<w:sectPr>
+  <w:pgSz w:w="11906" w:h="16838"/>
+  <w:pgMar w:top="1701" w:right="1134" w:bottom="1701" w:left="1701" w:header="709" w:footer="709" w:gutter="0"/>
+</w:sectPr>
+</w:body>
+</w:document>`;
+
+    const relsXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>
+  ${logoRelXml}
+</Relationships>`;
+
+    const stylesXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:docDefaults>
+    <w:rPrDefault><w:rPr>
+      <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/>
+      <w:sz w:val="24"/><w:szCs w:val="24"/>
+    </w:rPr></w:rPrDefault>
+  </w:docDefaults>
+</w:styles>`;
+
+    const contentTypes=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
+  <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>
+  <Default Extension="xml" ContentType="application/xml"/>
+  ${logoContentType}
+  <Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>
+  <Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/>
+</Types>`;
+
+    const rootRels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>
+</Relationships>`;
+
+    const zip=new JSZip();
+    zip.file('[Content_Types].xml',contentTypes);
+    zip.file('_rels/.rels',rootRels);
+    zip.file('word/document.xml',docXml);
+    zip.file('word/styles.xml',stylesXml);
+    zip.file('word/_rels/document.xml.rels',relsXml);
+
+    const blob=await zip.generateAsync({type:'blob',mimeType:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+    const nome=`contrato-bpo-${(d.cc_razao||'cliente').replace(/[^a-zA-Z0-9]/g,'-').toLowerCase().slice(0,40)}.docx`;
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;a.download=nome;
+    document.body.appendChild(a);a.click();
+    setTimeout(()=>{document.body.removeChild(a);URL.revokeObjectURL(url);},2000);
+    status.textContent='✅ Download iniciado! Verifique sua pasta Downloads.';
+  }catch(err){
+    status.textContent='❌ Erro: '+err.message;
+    console.error(err);
+  }finally{
+    btn.disabled=false;
+  }
+}
+</script>
+</body>
+</html>
