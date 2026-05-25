@@ -55,8 +55,8 @@ h1.hero-h em{font-style:italic;background:var(--grad);-webkit-background-clip:te
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
 .btn-primary{background:var(--grad);color:#fff;padding:.85rem 2rem;border-radius:3px;font-size:.82rem;font-weight:600;letter-spacing:.04em;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:opacity .2s,transform .15s;box-shadow:0 8px 32px rgba(91,111,212,.25)}
 .btn-primary:hover{opacity:.88;transform:translateY(-2px)}
-.btn-ghost{border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);padding:.85rem 2rem;border-radius:3px;font-size:.82rem;font-weight:500;letter-spacing:.04em;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .2s}
-.btn-ghost:hover{border-color:rgba(255,255,255,.35);color:#fff}
+.btn-ghost{border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);padding:.85rem 2rem;border-radius:3px;font-size:.82rem;font-weight:500;letter-spacing:.04em;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .2s;background:transparent;cursor:pointer;font-family:'DM Sans',sans-serif}
+.btn-ghost:hover{border-color:rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.04)}
 .hero-proof{display:flex;align-items:center;gap:1.25rem;padding-top:2rem;border-top:1px solid var(--border)}
 .avatars{display:flex}
 .avatars span{width:32px;height:32px;border-radius:50%;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;margin-left:-8px;background:var(--grad)}
@@ -216,7 +216,7 @@ h2.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3
 .cx-cta-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
 
 /* ── CALCULADORA TAB ── */
-.calc-wrap{padding:4rem 5%;background:var(--ink);max-width:1000px;margin:0 auto}
+.calc-wrap{padding:4rem 5%;background:var(--ink2);max-width:1000px;margin:0 auto}
 .pilares{display:flex;gap:0;background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:2rem}
 .pilar-btn{flex:1;padding:.9rem .5rem;text-align:center;font-size:.65rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);cursor:pointer;border:none;background:none;border-right:1px solid var(--border);transition:all .2s;position:relative}
 .pilar-btn:last-child{border-right:none}
@@ -224,7 +224,7 @@ h2.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3
 .pilar-btn .pnum{display:block;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.1rem}
 .pilar-dot{width:6px;height:6px;border-radius:50%;position:absolute;top:8px;right:8px;background:rgba(255,255,255,.1)}
 .pilar-dot.done{background:#2ecc71}
-.calc-card{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:6px;padding:2rem;margin-bottom:1.25rem}
+.calc-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:2rem;margin-bottom:1.25rem}
 .calc-card-hdr{display:flex;align-items:flex-start;gap:.9rem;margin-bottom:1.5rem}
 .calc-card-icon{width:40px;height:40px;border-radius:6px;background:rgba(91,111,212,.1);border:1px solid rgba(91,111,212,.2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
 .calc-card-title{font-size:.9rem;font-weight:600;margin-bottom:.15rem}
@@ -256,10 +256,11 @@ h2.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3
 .fator{margin-bottom:1.25rem}
 .fator-title{font-size:.75rem;font-weight:600;margin-bottom:.55rem;color:rgba(255,255,255,.8)}
 .fopts{display:flex;gap:.4rem;flex-wrap:wrap}
-.fopt{padding:.35rem .8rem;border-radius:2px;border:1px solid var(--border);font-size:.7rem;cursor:pointer;background:transparent;color:var(--muted);transition:all .15s;user-select:none;font-family:'DM Sans',sans-serif}
-.fopt.sel{background:rgba(91,111,212,.15);border-color:rgba(91,111,212,.4);color:var(--white)}
-.fopt.sel.yw{background:rgba(243,156,18,.1);border-color:rgba(243,156,18,.35);color:#f39c12}
-.fopt.sel.rd{background:rgba(231,76,60,.1);border-color:rgba(231,76,60,.35);color:#e74c3c}
+.fopt{padding:.38rem .85rem;border-radius:3px;border:1px solid rgba(255,255,255,.12);font-size:.72rem;cursor:pointer;background:rgba(255,255,255,.05);color:rgba(255,255,255,.6);transition:all .15s;user-select:none;font-family:'DM Sans',sans-serif}
+.fopt:hover{border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.9);background:rgba(255,255,255,.08)}
+.fopt.sel{background:rgba(91,111,212,.2);border-color:rgba(91,111,212,.5);color:var(--white)}
+.fopt.sel.yw{background:rgba(243,156,18,.15);border-color:rgba(243,156,18,.4);color:#f39c12}
+.fopt.sel.rd{background:rgba(231,76,60,.15);border-color:rgba(231,76,60,.4);color:#e74c3c}
 .nav-btns{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;flex-wrap:wrap;gap:1rem}
 .resultado{background:linear-gradient(135deg,rgba(91,111,212,.07),rgba(196,109,181,.05));border:1px solid rgba(91,111,212,.2);border-radius:8px;padding:2.5rem;margin-top:1.25rem}
 .res-main{text-align:center;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
@@ -642,7 +643,7 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.25);font-weight:300}
 
 <!-- ═══ ABA 4: CALCULADORA / PRECIFICAÇÃO ═══ -->
 <div class="tab-panel" id="panel-calc">
-  <div style="padding:3rem 5% 1rem;background:var(--ink);text-align:center">
+  <div style="padding:3rem 5% 1rem;background:var(--ink2);text-align:center">
     <span class="eyebrow" style="margin:0 auto .9rem">Ferramenta estratégica</span>
     <h2 class="section-title" style="font-family:'Cormorant Garamond',serif;text-align:center">Quanto Cobrar pelo <span class="grad-text">meu BPO?</span></h2>
     <p class="section-lead" style="margin:0 auto;text-align:center">Precificação inteligente em 3 pilares: tempo operacional, complexidade estratégica e valor percebido.</p>
