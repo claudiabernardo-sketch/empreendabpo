@@ -414,6 +414,7 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.3);font-weight:300}
 }
 @media(max-width:600px){
   section,.bpo-content,.ment-content,.cx-content,.steps-section,.svcs-section,.progs,.deps,.cx-bens,.cx-plans,.cx-cta,.contract-panel,.sobre,.calc-wrap{padding:3rem 5%}
+  .svcs-grid{grid-template-columns:1fr !important}
   .cg2,.cg3{grid-template-columns:1fr}
   .svc-row,.svc-hdr-row{grid-template-columns:18px 1fr 75px 60px}
   .svc-row .svc-h,.svc-hdr-row span:last-child{display:none}
@@ -493,7 +494,7 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.3);font-weight:300}
 <!-- TABS NAV -->
 <div id="tabs-nav">
   <div class="tabs-wrap">
-    <button class="tab-btn active" onclick="showTab('bpo')">Seja nossa cliente</button>
+    <button class="tab-btn active" onclick="showTab('bpo')">Seja cliente de BPO Financeiro</button>
     <button class="tab-btn" onclick="showTab('mentoria')">Mentoria BPO</button>
     <button class="tab-btn" onclick="showTab('conexao')">Conexão BPO</button>
     <button class="tab-btn" onclick="showTab('calc')">Precificação</button>
@@ -510,7 +511,7 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.3);font-weight:300}
     </div>
     <div class="bpo-content">
       <div class="bpo-badge">Para infoprodutores</div>
-      <span class="eyebrow">Seja nossa cliente</span>
+      <span class="eyebrow">Seja cliente de BPO Financeiro</span>
       <h2 class="section-title" style="font-family:'Cormorant Garamond',serif">Seu financeiro nas mãos de quem <em style="font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">entende do seu negócio</em></h2>
       <p>Você é infoprodutor — seu tempo vale ouro e sua energia precisa estar em criar conteúdo, lançar e vender. <strong>Não em reconciliar Hotmart com banco</strong>, entender comissão de afiliado ou montar DRE de lançamento.</p>
       <p>A Empreenda BPO entende a lógica do negócio digital: lançamentos sazonais, múltiplas plataformas, coprodução, afiliados, receita recorrente. <strong>Cuidamos de tudo com processos e relatórios feitos para sua realidade.</strong></p>
@@ -808,14 +809,14 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.3);font-weight:300}
       <div class="calc-card">
         <div class="calc-card-hdr"><div class="calc-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h2M7 11h2M13 8h4M13 11h4"/></svg></div><div><div class="calc-card-title">Seus custos operacionais mensais</div><div class="calc-card-sub">Preencha seus custos reais para calcular o custo/hora verdadeiro</div></div></div>
         <div class="cg3">
-          <div class="cf"><label>Pró-labore (R$)</label><input type="number" id="o-prolabore" value="3000" min="0" oninput="calc()"></div>
+          <div class="cf"><label>Pró-labore (R$)</label><input type="number" id="o-prolabore" value="2500" min="0" oninput="calc()"></div>
           <div class="cf"><label>Funcionários / Prestadores (R$)</label><input type="number" id="o-func" value="0" min="0" oninput="calc()"></div>
-          <div class="cf"><label>Sistema de gestão (R$)</label><input type="number" id="o-sistema" value="500" min="0" oninput="calc()"></div>
+          <div class="cf"><label>Sistema de gestão (R$)</label><input type="number" id="o-sistema" value="300" min="0" oninput="calc()"></div>
           <div class="cf"><label>Aluguel / Infraestrutura (R$)</label><input type="number" id="o-aluguel" value="0" min="0" oninput="calc()"></div>
-          <div class="cf"><label>Internet + Telefone (R$)</label><input type="number" id="o-internet" value="200" min="0" oninput="calc()"></div>
-          <div class="cf"><label>Equipamentos (R$)</label><input type="number" id="o-equip" value="150" min="0" oninput="calc()"></div>
-          <div class="cf"><label>Marketing (R$)</label><input type="number" id="o-mkt" value="300" min="0" oninput="calc()"></div>
-          <div class="cf"><label>Capacitação (R$)</label><input type="number" id="o-cursos" value="200" min="0" oninput="calc()"></div>
+          <div class="cf"><label>Internet + Telefone (R$)</label><input type="number" id="o-internet" value="150" min="0" oninput="calc()"></div>
+          <div class="cf"><label>Equipamentos (R$)</label><input type="number" id="o-equip" value="100" min="0" oninput="calc()"></div>
+          <div class="cf"><label>Marketing (R$)</label><input type="number" id="o-mkt" value="200" min="0" oninput="calc()"></div>
+          <div class="cf"><label>Capacitação (R$)</label><input type="number" id="o-cursos" value="150" min="0" oninput="calc()"></div>
           <div class="cf"><label>Outros (R$)</label><input type="number" id="o-outros" value="0" min="0" oninput="calc()"></div>
         </div>
         <div class="cg3" style="margin-top:.75rem">
@@ -1060,20 +1061,22 @@ let editTempos=false;
 const foptState={};
 
 const SVCS=[
-  {id:'cpagar',   nome:'Contas a pagar',                   hBase:0.05,  vol:50,  unid:'lançamentos',  ativo:true},
-  {id:'creceber', nome:'Contas a receber',                  hBase:0.04,  vol:30,  unid:'lançamentos',  ativo:true},
-  {id:'concil',   nome:'Conciliação bancária',              hBase:0.25,  vol:2,   unid:'contas',       ativo:true},
-  {id:'fecha',    nome:'Fechamento mensal',                 hBase:2.0,   vol:1,   unid:'fechamentos',  ativo:true},
-  {id:'relat',    nome:'Relatórios gerenciais',             hBase:1.5,   vol:1,   unid:'relatórios',   ativo:true},
-  {id:'atend',    nome:'Atendimento e suporte',             hBase:0.5,   vol:5,   unid:'demandas',     ativo:true},
+  // Tempos baseados em mercado real BPO Financeiro Brasil
+  // Volume padrão para cliente MEI/ME típico
+  {id:'cpagar',   nome:'Contas a pagar',                   hBase:0.08,  vol:30,  unid:'lançamentos',  ativo:true},
+  {id:'creceber', nome:'Contas a receber',                  hBase:0.08,  vol:20,  unid:'lançamentos',  ativo:true},
+  {id:'concil',   nome:'Conciliação bancária',              hBase:0.5,   vol:1,   unid:'contas',       ativo:true},
+  {id:'fecha',    nome:'Fechamento mensal',                 hBase:2.5,   vol:1,   unid:'fechamentos',  ativo:true},
+  {id:'relat',    nome:'Relatórios gerenciais',             hBase:2.0,   vol:1,   unid:'relatórios',   ativo:true},
+  {id:'atend',    nome:'Atendimento e suporte',             hBase:0.5,   vol:4,   unid:'demandas',     ativo:true},
   {id:'reuniao',  nome:'Reuniões gerenciais',               hBase:1.5,   vol:1,   unid:'reuniões',     ativo:false},
   {id:'control',  nome:'Controladoria e análise',           hBase:3.0,   vol:1,   unid:'análises',     ativo:false},
-  {id:'nf',       nome:'Emissão de notas fiscais',          hBase:0.025, vol:20,  unid:'notas',        ativo:false},
-  {id:'boletos',  nome:'Emissão de boletos',                hBase:0.025, vol:10,  unid:'boletos',      ativo:false},
-  {id:'agend',    nome:'Agendamento bancário',              hBase:0.05,  vol:20,  unid:'agendamentos', ativo:false},
-  {id:'inadimp',  nome:'Controle de inadimplentes',         hBase:0.5,   vol:5,   unid:'clientes',     ativo:false},
-  {id:'plat',     nome:'Conciliação plataformas digitais',  hBase:0.5,   vol:1,   unid:'plataformas',  ativo:false},
-  {id:'cartao',   nome:'Conciliação de cartão',             hBase:0.5,   vol:1,   unid:'faturas',      ativo:false},
+  {id:'nf',       nome:'Emissão de notas fiscais',          hBase:0.05,  vol:15,  unid:'notas',        ativo:false},
+  {id:'boletos',  nome:'Emissão de boletos',                hBase:0.05,  vol:8,   unid:'boletos',      ativo:false},
+  {id:'agend',    nome:'Agendamento bancário',              hBase:0.1,   vol:15,  unid:'agendamentos', ativo:false},
+  {id:'inadimp',  nome:'Controle de inadimplentes',         hBase:0.5,   vol:3,   unid:'clientes',     ativo:false},
+  {id:'plat',     nome:'Conciliação plataformas digitais',  hBase:1.0,   vol:1,   unid:'plataformas',  ativo:false},
+  {id:'cartao',   nome:'Conciliação de cartão',             hBase:0.75,  vol:1,   unid:'faturas',      ativo:false},
   {id:'planej',   nome:'Planejamento estratégico',          hBase:3.0,   vol:1,   unid:'sessões',      ativo:false},
 ];
 
