@@ -157,7 +157,7 @@ h1.hero-h em{font-style:italic;background:var(--grad);-webkit-background-clip:te
 .tab-btn.active{color:var(--navy);border-bottom-color:var(--blue);font-weight:600}
 
 /* ── TAB PANELS ── */
-.tab-panel{display:none !important}.tab-panel.active{display:block !important}
+.tab-panel{display:none}.tab-panel.active{display:block}
 
 /* ── SHARED SECTION ── */
 section{padding:5rem 5%}
@@ -1034,27 +1034,49 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.3);font-weight:300}
 <script>
 // ── TABS ──
 window.showTab=function(t){
-  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  // Esconde todos os painéis via style direto
+  document.querySelectorAll('.tab-panel').forEach(function(p){
+    p.style.display='none';
+    p.classList.remove('active');
+  });
+  document.querySelectorAll('.tab-btn').forEach(function(b){
+    b.classList.remove('active');
+  });
+  // Mostra o painel selecionado
   var panel=document.getElementById('panel-'+t);
-  if(panel)panel.classList.add('active');
+  if(panel){
+    panel.style.display='block';
+    panel.classList.add('active');
+  }
+  // Marca botão ativo
   var idx={bpo:0,mentoria:1,conexao:2,calc:3,contrato:4}[t];
   var btns=document.querySelectorAll('.tab-btn');
   if(btns[idx])btns[idx].classList.add('active');
+  // Scroll para as abas
   var nav=document.getElementById('tabs-nav');
   if(nav)nav.scrollIntoView({behavior:'smooth',block:'start'});
+  // Inicializa calculadora
   if(t==='calc'){setTimeout(function(){
     if(typeof buildSvcs==='function')buildSvcs();
     if(typeof calc==='function')calc();
     var p1=document.getElementById('p1');
     if(p1&&!p1.classList.contains('active')){
-      document.querySelectorAll('#panel-calc .calc-inner').forEach(p=>p.classList.remove('active'));
+      document.querySelectorAll('#panel-calc .calc-inner').forEach(function(p){p.classList.remove('active');});
       p1.classList.add('active');
       var pb=document.querySelectorAll('.pilar-btn');
       if(pb[0])pb[0].classList.add('active');
     }
   },100);}
 }
+
+// Inicializa: garante que só o painel BPO está visível
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.tab-panel').forEach(function(p){
+    p.style.display='none';
+  });
+  var bpo=document.getElementById('panel-bpo');
+  if(bpo){bpo.style.display='block';}
+});
 
 // ── CALCULATOR ──
 let editTempos=false;
