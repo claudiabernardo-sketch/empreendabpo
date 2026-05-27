@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Empreenda BPO | BPO Financeiro para Infoprodutores — Barueri/SP</title>
-<meta name="description" content="BPO Financeiro especializado em negócios digitais e infoprodutores. Conciliação, DRE, controladoria e relatórios financeiros. Atendemos todo o Brasil. Barueri/SP."/>
+<meta name="description" content="BPO Financeiro especializado em infoprodutores. Conciliamos qualquer plataforma digital, organizamos seu financeiro e entregamos relatórios reais. Atendemos todo o Brasil. Barueri/SP."/>
 <meta name="keywords" content="BPO financeiro, BPO financeiro para infoprodutores, gestão financeira negócios digitais, terceirização financeira, BPO financeiro Barueri, BPO financeiro São Paulo, controladoria para infoprodutores, gestão financeira Hotmart, DRE infoprodutor"/>
 <meta name="author" content="Claudia Bernardo — Empreenda BPO"/>
 <meta name="robots" content="index, follow"/>
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://empreendabpo.com.br/"/>
 <meta property="og:title" content="Empreenda BPO | BPO Financeiro para Infoprodutores"/>
-<meta property="og:description" content="Cuidamos do financeiro do seu infonegócio para você focar no que importa — criar, lançar e escalar. Especialistas em Hotmart, Kiwify, afiliados e lançamentos."/>
+<meta property="og:description" content="BPO Financeiro especializado em infoprodutores. Conciliamos qualquer plataforma, organizamos seu financeiro e você foca no que importa — criar, vender e escalar."/>
 <meta property="og:image" content="https://empreendabpo.com.br/foto-hero.jpg"/>
 <meta property="og:locale" content="pt_BR"/>
 <meta property="og:site_name" content="Empreenda BPO"/>
@@ -394,7 +394,15 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.3);font-weight:300}
 .footer-links a{font-size:.7rem;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;font-weight:300}
 .footer-links a:hover{color:rgba(255,255,255,.6)}
 
-/* ── WPP FLOAT ── */
+/* ── FAQ ── */
+.faq-item{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--white);box-shadow:var(--shadow)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem 1.4rem;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;color:var(--navy);text-align:left;transition:background .15s}
+.faq-q:hover{background:var(--ink2)}
+.faq-q.open{background:var(--ink2)}
+.faq-arrow{font-size:1rem;color:var(--blue);transition:transform .25s;flex-shrink:0}
+.faq-q.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{display:none;padding:0 1.4rem 1.1rem;font-size:.85rem;color:var(--text3);line-height:1.8;font-weight:300;border-top:1px solid var(--border)}
+.faq-a.open{display:block}
 .wpp-float{position:fixed;bottom:1.75rem;right:1.75rem;z-index:300;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:transform .2s}
 .wpp-float:hover{transform:scale(1.1)}
 .wpp-float svg{width:26px;height:26px;fill:#fff}
@@ -510,14 +518,14 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.3);font-weight:300}
       <img src="foto-laptop.jpg" alt="Claudia Bernardo trabalhando"/>
     </div>
     <div class="bpo-content">
-      <div class="bpo-badge">Para infoprodutores</div>
+      <div class="bpo-badge">Especialistas em infoprodutores</div>
       <span class="eyebrow">Seja cliente de BPO Financeiro</span>
       <h2 class="section-title" style="font-family:'Cormorant Garamond',serif">Seu financeiro nas mãos de quem <em style="font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">entende do seu negócio</em></h2>
-      <p>Você é infoprodutor — seu tempo vale ouro e sua energia precisa estar em criar conteúdo, lançar e vender. <strong>Não em reconciliar Hotmart com banco</strong>, entender comissão de afiliado ou montar DRE de lançamento.</p>
-      <p>A Empreenda BPO entende a lógica do negócio digital: lançamentos sazonais, múltiplas plataformas, coprodução, afiliados, receita recorrente. <strong>Cuidamos de tudo com processos e relatórios feitos para sua realidade.</strong></p>
+      <p>Você criou um negócio digital para ter liberdade — não para passar horas conciliando plataforma com banco, perdendo tempo com relatório ou sem entender o lucro real de cada lançamento. <strong>Seu tempo deve estar em criar, vender e escalar.</strong></p>
+      <p>A Empreenda BPO entende o infoprodutor de verdade: múltiplas plataformas, coprodução, afiliados, receita recorrente, lançamentos sazonais. <strong>Organizamos tudo com processos e relatórios feitos para a sua realidade — independente de qual plataforma você usa.</strong></p>
       <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem">
         <a href="https://wa.me/5511917101173" class="btn-primary" target="_blank" rel="noopener">Quero ser cliente</a>
-        <a href="#" onclick="showTab('bpo');document.querySelector('.steps-section').scrollIntoView({behavior:'smooth'});return false" class="btn-ghost">Ver como funciona ↓</a>
+        <a href="diagnostico.html" class="btn-ghost" target="_blank">Fazer diagnóstico gratuito →</a>
       </div>
     </div>
   </div>
@@ -527,10 +535,10 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.3);font-weight:300}
       <span class="eyebrow">Como funciona</span>
       <h2 class="section-title" style="font-family:'Cormorant Garamond',serif">Do diagnóstico aos <span class="grad-text">resultados em 30 dias</span></h2>
       <div class="steps-grid">
-        <div class="step"><div class="step-num">01</div><h3>Diagnóstico gratuito</h3><p>Entendemos seu modelo de negócio digital, plataformas usadas, volume e desafios atuais — sem custo.</p></div>
-        <div class="step"><div class="step-num">02</div><h3>Proposta sob medida</h3><p>Montamos um plano financeiro adaptado à sua realidade — lançamentos, assinaturas ou perpétuo.</p></div>
+        <div class="step"><div class="step-num">01</div><h3>Diagnóstico gratuito</h3><p>Mapeamos suas plataformas, volume de operações e desafios financeiros atuais — sem custo e sem compromisso.</p></div>
+        <div class="step"><div class="step-num">02</div><h3>Proposta sob medida</h3><p>Proposta personalizada conforme o seu modelo — lançamento, perpétuo, assinatura ou todos juntos.</p></div>
         <div class="step"><div class="step-num">03</div><h3>Implantação e integração</h3><p>Conectamos suas plataformas, organizamos o histórico e estruturamos todos os processos.</p></div>
-        <div class="step"><div class="step-num">04</div><h3>Gestão contínua</h3><p>Financeiro operando, relatórios mensais e suporte especializado em cada lançamento.</p></div>
+        <div class="step"><div class="step-num">04</div><h3>Gestão contínua</h3><p>Financeiro rodando, relatórios mensais e suporte dedicado em cada lançamento ou virada de mês.</p></div>
       </div>
     </div>
   </div>
@@ -538,14 +546,14 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.3);font-weight:300}
   <div class="svcs-section">
     <div style="max-width:1100px;margin:0 auto">
       <span class="eyebrow">Serviços incluídos</span>
-      <h2 class="section-title" style="font-family:'Cormorant Garamond',serif">Tudo que o negócio digital <span class="grad-text">precisa em um só lugar</span></h2>
+      <h2 class="section-title" style="font-family:'Cormorant Garamond',serif">Tudo que o infoprodutor <span class="grad-text">precisa em um só lugar</span></h2>
       <div class="svcs-grid">
-        <div class="svc"><div style="width:32px;height:32px;background:rgba(74,111,212,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:.85rem"><span style="display:inline-flex;width:17px;height:17px;color:var(--blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M7 15h2M15 15h2"/></svg></span></div><h3>Conciliação de plataformas</h3><p>Hotmart, Kiwify, Eduzz, Monetizze e outras — conciliamos tudo com seu banco automaticamente.</p><div class="svc-tags"><span class="stag">Hotmart</span><span class="stag">Kiwify</span><span class="stag">Multi-plataforma</span></div></div>
+        <div class="svc"><div style="width:32px;height:32px;background:rgba(74,111,212,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:.85rem"><span style="display:inline-flex;width:17px;height:17px;color:var(--blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M7 15h2M15 15h2"/></svg></span></div><h3>Conciliação de plataformas</h3><p>Hotmart, Kiwify, Eduzz, Monetizze, Ticto, Pepper e outras — conciliamos qualquer plataforma com seu banco, sem erro e sem retrabalho.</p><div class="svc-tags"><span class="stag">Multi-plataforma</span><span class="stag">Automático</span><span class="stag">Sem retrabalho</span></div></div>
         <div class="svc"><div style="width:32px;height:32px;background:rgba(74,111,212,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:.85rem"><span style="display:inline-flex;width:17px;height:17px;color:var(--blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="10" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6"/><path d="M11 20c0-3.3 2.7-6 6-6"/></svg></span></div><h3>Afiliados e coprodução</h3><p>Calculamos e controlamos comissões de afiliados e divisão de receita em coproduções sem erro.</p><div class="svc-tags"><span class="stag">Afiliados</span><span class="stag">Coprodução</span><span class="stag">Comissões</span></div></div>
-        <div class="svc"><div style="width:32px;height:32px;background:rgba(74,111,212,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:.85rem"><span style="display:inline-flex;width:17px;height:17px;color:var(--blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span></div><h3>Fluxo de caixa do lançamento</h3><p>Visão financeira completa antes, durante e depois de cada lançamento — sem sustos no final.</p><div class="svc-tags"><span class="stag">Lançamento</span><span class="stag">Projeções</span><span class="stag">Pós-launch</span></div></div>
-        <div class="svc"><div style="width:32px;height:32px;background:rgba(74,111,212,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:.85rem"><span style="display:inline-flex;width:17px;height:17px;color:var(--blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span></div><h3>DRE para negócio digital</h3><p>Relatório de resultado adaptado ao infoProdutor — por produto, por lançamento, por canal.</p><div class="svc-tags"><span class="stag">DRE</span><span class="stag">Por produto</span><span class="stag">Dashboard</span></div></div>
-        <div class="svc"><div style="width:32px;height:32px;background:rgba(74,111,212,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:.85rem"><span style="display:inline-flex;width:17px;height:17px;color:var(--blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></span></div><h3>Controladoria estratégica</h3><p>Planejamento financeiro, metas de receita e análise de margem por produto digital.</p><div class="svc-tags"><span class="stag">Planejamento</span><span class="stag">Metas</span><span class="stag">Margem</span></div></div>
-        <div class="svc"><div style="width:32px;height:32px;background:rgba(74,111,212,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:.85rem"><span style="display:inline-flex;width:17px;height:17px;color:var(--blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span></div><h3>Gestão fiscal e documental</h3><p>NFs, contratos, comprovantes e obrigações fiscais do negócio digital organizados e em dia.</p><div class="svc-tags"><span class="stag">NF</span><span class="stag">Fiscal</span><span class="stag">Contratos</span></div></div>
+        <div class="svc"><div style="width:32px;height:32px;background:rgba(74,111,212,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:.85rem"><span style="display:inline-flex;width:17px;height:17px;color:var(--blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span></div><h3>Fluxo de caixa do lançamento</h3><p>Visão financeira completa antes, durante e depois de cada lançamento — para você saber exatamente quanto sobrou no bolso, sem surpresas.</p><div class="svc-tags"><span class="stag">Lançamento</span><span class="stag">Perpétuo</span><span class="stag">Assinatura</span></div></div>
+        <div class="svc"><div style="width:32px;height:32px;background:rgba(74,111,212,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:.85rem"><span style="display:inline-flex;width:17px;height:17px;color:var(--blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span></div><h3>DRE para infoprodutor</h3><p>Resultado real por produto, por lançamento e por canal de venda. Você decide com dados — não no achismo.</p><div class="svc-tags"><span class="stag">DRE</span><span class="stag">Por produto</span><span class="stag">Por canal</span></div></div>
+        <div class="svc"><div style="width:32px;height:32px;background:rgba(74,111,212,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:.85rem"><span style="display:inline-flex;width:17px;height:17px;color:var(--blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></span></div><h3>Controladoria estratégica</h3><p>Margem real por produto, meta de faturamento e planejamento financeiro — para crescer com inteligência, não no improviso.</p><div class="svc-tags"><span class="stag">Planejamento</span><span class="stag">Margem real</span><span class="stag">Metas</span></div></div>
+        <div class="svc"><div style="width:32px;height:32px;background:rgba(74,111,212,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:.85rem"><span style="display:inline-flex;width:17px;height:17px;color:var(--blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span></div><h3>Gestão fiscal e documental</h3><p>Notas fiscais, contratos, comprovantes e obrigações do seu negócio digital sempre organizados, sem atraso e sem dor de cabeça.</p><div class="svc-tags"><span class="stag">NF</span><span class="stag">Fiscal</span><span class="stag">Organizado</span></div></div>
       </div>
     </div>
   </div>
@@ -554,16 +562,19 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.3);font-weight:300}
     <div style="width:48px;height:48px;background:rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="display:inline-flex;width:26px;height:26px;color:rgba(255,255,255,.9)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 2 17 12 22 22 17 22 7 12 2"/><line x1="12" y1="22" x2="12" y2="2"/><line x1="2" y1="7" x2="22" y2="7"/><line x1="2" y1="17" x2="22" y2="17"/></svg></span></div>
     <div style="flex:1;min-width:200px">
       <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;margin-bottom:.3rem">Valuation do seu negócio digital</h3>
-      <p style="font-size:.82rem;color:var(--muted);line-height:1.65;font-weight:300">Somos especialistas em BPO Financeiro para infoprodutores e também fazemos valuation de negócios digitais. Avaliamos com metodologias adaptadas à realidade de receita recorrente, lançamentos e ativos digitais.</p>
+      <p style="font-size:.82rem;color:var(--muted);line-height:1.65;font-weight:300">Quanto vale o seu negócio digital? Fazemos valuation especializado para infoprodutores — com metodologia adaptada à realidade de receita recorrente, lançamentos, produtos perpétuos e ativos digitais. Ideal para quem pensa em vender, captar investimento ou simplesmente conhecer o valor real do que construiu.</p>
     </div>
     <a href="https://wa.me/5511917101173" class="btn-primary" style="flex-shrink:0;white-space:nowrap" target="_blank" rel="noopener">Quero saber o valor do meu negócio →</a>
   </div>
 
   <div class="cta-strip" style="margin-top:3rem">
     <span class="eyebrow" style="margin:0 auto .9rem">Próximo passo</span>
-    <h3>Pronto para ter o financeiro do seu <span class="grad-text">negócio digital em ordem?</span></h3>
-    <p>Fale com a nossa equipe e receba um diagnóstico financeiro gratuito do seu infonegócio.</p>
-    <a href="https://wa.me/5511917101173" class="btn-primary" target="_blank" rel="noopener">Solicitar diagnóstico gratuito</a>
+    <h3>Chega de operar o financeiro <span class="grad-text">no escuro.</span></h3>
+    <p>Faça o diagnóstico gratuito e descubra como a Empreenda BPO pode transformar o financeiro do seu infonegócio.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="diagnostico.html" class="btn-primary" target="_blank">Fazer diagnóstico gratuito →</a>
+      <a href="https://wa.me/5511917101173" class="btn-ghost" style="border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.8)" target="_blank" rel="noopener">💬 Falar pelo WhatsApp</a>
+    </div>
   </div>
 
 </div>
@@ -748,6 +759,81 @@ footer p{font-size:.7rem;color:rgba(255,255,255,.3);font-weight:300}
         <p style="font-size:.72rem;color:var(--muted);margin-top:.5rem;font-weight:500">— Cláudia Bernardo, fundadora da Conexão BPO</p>
       </div>
 
+    </div>
+  </div>
+
+  <!-- FAQ CONEXÃO BPO -->
+  <div style="background:var(--white);padding:5rem 5%">
+    <div style="max-width:780px;margin:0 auto">
+      <span class="eyebrow">Dúvidas frequentes</span>
+      <h2 class="section-title" style="font-family:'Cormorant Garamond',serif;color:var(--navy)">Perguntas que todo mundo <span class="grad-text">faz antes de entrar</span></h2>
+      <div style="margin-top:2.5rem;display:flex;flex-direction:column;gap:.75rem" id="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>Preciso ter experiência em finanças para entrar na comunidade?</span>
+            <span class="faq-arrow">↓</span>
+          </button>
+          <div class="faq-a">Não. A Conexão BPO foi criada para quem está começando e para quem já opera e quer crescer. O conteúdo cobre desde a estruturação do negócio até a operação avançada — cada um avança no seu ritmo.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>O que exatamente está incluído na comunidade?</span>
+            <span class="faq-arrow">↓</span>
+          </button>
+          <div class="faq-a">Aulas ao vivo a cada 15 dias com a Claudia, gravações de todas as aulas, materiais e templates prontos (planilhas com OFX, modelos de contrato, proposta, onboarding), acesso ao grupo de membros e suporte contínuo da comunidade.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>A comunidade ensina como prospectar clientes?</span>
+            <span class="faq-arrow">↓</span>
+          </button>
+          <div class="faq-a">Sim! Prospecção é um dos pilares do conteúdo. Você aprende onde encontrar clientes, como abordar, como montar uma proposta que converte e como fechar sem parecer que está vendendo.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>Tem material sobre a operação do BPO — conciliação, OFX, relatórios?</span>
+            <span class="faq-arrow">↓</span>
+          </button>
+          <div class="faq-a">Sim, e é o diferencial da Conexão BPO. Você recebe planilhas prontas com OFX, processo de conciliação bancária, modelo de fechamento mensal e templates de relatório. Tudo que você usa no dia a dia da operação.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>As aulas são gravadas? E se eu não puder participar ao vivo?</span>
+            <span class="faq-arrow">↓</span>
+          </button>
+          <div class="faq-a">Todas as aulas são gravadas e ficam disponíveis na plataforma. Você assiste quando quiser, quantas vezes quiser. Não perde nada por não estar ao vivo.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>Como funciona o cancelamento?</span>
+            <span class="faq-arrow">↓</span>
+          </button>
+          <div class="faq-a">Você pode cancelar quando quiser, sem multa e sem burocracia. O acesso continua até o fim do período pago.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>Qual a diferença entre a comunidade e a mentoria individual?</span>
+            <span class="faq-arrow">↓</span>
+          </button>
+          <div class="faq-a">A comunidade é coletiva — conteúdo, aulas e materiais para todos os membros. A mentoria individual é um acompanhamento personalizado direto com a Claudia, com diagnóstico do seu negócio específico e plano de ação customizado. São complementares, não excludentes.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>Em quanto tempo consigo o primeiro cliente após entrar?</span>
+            <span class="faq-arrow">↓</span>
+          </button>
+          <div class="faq-a">Depende da dedicação de cada um, mas membros que aplicam o método de prospecção ensinado na comunidade costumam conseguir o primeiro cliente entre 30 e 60 dias. O método funciona — o que faz a diferença é a execução.</div>
+        </div>
+
+      </div>
     </div>
   </div>
 
@@ -1204,6 +1290,22 @@ function goP(n){
   for(let i=1;i<n;i++){const d=document.getElementById('dot'+i);if(d)d.classList.add('done');}
   document.getElementById('tabs-nav').scrollIntoView({behavior:'smooth',block:'start'});
   if(n===4)calc();
+}
+
+// ── FAQ ──
+function toggleFaq(btn){
+  var answer=btn.nextElementSibling;
+  var isOpen=btn.classList.contains('open');
+  // Fecha todos
+  document.querySelectorAll('.faq-q').forEach(function(b){
+    b.classList.remove('open');
+    b.nextElementSibling.classList.remove('open');
+  });
+  // Abre o clicado se estava fechado
+  if(!isOpen){
+    btn.classList.add('open');
+    answer.classList.add('open');
+  }
 }
 
 document.addEventListener('DOMContentLoaded',function(){buildSvcs();calc();});

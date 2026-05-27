@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Diagnóstico Financeiro Gratuito | Empreenda BPO</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1a2f5a;--navy2:#0f1f3d;--navy3:#253a6b;
+  --blue:#4A6FD4;--purple:#7B5FBF;--pink:#A84DAA;
+  --grad:linear-gradient(110deg,#4A6FD4,#7B5FBF,#A84DAA);
+  --white:#fff;--ink:#f7f9ff;--ink2:#f0f4ff;
+  --text:#1a2f5a;--text2:#2d4070;--text3:#4a5a80;--muted:#6b7a99;
+  --border:rgba(26,47,90,.09);--border2:rgba(74,111,212,.2);
+  --shadow:0 1px 4px rgba(26,47,90,.07);--shadow-md:0 4px 20px rgba(26,47,90,.1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{background:var(--navy);padding:.9rem 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(26,47,90,.15)}
+.nav-logo{height:28px}
+.nav-back{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:#fff}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy3) 100%);padding:4rem 5% 3rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40%;right:-10%;width:60%;height:180%;background:radial-gradient(ellipse,rgba(74,111,212,.15) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:.35rem 1rem;border-radius:100px;font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:1.25rem}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:600;color:#fff;line-height:1.15;margin-bottom:.75rem}
+.hero h1 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:.95rem;color:rgba(255,255,255,.65);max-width:520px;margin:0 auto 2rem;line-height:1.8;font-weight:300}
+.hero-steps{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+.hero-step{display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:rgba(255,255,255,.6)}
+.hero-step span{width:24px;height:24px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:#fff;flex-shrink:0}
+
+/* FORM */
+.form-wrap{max-width:720px;margin:0 auto;padding:3rem 1.5rem 5rem}
+.progress-bar{background:var(--border);border-radius:100px;height:4px;margin-bottom:2.5rem;overflow:hidden}
+.progress-fill{height:4px;background:var(--grad);border-radius:100px;transition:width .4s ease}
+.section-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:2rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.section-header{display:flex;align-items:center;gap:.9rem;margin-bottom:1.75rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border)}
+.section-num{width:36px;height:36px;border-radius:8px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:.85rem;font-weight:700;color:#fff;flex-shrink:0}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.15rem}
+.section-sub{font-size:.75rem;color:var(--muted);font-weight:300}
+.field{margin-bottom:1.25rem}
+.field label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text3);margin-bottom:.45rem}
+.field input,.field select,.field textarea{width:100%;background:var(--ink);border:1px solid var(--border);border-radius:7px;padding:.6rem .85rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.88rem;transition:border-color .2s,box-shadow .2s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(74,111,212,.08)}
+.field input::placeholder,.field textarea::placeholder{color:var(--muted)}
+.field select option{background:#fff;color:var(--text)}
+.field textarea{min-height:80px;resize:vertical;line-height:1.6}
+.field .hint{font-size:.7rem;color:var(--muted);margin-top:.3rem;font-weight:300}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.radio-group{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.45rem}
+.radio-opt{flex:1;min-width:120px}
+.radio-opt input[type=radio]{display:none}
+.radio-opt label{display:block;padding:.55rem .85rem;background:var(--ink);border:1px solid var(--border);border-radius:7px;font-size:.82rem;color:var(--text3);cursor:pointer;transition:all .15s;text-align:center}
+.radio-opt input[type=radio]:checked + label{background:var(--ink2);border-color:var(--blue);color:var(--navy);font-weight:600}
+.radio-opt label:hover{border-color:var(--border2);color:var(--text)}
+
+/* SUBMIT */
+.submit-card{background:linear-gradient(135deg,var(--navy),var(--navy3));border-radius:12px;padding:2.5rem;text-align:center;margin-bottom:1.5rem}
+.submit-card h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:#fff;margin-bottom:.5rem}
+.submit-card p{font-size:.85rem;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:1.75rem;font-weight:300}
+.btn-submit{background:var(--grad);color:#fff;border:none;padding:1rem 2.5rem;border-radius:7px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;width:100%;transition:opacity .2s,transform .15s;box-shadow:0 4px 20px rgba(74,111,212,.3);letter-spacing:.02em}
+.btn-submit:hover{opacity:.88;transform:translateY(-1px)}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.privacy{font-size:.72rem;color:var(--muted);text-align:center;margin-top:.75rem;line-height:1.6}
+
+/* SUCCESS */
+#success{display:none;text-align:center;padding:4rem 2rem}
+#success .icon{font-size:3rem;margin-bottom:1rem}
+#success h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--navy);margin-bottom:.75rem}
+#success p{font-size:.9rem;color:var(--text3);line-height:1.8;max-width:440px;margin:0 auto 2rem}
+.btn-wpp{display:inline-flex;align-items:center;gap:.6rem;background:#25D366;color:#fff;padding:.85rem 2rem;border-radius:7px;font-size:.88rem;font-weight:600;text-decoration:none;transition:background .2s}
+.btn-wpp:hover{background:#20BA5A}
+
+/* REQUIRED */
+.req{color:var(--pink);margin-left:.2rem}
+
+@media(max-width:600px){
+  .g2{grid-template-columns:1fr}
+  .hero{padding:3rem 5% 2.5rem}
+  .form-wrap{padding:2rem 1rem 4rem}
+  .section-card{padding:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html"><img src="logo-dark.png" alt="Empreenda BPO" class="nav-logo"/></a>
+  <a href="index.html" class="nav-back">← Voltar ao site</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">✦ Gratuito e sem compromisso</div>
+  <h1>Diagnóstico Financeiro <em>do seu negócio</em></h1>
+  <p>Preencha o formulário abaixo e entraremos em contato com uma análise personalizada — sem custo e sem compromisso.</p>
+  <div class="hero-steps">
+    <div class="hero-step"><span>1</span>Preencha o formulário</div>
+    <div class="hero-step"><span>2</span>Receba a análise</div>
+    <div class="hero-step"><span>3</span>Decida com clareza</div>
+  </div>
+</div>
+
+<div class="form-wrap">
+  <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+
+  <form id="mapeamento-form" action="https://formspree.io/f/mjgzjwow" method="POST">
+
+    <!-- SEÇÃO 1: IDENTIFICAÇÃO -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <div><div class="section-title">Identificação da empresa</div><div class="section-sub">Dados básicos para entendermos seu negócio</div></div>
+      </div>
+      <div class="field">
+        <label>Nome / Razão Social <span class="req">*</span></label>
+        <input type="text" name="razao_social" placeholder="Nome da sua empresa" required/>
+      </div>
+      <div class="g2">
+        <div class="field">
+          <label>CNPJ <span class="req">*</span></label>
+          <input type="text" name="cnpj" placeholder="00.000.000/0001-00" maxlength="18" oninput="maskCNPJ(this)" required/>
+        </div>
+        <div class="field">
+          <label>Responsável <span class="req">*</span></label>
+          <input type="text" name="responsavel" placeholder="Seu nome completo" required/>
+        </div>
+      </div>
+      <div class="g2">
+        <div class="field">
+          <label>WhatsApp <span class="req">*</span></label>
+          <input type="tel" name="whatsapp" placeholder="(11) 99999-9999" required/>
+        </div>
+        <div class="field">
+          <label>Email <span class="req">*</span></label>
+          <input type="email" name="email" placeholder="seu@email.com.br" required/>
+        </div>
+      </div>
+      <div class="field">
+        <label>Segmento / Nicho de atuação <span class="req">*</span></label>
+        <input type="text" name="segmento" placeholder="Ex: Infoprodutor, E-commerce, Prestação de serviços..." required/>
+      </div>
+      <div class="g2">
+        <div class="field">
+          <label>Regime Tributário</label>
+          <select name="regime_tributario">
+            <option value="">Selecione...</option>
+            <option>MEI</option>
+            <option>Simples Nacional</option>
+            <option>Lucro Presumido</option>
+            <option>Lucro Real</option>
+            <option>Não sei informar</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Número de sócios</label>
+          <select name="socios">
+            <option value="">Selecione...</option>
+            <option>Somente eu</option>
+            <option>2 sócios</option>
+            <option>3 ou mais sócios</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Funcionários / Colaboradores</label>
+        <select name="funcionarios">
+          <option value="">Selecione...</option>
+          <option>Nenhum — trabalho sozinho(a)</option>
+          <option>1 a 3 colaboradores</option>
+          <option>4 a 10 colaboradores</option>
+          <option>Acima de 10</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 2: CONTAS BANCÁRIAS -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <div><div class="section-title">Contas bancárias</div><div class="section-sub">Informações sobre sua estrutura bancária</div></div>
+      </div>
+      <div class="g2">
+        <div class="field">
+          <label>Quantidade de contas bancárias</label>
+          <select name="contas_bancarias">
+            <option value="">Selecione...</option>
+            <option>1 conta</option>
+            <option>2 a 3 contas</option>
+            <option>4 a 6 contas</option>
+            <option>7 ou mais</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Quais bancos utiliza?</label>
+          <input type="text" name="bancos" placeholder="Ex: Itaú, Nubank, Inter..."/>
+        </div>
+      </div>
+      <div class="field">
+        <label>Possui cartão de crédito empresarial?</label>
+        <div class="radio-group">
+          <div class="radio-opt"><input type="radio" name="cartao_empresarial" id="cart-nao" value="Não"/><label for="cart-nao">Não</label></div>
+          <div class="radio-opt"><input type="radio" name="cartao_empresarial" id="cart-1" value="Sim — 1 cartão"/><label for="cart-1">Sim — 1 cartão</label></div>
+          <div class="radio-opt"><input type="radio" name="cartao_empresarial" id="cart-mais" value="Sim — 2 ou mais"/><label for="cart-mais">Sim — 2 ou mais</label></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 3: VOLUME OPERACIONAL -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <div><div class="section-title">Volume operacional mensal</div><div class="section-sub">Nos ajuda a entender o tamanho da operação financeira</div></div>
+      </div>
+      <div class="g2">
+        <div class="field">
+          <label>Média de contas a pagar/mês</label>
+          <select name="contas_pagar">
+            <option value="">Selecione...</option>
+            <option>Até 10</option>
+            <option>11 a 30</option>
+            <option>31 a 60</option>
+            <option>61 a 100</option>
+            <option>Acima de 100</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Média de vendas / serviços/mês</label>
+          <select name="volume_vendas">
+            <option value="">Selecione...</option>
+            <option>Até 20</option>
+            <option>21 a 50</option>
+            <option>51 a 100</option>
+            <option>101 a 300</option>
+            <option>Acima de 300</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Média de notas fiscais emitidas/mês</label>
+          <select name="notas_fiscais">
+            <option value="">Selecione...</option>
+            <option>Não emito NF</option>
+            <option>Até 10</option>
+            <option>11 a 30</option>
+            <option>31 a 60</option>
+            <option>Acima de 60</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Boletos emitidos/mês</label>
+          <select name="boletos">
+            <option value="">Selecione...</option>
+            <option>Não emito boletos</option>
+            <option>Até 10</option>
+            <option>11 a 30</option>
+            <option>31 a 60</option>
+            <option>Acima de 60</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Contratos ativos (receitas fixas)</label>
+          <select name="contratos_ativos">
+            <option value="">Selecione...</option>
+            <option>Nenhum</option>
+            <option>1 a 5</option>
+            <option>6 a 15</option>
+            <option>Acima de 15</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Faturamento mensal médio</label>
+          <select name="faturamento">
+            <option value="">Selecione...</option>
+            <option>Até R$ 10 mil</option>
+            <option>R$ 10 a 30 mil</option>
+            <option>R$ 30 a 100 mil</option>
+            <option>R$ 100 a 300 mil</option>
+            <option>Acima de R$ 300 mil</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 4: CANAIS E PLATAFORMAS -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">4</div>
+        <div><div class="section-title">Canais de venda e plataformas</div><div class="section-sub">Como você recebe seus pagamentos</div></div>
+      </div>
+      <div class="field">
+        <label>Realiza vendas por plataformas digitais?</label>
+        <div class="radio-group">
+          <div class="radio-opt"><input type="radio" name="plataformas_digitais" id="plat-nao" value="Não"/><label for="plat-nao">Não</label></div>
+          <div class="radio-opt"><input type="radio" name="plataformas_digitais" id="plat-sim" value="Sim"/><label for="plat-sim">Sim</label></div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Quais plataformas utiliza?</label>
+        <input type="text" name="plataformas" placeholder="Ex: Hotmart, Kiwify, Eduzz, Shopify, Mercado Livre..."/>
+        <div class="hint">Deixe em branco se não utilizar</div>
+      </div>
+      <div class="field">
+        <label>Realiza vendas por cartão de crédito físico?</label>
+        <div class="radio-group">
+          <div class="radio-opt"><input type="radio" name="cartao_fisico" id="cf-nao" value="Não"/><label for="cf-nao">Não</label></div>
+          <div class="radio-opt"><input type="radio" name="cartao_fisico" id="cf-sim" value="Sim"/><label for="cf-sim">Sim</label></div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Quais operadoras de cartão?</label>
+        <input type="text" name="operadoras_cartao" placeholder="Ex: Cielo, Stone, PagSeguro, GetNet..."/>
+        <div class="hint">Deixe em branco se não utilizar</div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 5: ESTRUTURA FINANCEIRA -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">5</div>
+        <div><div class="section-title">Estrutura financeira atual</div><div class="section-sub">Como está organizado o financeiro hoje</div></div>
+      </div>
+      <div class="field">
+        <label>Utiliza algum sistema ERP / software de gestão financeira?</label>
+        <div class="radio-group">
+          <div class="radio-opt"><input type="radio" name="usa_erp" id="erp-nao" value="Não"/><label for="erp-nao">Não</label></div>
+          <div class="radio-opt"><input type="radio" name="usa_erp" id="erp-sim" value="Sim"/><label for="erp-sim">Sim</label></div>
+          <div class="radio-opt"><input type="radio" name="usa_erp" id="erp-planilha" value="Uso planilha"/><label for="erp-planilha">Só planilha</label></div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Qual sistema utiliza?</label>
+        <input type="text" name="sistema_erp" placeholder="Ex: Conta Azul, Omie, Nibo, Bling..."/>
+        <div class="hint">Deixe em branco se não utilizar</div>
+      </div>
+      <div class="field">
+        <label>Possui empréstimo ou financiamento ativo?</label>
+        <div class="radio-group">
+          <div class="radio-opt"><input type="radio" name="emprestimo" id="emp-nao" value="Não"/><label for="emp-nao">Não</label></div>
+          <div class="radio-opt"><input type="radio" name="emprestimo" id="emp-sim" value="Sim"/><label for="emp-sim">Sim</label></div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Qual é o maior desafio financeiro do seu negócio hoje?</label>
+        <textarea name="maior_desafio" placeholder="Conte brevemente o que mais te preocupa no financeiro da sua empresa..."></textarea>
+      </div>
+      <div class="field">
+        <label>Como nos conheceu?</label>
+        <select name="como_conheceu">
+          <option value="">Selecione...</option>
+          <option>Instagram @empreendabpo</option>
+          <option>Instagram @claudiabernardobpo</option>
+          <option>Indicação de amigo/colega</option>
+          <option>Google</option>
+          <option>YouTube</option>
+          <option>Outro</option>
+        </select>
+      </div>
+
+      <!-- Campo oculto para identificar origem -->
+      <input type="hidden" name="_subject" value="🔔 Novo Diagnóstico Financeiro — Empreenda BPO"/>
+      <input type="hidden" name="_replyto" value="claudia@empreendabpo.com.br"/>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-card">
+      <h3>Pronto para dar clareza ao seu financeiro?</h3>
+      <p>Após o envio, nossa equipe analisará seu perfil e entrará em contato em até 24 horas úteis com um diagnóstico personalizado e uma proposta sob medida.</p>
+      <button type="submit" class="btn-submit" id="btn-submit">Enviar meu diagnóstico →</button>
+      <div class="privacy">🔒 Suas informações são confidenciais e nunca serão compartilhadas com terceiros.</div>
+    </div>
+
+  </form>
+
+  <!-- SUCESSO -->
+  <div id="success">
+    <div class="icon">✅</div>
+    <h2>Diagnóstico enviado com sucesso!</h2>
+    <p>Obrigada! Recebemos suas informações e entraremos em contato em até <strong>24 horas úteis</strong> com uma análise personalizada do seu negócio.</p>
+    <a href="https://wa.me/5511917101173" class="btn-wpp" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar pelo WhatsApp agora
+    </a>
+  </div>
+</div>
+
+<script>
+function maskCNPJ(el){
+  let v=el.value.replace(/\D/g,'').slice(0,14);
+  if(v.length>12)v=v.slice(0,2)+'.'+v.slice(2,5)+'.'+v.slice(5,8)+'/'+v.slice(8,12)+'-'+v.slice(12);
+  else if(v.length>8)v=v.slice(0,2)+'.'+v.slice(2,5)+'.'+v.slice(5,8)+'/'+v.slice(8);
+  else if(v.length>5)v=v.slice(0,2)+'.'+v.slice(2,5)+'.'+v.slice(5);
+  else if(v.length>2)v=v.slice(0,2)+'.'+v.slice(2);
+  el.value=v;
+}
+
+// Barra de progresso
+const form=document.getElementById('mapeamento-form');
+const fields=form.querySelectorAll('input,select,textarea');
+function updateProgress(){
+  const required=form.querySelectorAll('[required]');
+  let filled=0;
+  required.forEach(f=>{if(f.value.trim())filled++;});
+  const pct=Math.round((filled/required.length)*100);
+  document.getElementById('progress').style.width=pct+'%';
+}
+fields.forEach(f=>f.addEventListener('input',updateProgress));
+fields.forEach(f=>f.addEventListener('change',updateProgress));
+
+// Submit
+form.addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=document.getElementById('btn-submit');
+  btn.disabled=true;
+  btn.textContent='Enviando...';
+  try{
+    const res=await fetch(form.action,{
+      method:'POST',
+      body:new FormData(form),
+      headers:{Accept:'application/json'}
+    });
+    if(res.ok){
+      form.style.display='none';
+      document.getElementById('success').style.display='block';
+      window.scrollTo({top:0,behavior:'smooth'});
+    } else {
+      btn.disabled=false;
+      btn.textContent='Enviar meu diagnóstico →';
+      alert('Ocorreu um erro. Tente novamente ou fale pelo WhatsApp.');
+    }
+  } catch(err){
+    btn.disabled=false;
+    btn.textContent='Enviar meu diagnóstico →';
+    alert('Ocorreu um erro. Tente novamente ou fale pelo WhatsApp.');
+  }
+});
+</script>
+</body>
+</html>
