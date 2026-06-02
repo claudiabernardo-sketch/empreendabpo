@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSG · Maio 2026 — Empreenda BPO</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#4B5CE4;--purple:#7B5CC8;--pink:#A855C8;
+  --grad:linear-gradient(135deg,#4B5CE4,#A855C8);
+  --grad-soft:linear-gradient(135deg,rgba(75,92,228,.07),rgba(168,85,200,.07));
+  --green:#16a34a;--green-bg:#f0fdf4;
+  --red:#dc2626;--red-bg:#fef2f2;
+  --amber:#d97706;--amber-bg:#fffbeb;
+  --text:#0f0f1a;--sub:#4b5563;--muted:#9ca3af;
+  --border:#e5e7eb;--bg:#f9f9fb;--white:#ffffff;
+  --radius:14px;--shadow:0 1px 3px rgba(0,0,0,.05),0 4px 16px rgba(75,92,228,.06);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+.topbar{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:62px;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-mark{width:34px;height:34px;border-radius:9px;background:var(--grad);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(75,92,228,.3);}
+.logo-mark svg{width:16px;height:16px;}
+.logo-text{font-size:14px;font-weight:800;letter-spacing:-.02em;color:var(--text);}
+.logo-text span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.topbar-right{display:flex;align-items:center;gap:8px;}
+.nav-links{display:flex;gap:2px;margin-right:8px;}
+.nav-link{padding:6px 14px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;color:var(--sub);transition:all .15s;}
+.nav-link:hover{background:var(--bg);}
+.nav-link.active{background:var(--grad-soft);color:var(--blue);font-weight:700;border:1px solid rgba(75,92,228,.15);}
+.pill{padding:5px 13px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;}
+.pill-grupo{background:var(--grad-soft);color:var(--blue);border:1px solid rgba(75,92,228,.2);}
+.pill-be{background:rgba(75,92,228,.08);color:var(--blue);border:1px solid rgba(75,92,228,.2);}
+.pill-gsg{background:rgba(168,85,200,.08);color:var(--pink);border:1px solid rgba(168,85,200,.2);}
+.pill-magp{background:rgba(123,92,200,.08);color:var(--purple);border:1px solid rgba(123,92,200,.2);}
+.pill-period{background:var(--bg);color:var(--muted);border:1px solid var(--border);}
+.hero{background:var(--white);border-bottom:1px solid var(--border);padding:2.5rem 2rem 2rem;}
+.hero-inner{max-width:1280px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:.8rem;}
+.hero-tag::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--grad);flex-shrink:0;}
+.hero-title{font-size:clamp(22px,3vw,38px);font-weight:800;letter-spacing:-.03em;line-height:1.15;}
+.grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{color:var(--sub);font-size:14px;margin-top:.6rem;max-width:480px;line-height:1.65;}
+.hero-stat{text-align:right;flex-shrink:0;}
+.hero-stat-lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px;}
+.hero-stat-val{font-size:clamp(24px,3vw,42px);font-weight:800;letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-stat-sub{font-size:12px;color:var(--muted);margin-top:4px;}
+.wrap{max-width:1280px;margin:0 auto;padding:0 2rem 4rem;}
+.sec{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.kpi{background:var(--white);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border);box-shadow:var(--shadow);position:relative;overflow:hidden;}
+.kpi::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+.kpi-lbl{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem;}
+.kpi-val{font-size:24px;font-weight:800;letter-spacing:-.03em;line-height:1;margin-bottom:.4rem;}
+.kpi-val.g{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.kpi-val.green{color:var(--green);}
+.kpi-val.amber{color:var(--amber);}
+.kpi-val.red{color:var(--red);}
+.kpi-desc{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:.5rem;}
+.badge{display:inline-flex;padding:3px 9px;border-radius:6px;font-size:11px;font-weight:700;font-family:'DM Mono',monospace;}
+.b-g{background:var(--grad-soft);color:var(--blue);border:1px solid rgba(75,92,228,.15);}
+.b-green{background:var(--green-bg);color:var(--green);}
+.b-amber{background:var(--amber-bg);color:var(--amber);}
+.b-red{background:var(--red-bg);color:var(--red);}
+.anos-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.ano-card{background:var(--white);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border);box-shadow:var(--shadow);}
+.ano-yr{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:.05em;margin-bottom:.75rem;background:var(--grad-soft);color:var(--blue);border:1px solid rgba(75,92,228,.15);}
+.ano-val{font-size:28px;font-weight:800;letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.2rem;}
+.ano-sub{font-size:12px;color:var(--muted);margin-bottom:1rem;}
+.arow{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.arow:last-child{border-bottom:none;}
+.arl{color:var(--sub);}
+.arv{font-family:'DM Mono',monospace;font-size:12px;font-weight:600;}
+.chart-card{background:var(--white);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border);box-shadow:var(--shadow);}
+.chart-title{font-size:13px;font-weight:700;margin-bottom:.3rem;}
+.chart-sub{font-size:12px;color:var(--muted);margin-bottom:1.2rem;}
+.legend{display:flex;gap:16px;margin-bottom:1rem;flex-wrap:wrap;}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--sub);font-weight:500;}
+.leg-dot{width:10px;height:10px;border-radius:3px;}
+.bar-chart{display:flex;flex-direction:column;gap:7px;}
+.bar-row{display:grid;grid-template-columns:50px 1fr 80px;align-items:center;gap:10px;}
+.bar-lbl{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);text-align:right;}
+.bar-track{display:flex;height:22px;border-radius:5px;overflow:hidden;gap:1px;background:var(--bg);}
+.bar-val{font-family:'DM Mono',monospace;font-size:11px;color:var(--sub);text-align:right;font-weight:600;}
+.company-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.co-card{background:var(--white);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border);box-shadow:var(--shadow);position:relative;overflow:hidden;}
+.co-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
+.co-be::before{background:linear-gradient(90deg,#4B5CE4,#7B5CC8);}
+.co-gsg::before{background:linear-gradient(90deg,#7B5CC8,#A855C8);}
+.co-magp::before{background:linear-gradient(90deg,#A855C8,#4B5CE4);}
+.co-hdr{display:flex;align-items:center;gap:8px;margin-bottom:1rem;}
+.co-dot{width:8px;height:8px;border-radius:50%;}
+.co-name-lbl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);}
+.co-main{font-size:24px;font-weight:800;letter-spacing:-.03em;margin-bottom:.2rem;}
+.co-main-sub{font-size:11px;color:var(--muted);margin-bottom:1.25rem;}
+.row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.row:last-child{border-bottom:none;}
+.rl{color:var(--sub);}
+.rv{font-family:'DM Mono',monospace;font-size:12px;font-weight:600;}
+.tbl-wrap{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);overflow:auto;box-shadow:var(--shadow);}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{padding:10px 12px;text-align:left;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--bg);border-bottom:1px solid var(--border);white-space:nowrap;}
+tbody tr{border-bottom:1px solid rgba(0,0,0,.04);transition:background .1s;}
+tbody tr:hover{background:var(--bg);}
+tbody tr:last-child{border-bottom:none;}
+tbody td{padding:9px 12px;font-family:'DM Mono',monospace;font-size:12px;color:var(--sub);white-space:nowrap;}
+.tv-g{color:var(--green);font-weight:700;}
+.tv-r{color:var(--red);}
+.tv-a{color:var(--amber);}
+.tv-b{color:var(--blue);font-weight:600;}
+.tv-m{color:var(--muted);}
+.sep-row td{padding:5px 12px;font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--muted);background:rgba(0,0,0,.025);font-family:'DM Mono',monospace;}
+.may-row{background:linear-gradient(135deg,rgba(75,92,228,.05),rgba(168,85,200,.05))!important;}
+.may-row td{font-weight:700!important;}
+.may-row .tv-g{color:var(--green)!important;}
+.may-row .tv-a{color:var(--amber)!important;}
+.ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.ins{background:var(--white);border-radius:var(--radius);padding:1.25rem 1.25rem 1.25rem 1.5rem;border:1px solid var(--border);box-shadow:var(--shadow);}
+.ins.ok{border-left:4px solid var(--green);}
+.ins.warn{border-left:4px solid var(--amber);}
+.ins.info{border-left:4px solid var(--blue);}
+.ins-ttl{font-size:13px;font-weight:700;margin-bottom:.4rem;}
+.ins-txt{font-size:12px;color:var(--sub);line-height:1.65;}
+.plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.plat-card{background:var(--white);border-radius:var(--radius);padding:1.25rem;border:1px solid var(--border);box-shadow:var(--shadow);}
+.plat-name{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;}
+.plat-val{font-size:18px;font-weight:800;letter-spacing:-.02em;margin-bottom:.15rem;}
+.plat-sub{font-size:11px;color:var(--muted);}
+.plat-bar{height:4px;border-radius:2px;margin:.6rem 0 0;background:var(--border);}
+.plat-fill{height:100%;border-radius:2px;background:var(--grad);}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.card{background:var(--white);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border);box-shadow:var(--shadow);}
+.card-title{font-size:13px;font-weight:700;margin-bottom:1rem;}
+.footer{text-align:center;padding:2rem 0 1rem;font-size:11px;color:var(--muted);border-top:1px solid var(--border);margin-top:3rem;font-family:'DM Mono',monospace;}
+@media(max-width:900px){.kpi-grid,.company-grid,.ins-grid,.plat-grid,.anos-grid{grid-template-columns:1fr 1fr;}.hero-inner{flex-direction:column;align-items:flex-start;}.hero-stat{text-align:left;}}
+@media(max-width:600px){.kpi-grid,.company-grid,.ins-grid,.plat-grid,.anos-grid,.two-col{grid-template-columns:1fr;}.wrap{padding:0 1rem 3rem;}.topbar{padding:0 1rem;}.nav-links{display:none;}}
+</style>
+</head><body>
+<script>if(!sessionStorage.getItem('auth'))window.location.replace('index.html');</script>
+<nav class="topbar">
+  <a class="logo" href="grupo.html">
+    <div class="logo-mark"><svg viewBox="0 0 16 16" fill="none"><path d="M2 12L6 7.5L10 10L14 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="logo-text">Empreenda <span>BPO</span></span>
+  </a>
+  <div class="topbar-right">
+    <div class="nav-links"><a class="nav-link" href="grupo.html">Grupo</a><a class="nav-link" href="bebrave.html">Be Brave</a><a class="nav-link active" href="gsg.html">GSG</a><a class="nav-link" href="magp.html">MAGP</a></div>
+    <span class="pill pill-gsg">GSG</span>
+    <span class="pill pill-period">Maio / 2026</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">GSG · Fechamento · 31 de maio de 2026</div>
+      <h1 class="hero-title">Seu negócio em<br><span class="grad-text">maio de 2026</span></h1>
+      <p class="hero-sub">Dados reais auditados — Conta Azul (Pagar.me, TMB, Hotmart) + Hubla. Reserva Hubla excluída: o que aparece é o que realmente ficou com você.</p>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-lbl">Lucro real · Mai/2026</div>
+      <div class="hero-stat-val">R$ 104.705</div>
+      <div class="hero-stat-sub">Margem 84.9% · Receita R$ 123.334</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="sec">O que aconteceu este mês</div>
+<div class="kpi-grid">
+  <div class="kpi">
+    <div class="kpi-lbl">💰 Quanto entrou</div>
+    <div class="kpi-val g">R$ 123.334</div>
+    <div class="kpi-desc">Receita real do mês — tudo que caiu no banco após as taxas das plataformas.</div>
+    <span class="badge b-g">Receita líquida</span>
+  </div>
+  <div class="kpi">
+    <div class="kpi-lbl">💸 Quanto saiu</div>
+    <div class="kpi-val amber">R$ 18.628</div>
+    <div class="kpi-desc">Todas as despesas reais do mês: software, taxas, reembolsos a clientes.</div>
+    <span class="badge b-amber">15.1% da receita</span>
+  </div>
+  <div class="kpi">
+    <div class="kpi-lbl">✅ O que ficou com você</div>
+    <div class="kpi-val green">R$ 104.705</div>
+    <div class="kpi-desc">Lucro real depois de pagar tudo. É o dinheiro que é seu de verdade.</div>
+    <span class="badge b-green">Margem 84.9%</span>
+  </div>
+  <div class="kpi">
+    <div class="kpi-lbl">📊 A cada R$ 100 recebidos</div>
+    <div class="kpi-val g">R$ 85</div>
+    <div class="kpi-desc">De cada cem reais que entraram, esse foi o lucro. Acima de 70% é excelente.</div>
+    <span class="badge b-green">Excelente</span>
+  </div>
+</div>
+
+<div class="sec">2025 vs 2026 — comparativo anual</div>
+<div class="anos-grid">
+  <div class="ano-card">
+    <div class="ano-yr">2025 — Ano completo (12 meses)</div>
+    <div class="ano-val">R$ 1.869.137</div>
+    <div class="ano-sub">Receita total — Pagar.me, TMB e Hotmart</div>
+    <div class="arow"><span class="arl">Lucro real total</span><span class="arv" style="color:var(--green)">R$ 1.298.889</span></div>
+    <div class="arow"><span class="arl">Margem média</span><span class="arv" style="color:var(--green)">69.5%</span></div>
+    <div class="arow"><span class="arl">Melhor mês</span><span class="arv">Nov/25 · R$ 599.696</span></div>
+    <div class="arow"><span class="arl">Hubla</span><span class="arv" style="color:var(--muted)">Não existia ainda</span></div>
+  </div>
+  <div class="ano-card">
+    <div class="ano-yr">2026 — Janeiro a Maio (5 meses)</div>
+    <div class="ano-val">R$ 493.239</div>
+    <div class="ano-sub">Receita total — Pagar.me, TMB, Hotmart + Hubla</div>
+    <div class="arow"><span class="arl">Lucro real total</span><span class="arv" style="color:var(--green)">R$ 394.942</span></div>
+    <div class="arow"><span class="arl">Margem média</span><span class="arv" style="color:var(--green)">80.1%</span></div>
+    <div class="arow"><span class="arl">Vendas Hubla (2026)</span><span class="arv">2014 vendas · R$ 364.260</span></div>
+    <div class="arow"><span class="arl">Margem melhorou</span><span class="arv" style="color:var(--green)">+10.6% vs 2025</span></div>
+  </div>
+</div>
+
+<div class="sec">De onde vem a receita · Mai/2026 — por plataforma</div>
+<div class="plat-grid">
+  <div class="plat-card">
+    <div class="plat-name">Hubla</div>
+    <div class="plat-val" style="color:var(--blue)">R$ 16.446</div>
+    <div class="plat-sub">96 vendas · ticket R$ 171</div>
+    <div class="plat-bar"><div class="plat-fill" style="width:36%"></div></div>
+  </div>
+  <div class="plat-card">
+    <div class="plat-name">Pagar.me</div>
+    <div class="plat-val" style="color:var(--purple)">R$ 5.498</div>
+    <div class="plat-sub">12.1% do total</div>
+    <div class="plat-bar"><div class="plat-fill" style="width:12%"></div></div>
+  </div>
+  <div class="plat-card">
+    <div class="plat-name">TMB</div>
+    <div class="plat-val" style="color:var(--pink)">R$ 21.466</div>
+    <div class="plat-sub">47.3% do total</div>
+    <div class="plat-bar"><div class="plat-fill" style="width:47%"></div></div>
+  </div>
+  <div class="plat-card">
+    <div class="plat-name">Hotmart</div>
+    <div class="plat-val" style="color:var(--muted)">R$ 1.997</div>
+    <div class="plat-sub">4.4% do total</div>
+    <div class="plat-bar"><div class="plat-fill" style="width:4%"></div></div>
+  </div>
+</div>
+
+<div class="sec">Evolução da receita — Jan/2025 a Mai/2026</div>
+<div class="chart-card">
+  <div class="chart-title">Receita mensal por plataforma</div>
+  <div class="chart-sub">Em 2025 a Hubla não existia — toda receita vinha de Pagar.me, TMB e Hotmart. A Hubla entrou em 2026 e rapidamente se tornou o principal canal.</div>
+  <div class="legend">
+    <span class="leg-item"><span class="leg-dot" style="background:#4B5CE4"></span>Hubla (2026)</span>
+    <span class="leg-item"><span class="leg-dot" style="background:#7B5CC8"></span>Pagar.me</span>
+    <span class="leg-item"><span class="leg-dot" style="background:#A855C8"></span>TMB</span>
+    <span class="leg-item"><span class="leg-dot" style="background:#9ca3af"></span>Hotmart</span>
+  </div>
+  <div class="bar-chart" id="barChart"></div>
+</div>
+
+<div class="sec">O que pode melhorar — análise do especialista</div>
+<div class="ins-grid"><div class="ins ok"><div class="ins-ttl">🟢 Melhor margem em mai/26: 84,9%</div><div class="ins-txt">Maio foi o melhor mês em eficiência da GSG — 84,9% de margem com despesas abaixo de R$ 19.000. Em 2025 a média era 69,5%. A melhora é estrutural: menos despesas fixas e plataformas mais baratas de operar.</div></div><div class="ins ok"><div class="ins-ttl">🟢 2026 com crescimento consistente</div><div class="ins-txt">Comparando o acumulado jan-mai de 2025 vs 2026, a GSG cresceu em resultado. A operação está mais estável — em 2025 havia meses negativos (outubro), em 2026 todos os meses foram positivos até agora.</div></div><div class="ins warn"><div class="ins-ttl">🟡 Hubla oscila muito — planejar lançamentos</div><div class="ins-txt">Em fev e mar/26 o GMV Hubla da GSG passou de R$ 100.000. Em maio caiu para R$ 16.000. A receita total se sustentou pelo Pagar.me e TMB, mas depender de outras plataformas enquanto a Hubla é o futuro é um risco. Calendário fixo de lançamentos mensais resolve isso.</div></div></div>
+
+<div class="sec">Histórico completo · Jan/2025 – Mai/2026</div>
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Mês</th><th>Receita</th><th>Despesa</th><th>Lucro Real</th><th>Margem</th><th>Pagar.me</th><th>TMB</th><th>Hubla (GMV)</th><th>Hotmart</th></tr></thead>
+    <tbody><tr class="sep-row"><td colspan="99">── 2025 ──</td></tr><tr class=""><td>Jan/25</td><td>R$ 58.311</td><td class="tv-a">R$ 28.196</td><td class="tv-g">R$ 30.115</td><td class="tv-g">51.6%</td><td class="tv-m">R$ 41.143</td><td class="tv-m">R$ 11.317</td><td class="tv-m">—</td><td class="tv-m">R$ 5.551</td></tr><tr class=""><td>Fev/25</td><td>R$ 230.362</td><td class="tv-a">R$ 53.659</td><td class="tv-g">R$ 176.703</td><td class="tv-g">76.7%</td><td class="tv-m">R$ 191.993</td><td class="tv-m">R$ 12.046</td><td class="tv-m">—</td><td class="tv-m">R$ 25.700</td></tr><tr class=""><td>Mar/25</td><td>R$ 63.840</td><td class="tv-a">R$ 27.082</td><td class="tv-g">R$ 36.758</td><td class="tv-g">57.6%</td><td class="tv-m">R$ 40.705</td><td class="tv-m">R$ 11.086</td><td class="tv-m">—</td><td class="tv-m">R$ 11.055</td></tr><tr class=""><td>Abr/25</td><td>R$ 172.892</td><td class="tv-a">R$ 48.059</td><td class="tv-g">R$ 124.833</td><td class="tv-g">72.2%</td><td class="tv-m">R$ 153.821</td><td class="tv-m">R$ 11.948</td><td class="tv-m">—</td><td class="tv-m">R$ 7.123</td></tr><tr class=""><td>Mai/25</td><td>R$ 36.214</td><td class="tv-a">R$ 27.537</td><td class="tv-g">R$ 8.676</td><td class="tv-g">24.0%</td><td class="tv-m">R$ 16.790</td><td class="tv-m">R$ 11.314</td><td class="tv-m">—</td><td class="tv-m">R$ 8.107</td></tr><tr class=""><td>Jun/25</td><td>R$ 291.561</td><td class="tv-a">R$ 58.224</td><td class="tv-g">R$ 233.336</td><td class="tv-g">80.0%</td><td class="tv-m">R$ 272.547</td><td class="tv-m">R$ 15.989</td><td class="tv-m">—</td><td class="tv-m">R$ 3.024</td></tr><tr class=""><td>Jul/25</td><td>R$ 69.650</td><td class="tv-a">R$ 39.590</td><td class="tv-g">R$ 30.060</td><td class="tv-g">43.2%</td><td class="tv-m">R$ 24.948</td><td class="tv-m">R$ 13.816</td><td class="tv-m">—</td><td class="tv-m">R$ 15.149</td></tr><tr class=""><td>Ago/25</td><td>R$ 183.506</td><td class="tv-a">R$ 50.294</td><td class="tv-g">R$ 133.212</td><td class="tv-g">72.6%</td><td class="tv-m">R$ 162.265</td><td class="tv-m">R$ 17.168</td><td class="tv-m">—</td><td class="tv-m">R$ 2.076</td></tr><tr class=""><td>Set/25</td><td>R$ 49.819</td><td class="tv-a">R$ 37.577</td><td class="tv-g">R$ 12.242</td><td class="tv-g">24.6%</td><td class="tv-m">R$ 29.962</td><td class="tv-m">R$ 15.672</td><td class="tv-m">—</td><td class="tv-m">R$ 4.185</td></tr><tr class=""><td>Out/25</td><td>R$ 27.269</td><td class="tv-a">R$ 28.934</td><td class="tv-r">−R$ 1.666</td><td class="tv-r">-6.1%</td><td class="tv-m">R$ 11.475</td><td class="tv-m">R$ 15.644</td><td class="tv-m">—</td><td class="tv-m">R$ 149</td></tr><tr class=""><td>Nov/25</td><td>R$ 599.696</td><td class="tv-a">R$ 118.684</td><td class="tv-g">R$ 481.012</td><td class="tv-g">80.2%</td><td class="tv-m">R$ 571.489</td><td class="tv-m">R$ 23.359</td><td class="tv-m">—</td><td class="tv-m">R$ 3.895</td></tr><tr class=""><td>Dez/25</td><td>R$ 86.018</td><td class="tv-a">R$ 52.412</td><td class="tv-g">R$ 33.606</td><td class="tv-g">39.1%</td><td class="tv-m">R$ 52.324</td><td class="tv-m">R$ 20.072</td><td class="tv-m">—</td><td class="tv-m">R$ 12.973</td></tr><tr class="sep-row"><td colspan="99">── 2026 ──</td></tr><tr class=""><td>Jan/26</td><td>R$ 32.929</td><td class="tv-a">R$ 27.256</td><td class="tv-g">R$ 5.673</td><td class="tv-g">17.2%</td><td class="tv-m">R$ 12.350</td><td class="tv-m">R$ 20.535</td><td class="tv-m">—</td><td class="tv-m">—</td></tr><tr class=""><td>Fev/26</td><td>R$ 108.138</td><td class="tv-a">R$ 17.819</td><td class="tv-g">R$ 90.318</td><td class="tv-g">83.5%</td><td class="tv-m">R$ 12.802</td><td class="tv-m">R$ 18.882</td><td class="tv-m">R$ 100.263<br><span class="tv-m" style="font-size:10px">(1214 vd)</span></td><td class="tv-m">—</td></tr><tr class=""><td>Mar/26</td><td>R$ 146.606</td><td class="tv-a">R$ 19.508</td><td class="tv-g">R$ 127.098</td><td class="tv-g">86.7%</td><td class="tv-m">R$ 8.648</td><td class="tv-m">R$ 33.378</td><td class="tv-m">R$ 100.877<br><span class="tv-m" style="font-size:10px">(85 vd)</span></td><td class="tv-m">R$ 597</td></tr><tr class=""><td>Abr/26</td><td>R$ 82.232</td><td class="tv-a">R$ 15.085</td><td class="tv-g">R$ 67.147</td><td class="tv-g">81.7%</td><td class="tv-m">R$ 5.610</td><td class="tv-m">R$ 27.635</td><td class="tv-m">R$ 146.674<br><span class="tv-m" style="font-size:10px">(619 vd)</span></td><td class="tv-m">R$ 597</td></tr><tr class="may-row"><td>★ Mai/26</td><td>R$ 123.334</td><td class="tv-a">R$ 18.628</td><td class="tv-g">R$ 104.705</td><td class="tv-g">84.9%</td><td class="tv-m">R$ 5.498</td><td class="tv-m">R$ 21.466</td><td class="tv-m">R$ 16.446<br><span class="tv-m" style="font-size:10px">(96 vd)</span></td><td class="tv-m">R$ 1.997</td></tr></tbody>
+  </table>
+</div>
+
+<div class="footer">Empreenda BPO · GSG · Fechamento Mai/2026 · Conta Azul (Pagar.me, TMB, Hotmart) + Hubla (plataforma) · Reserva Hubla excluída</div>
+</div>
+
+<script>
+const data=[{m:'Jan/25',r:58311,pm:41143,tmb:11317,hub:0,hm:5551},{m:'Fev/25',r:230362,pm:191993,tmb:12046,hub:0,hm:25700},{m:'Mar/25',r:63840,pm:40705,tmb:11086,hub:0,hm:11055},{m:'Abr/25',r:172892,pm:153821,tmb:11948,hub:0,hm:7123},{m:'Mai/25',r:36214,pm:16790,tmb:11314,hub:0,hm:8107},{m:'Jun/25',r:291561,pm:272547,tmb:15989,hub:0,hm:3024},{m:'Jul/25',r:69650,pm:24948,tmb:13816,hub:0,hm:15149},{m:'Ago/25',r:183506,pm:162265,tmb:17168,hub:0,hm:2076},{m:'Set/25',r:49819,pm:29962,tmb:15672,hub:0,hm:4185},{m:'Out/25',r:27269,pm:11475,tmb:15644,hub:0,hm:149},{m:'Nov/25',r:599696,pm:571489,tmb:23359,hub:0,hm:3895},{m:'Dez/25',r:86018,pm:52324,tmb:20072,hub:0,hm:12973},{m:'Jan/26',r:32929,pm:12350,tmb:20535,hub:0,hm:0},{m:'Fev/26',r:108138,pm:12802,tmb:18882,hub:100263,hm:0},{m:'Mar/26',r:146606,pm:8648,tmb:33378,hub:100877,hm:597},{m:'Abr/26',r:82232,pm:5610,tmb:27635,hub:146674,hm:597},{m:'Mai/26',r:123334,pm:5498,tmb:21466,hub:16446,hm:1997}];
+const maxV=Math.max(...data.map(d=>d.r));
+function fK(v){if(v>=1e6)return'R$'+(v/1e6).toFixed(1)+'M';if(v>=1e3)return'R$'+(v/1e3).toFixed(0)+'K';return'R$'+Math.round(v);}
+const chart=document.getElementById('barChart');
+data.forEach(d=>{
+  const tot=d.pm+d.tmb+d.hub+d.hm||1;
+  const pct=d.r/maxV*100;
+  const isMay=d.m==='Mai/26';
+  const bg=isMay?'rgba(75,92,228,.08)':'var(--bg)';
+  const lc=isMay?'color:var(--blue);font-weight:700':'';
+  const r=document.createElement('div');
+  r.className='bar-row';
+  r.innerHTML=`<div class="bar-lbl" style="${lc}">${d.m}</div>
+    <div class="bar-track" style="background:${bg}">
+      <div style="width:${(d.hub/tot*pct).toFixed(1)}%;height:100%;background:#4B5CE4;border-radius:3px;opacity:.9"></div>
+      <div style="width:${(d.pm/tot*pct).toFixed(1)}%;height:100%;background:#7B5CC8;border-radius:3px;opacity:.9"></div>
+      <div style="width:${(d.tmb/tot*pct).toFixed(1)}%;height:100%;background:#A855C8;border-radius:3px;opacity:.9"></div>
+      <div style="width:${(d.hm/tot*pct).toFixed(1)}%;height:100%;background:#9ca3af;border-radius:3px;opacity:.9"></div>
+    </div>
+    <div class="bar-val" style="${lc}">${fK(d.r)}</div>`;
+  chart.appendChild(r);
+});
+</script>
+</body></html>
