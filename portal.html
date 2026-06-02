@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Empreenda BPO — Portal do Cliente</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:#4B5CE4;--purple:#7B5CC8;--pink:#A855C8;
+  --grad:linear-gradient(135deg,#4B5CE4,#A855C8);
+  --text:#0f0f1a;--sub:#4b5563;--muted:#9ca3af;
+  --border:#e5e7eb;--bg:#f9f9fb;--white:#ffffff;
+  --red:#dc2626;--red-bg:#fef2f2;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--bg);color:var(--text);
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:1.5rem;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* BG DECORATION */
+body::before {
+  content:'';position:fixed;top:-40%;left:-20%;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(75,92,228,.07),transparent 70%);
+  pointer-events:none;z-index:0;
+}
+body::after {
+  content:'';position:fixed;bottom:-30%;right:-10%;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(168,85,200,.07),transparent 70%);
+  pointer-events:none;z-index:0;
+}
+
+.card {
+  background:var(--white);
+  border-radius:20px;
+  padding:2.5rem;
+  border:1px solid var(--border);
+  box-shadow:0 4px 24px rgba(75,92,228,.08),0 1px 4px rgba(0,0,0,.04);
+  width:100%;max-width:420px;
+  position:relative;z-index:1;
+}
+
+.logo {
+  display:flex;flex-direction:column;align-items:center;
+  gap:12px;margin-bottom:2rem;
+}
+.logo-mark {
+  width:52px;height:52px;border-radius:14px;
+  background:var(--grad);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 16px rgba(75,92,228,.3);
+}
+.logo-mark svg{width:24px;height:24px;}
+.logo-name {
+  font-size:20px;font-weight:800;letter-spacing:-.03em;
+  color:var(--text);text-align:center;
+}
+.logo-name span{
+  background:var(--grad);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text;
+}
+.logo-tagline {
+  font-size:11px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);margin-top:-6px;
+}
+
+.divider {
+  height:1px;background:var(--border);margin:0 0 1.75rem;
+}
+
+.form-label {
+  display:block;font-size:12px;font-weight:700;
+  color:var(--sub);margin-bottom:.5rem;letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.form-input {
+  width:100%;padding:12px 14px;border-radius:10px;
+  border:1.5px solid var(--border);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:14px;font-weight:500;color:var(--text);
+  background:var(--bg);outline:none;
+  transition:border-color .15s,box-shadow .15s;
+  margin-bottom:1rem;
+}
+.form-input:focus {
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(75,92,228,.12);
+  background:var(--white);
+}
+.form-input::placeholder{color:var(--muted);}
+
+.btn {
+  width:100%;padding:13px;border-radius:10px;
+  border:none;cursor:pointer;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:14px;font-weight:700;letter-spacing:.02em;
+  background:var(--grad);color:white;
+  box-shadow:0 4px 14px rgba(75,92,228,.35);
+  transition:opacity .15s,transform .1s,box-shadow .15s;
+  margin-top:.25rem;
+}
+.btn:hover{opacity:.92;transform:translateY(-1px);box-shadow:0 6px 18px rgba(75,92,228,.4);}
+.btn:active{transform:translateY(0);}
+
+.error {
+  display:none;
+  background:var(--red-bg);color:var(--red);
+  border:1px solid rgba(220,38,38,.2);
+  border-radius:8px;padding:10px 14px;
+  font-size:13px;font-weight:600;
+  margin-bottom:1rem;text-align:center;
+}
+.error.show{display:block;}
+
+.footer-note {
+  text-align:center;margin-top:1.5rem;
+  font-size:11px;color:var(--muted);
+  font-family:'DM Mono',monospace;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M3 17L9 10.5L14 13.5L21 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div>
+      <div class="logo-name">Empreenda <span>BPO</span></div>
+      <div class="logo-tagline">Portal do Cliente</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="error" id="errorMsg">Usuário ou senha incorretos. Tente novamente.</div>
+
+  <label class="form-label" for="user">Usuário</label>
+  <input class="form-input" id="user" type="text" placeholder="seu usuário" autocomplete="username" />
+
+  <label class="form-label" for="pass">Senha</label>
+  <input class="form-input" id="pass" type="password" placeholder="••••••••" autocomplete="current-password" />
+
+  <button class="btn" onclick="login()">Entrar no Portal</button>
+
+  <div class="footer-note">Acesso restrito · Empreenda BPO © 2026</div>
+</div>
+
+<script>
+// Credenciais: usuário → página de destino
+const credenciais = {
+  'Port2026': 'grupo.html',
+};
+
+function login() {
+  const user = document.getElementById('user').value.trim();
+  const pass = document.getElementById('pass').value.trim();
+  const err  = document.getElementById('errorMsg');
+
+  // senha única "Port2026" abre o painel do grupo
+  if (pass === 'Port2026' && credenciais[pass]) {
+    err.classList.remove('show');
+    // salvar sessão simples
+    sessionStorage.setItem('auth', 'ok');
+    window.location.href = credenciais[pass];
+  } else {
+    err.classList.add('show');
+    document.getElementById('pass').value = '';
+    document.getElementById('pass').focus();
+  }
+}
+
+// Enter para logar
+document.addEventListener('keydown', e => { if(e.key === 'Enter') login(); });
+</script>
+</body>
+</html>
