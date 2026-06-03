@@ -1,0 +1,317 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Be Brave · Maio 2026 — Empreenda BPO</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script><style>
+:root{
+  --blue:#4B5CE4;--purple:#7B5CC8;--pink:#A855C8;
+  --grad:linear-gradient(135deg,#4B5CE4,#A855C8);
+  --grad-soft:linear-gradient(135deg,rgba(75,92,228,.07),rgba(168,85,200,.07));
+  --green:#16a34a;--green-bg:#f0fdf4;
+  --red:#dc2626;--red-bg:#fef2f2;
+  --amber:#d97706;--amber-bg:#fffbeb;
+  --text:#0f0f1a;--sub:#4b5563;--muted:#9ca3af;
+  --border:#e5e7eb;--bg:#f9f9fb;--white:#ffffff;
+  --radius:14px;--shadow:0 1px 3px rgba(0,0,0,.05),0 4px 16px rgba(75,92,228,.06);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+.topbar{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:62px;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-mark{width:34px;height:34px;border-radius:9px;background:var(--grad);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(75,92,228,.3);}
+.logo-mark svg{width:16px;height:16px;}
+.logo-text{font-size:14px;font-weight:800;letter-spacing:-.02em;color:var(--text);}
+.logo-text span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.topbar-right{display:flex;align-items:center;gap:8px;}
+.nav-links{display:flex;gap:2px;margin-right:8px;}
+.nav-link{padding:6px 14px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;color:var(--sub);transition:all .15s;}
+.nav-link:hover{background:var(--bg);}
+.nav-link.active{background:var(--grad-soft);color:var(--blue);font-weight:700;border:1px solid rgba(75,92,228,.15);}
+.pill{padding:5px 13px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;}
+.pill-grupo{background:var(--grad-soft);color:var(--blue);border:1px solid rgba(75,92,228,.2);}
+.pill-be{background:rgba(75,92,228,.08);color:var(--blue);border:1px solid rgba(75,92,228,.2);}
+.pill-gsg{background:rgba(168,85,200,.08);color:var(--pink);border:1px solid rgba(168,85,200,.2);}
+.pill-magp{background:rgba(123,92,200,.08);color:var(--purple);border:1px solid rgba(123,92,200,.2);}
+.pill-period{background:var(--bg);color:var(--muted);border:1px solid var(--border);}
+.hero{background:var(--white);border-bottom:1px solid var(--border);padding:2.5rem 2rem 2rem;}
+.hero-inner{max-width:1280px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:.8rem;}
+.hero-tag::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--grad);flex-shrink:0;}
+.hero-title{font-size:clamp(22px,3vw,38px);font-weight:800;letter-spacing:-.03em;line-height:1.15;}
+.grad-text{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{color:var(--sub);font-size:14px;margin-top:.6rem;max-width:480px;line-height:1.65;}
+.hero-stat{text-align:right;flex-shrink:0;}
+.hero-stat-lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px;}
+.hero-stat-val{font-size:clamp(24px,3vw,42px);font-weight:800;letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-stat-sub{font-size:12px;color:var(--muted);margin-top:4px;}
+.wrap{max-width:1280px;margin:0 auto;padding:0 2rem 4rem;}
+.sec{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:2.5rem 0 1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.kpi{background:var(--white);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border);box-shadow:var(--shadow);position:relative;overflow:hidden;}
+.kpi::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+.kpi-lbl{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem;}
+.kpi-val{font-size:24px;font-weight:800;letter-spacing:-.03em;line-height:1;margin-bottom:.4rem;}
+.kpi-val.g{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.kpi-val.green{color:var(--green);}
+.kpi-val.amber{color:var(--amber);}
+.kpi-val.red{color:var(--red);}
+.kpi-desc{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:.5rem;}
+.badge{display:inline-flex;padding:3px 9px;border-radius:6px;font-size:11px;font-weight:700;font-family:'DM Mono',monospace;}
+.b-g{background:var(--grad-soft);color:var(--blue);border:1px solid rgba(75,92,228,.15);}
+.b-green{background:var(--green-bg);color:var(--green);}
+.b-amber{background:var(--amber-bg);color:var(--amber);}
+.b-red{background:var(--red-bg);color:var(--red);}
+.anos-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.ano-card{background:var(--white);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border);box-shadow:var(--shadow);}
+.ano-yr{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:.05em;margin-bottom:.75rem;background:var(--grad-soft);color:var(--blue);border:1px solid rgba(75,92,228,.15);}
+.ano-val{font-size:28px;font-weight:800;letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.2rem;}
+.ano-sub{font-size:12px;color:var(--muted);margin-bottom:1rem;}
+.arow{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.arow:last-child{border-bottom:none;}
+.arl{color:var(--sub);}
+.arv{font-family:'DM Mono',monospace;font-size:12px;font-weight:600;}
+.chart-card{background:var(--white);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border);box-shadow:var(--shadow);}
+.chart-title{font-size:13px;font-weight:700;margin-bottom:.3rem;}
+.chart-sub{font-size:12px;color:var(--muted);margin-bottom:1.2rem;}
+.legend{display:flex;gap:16px;margin-bottom:1rem;flex-wrap:wrap;}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--sub);font-weight:500;}
+.leg-dot{width:10px;height:10px;border-radius:3px;}
+.bar-chart{display:flex;flex-direction:column;gap:7px;}
+.bar-row{display:grid;grid-template-columns:50px 1fr 80px;align-items:center;gap:10px;}
+.bar-lbl{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);text-align:right;}
+.bar-track{display:flex;height:22px;border-radius:5px;overflow:hidden;gap:1px;background:var(--bg);}
+.bar-val{font-family:'DM Mono',monospace;font-size:11px;color:var(--sub);text-align:right;font-weight:600;}
+.company-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.co-card{background:var(--white);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border);box-shadow:var(--shadow);position:relative;overflow:hidden;}
+.co-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
+.co-be::before{background:linear-gradient(90deg,#4B5CE4,#7B5CC8);}
+.co-gsg::before{background:linear-gradient(90deg,#7B5CC8,#A855C8);}
+.co-magp::before{background:linear-gradient(90deg,#A855C8,#4B5CE4);}
+.co-hdr{display:flex;align-items:center;gap:8px;margin-bottom:1rem;}
+.co-dot{width:8px;height:8px;border-radius:50%;}
+.co-name-lbl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);}
+.co-main{font-size:24px;font-weight:800;letter-spacing:-.03em;margin-bottom:.2rem;}
+.co-main-sub{font-size:11px;color:var(--muted);margin-bottom:1.25rem;}
+.row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.row:last-child{border-bottom:none;}
+.rl{color:var(--sub);}
+.rv{font-family:'DM Mono',monospace;font-size:12px;font-weight:600;}
+.tbl-wrap{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);overflow:auto;box-shadow:var(--shadow);}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{padding:10px 12px;text-align:left;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--bg);border-bottom:1px solid var(--border);white-space:nowrap;}
+tbody tr{border-bottom:1px solid rgba(0,0,0,.04);transition:background .1s;}
+tbody tr:hover{background:var(--bg);}
+tbody tr:last-child{border-bottom:none;}
+tbody td{padding:9px 12px;font-family:'DM Mono',monospace;font-size:12px;color:var(--sub);white-space:nowrap;}
+.tv-g{color:var(--green);font-weight:700;}
+.tv-r{color:var(--red);}
+.tv-a{color:var(--amber);}
+.tv-b{color:var(--blue);font-weight:600;}
+.tv-m{color:var(--muted);}
+.sep-row td{padding:5px 12px;font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--muted);background:rgba(0,0,0,.025);font-family:'DM Mono',monospace;}
+.may-row{background:linear-gradient(135deg,rgba(75,92,228,.05),rgba(168,85,200,.05))!important;}
+.may-row td{font-weight:700!important;}
+.may-row .tv-g{color:var(--green)!important;}
+.may-row .tv-a{color:var(--amber)!important;}
+.ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.ins{background:var(--white);border-radius:var(--radius);padding:1.25rem 1.25rem 1.25rem 1.5rem;border:1px solid var(--border);box-shadow:var(--shadow);}
+.ins.ok{border-left:4px solid var(--green);}
+.ins.warn{border-left:4px solid var(--amber);}
+.ins.info{border-left:4px solid var(--blue);}
+.ins-ttl{font-size:13px;font-weight:700;margin-bottom:.4rem;}
+.ins-txt{font-size:12px;color:var(--sub);line-height:1.65;}
+.plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.plat-card{background:var(--white);border-radius:var(--radius);padding:1.25rem;border:1px solid var(--border);box-shadow:var(--shadow);}
+.plat-name{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;}
+.plat-val{font-size:18px;font-weight:800;letter-spacing:-.02em;margin-bottom:.15rem;}
+.plat-sub{font-size:11px;color:var(--muted);}
+.plat-bar{height:4px;border-radius:2px;margin:.6rem 0 0;background:var(--border);}
+.plat-fill{height:100%;border-radius:2px;background:var(--grad);}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.card{background:var(--white);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border);box-shadow:var(--shadow);}
+.card-title{font-size:13px;font-weight:700;margin-bottom:1rem;}
+.footer{text-align:center;padding:2rem 0 1rem;font-size:11px;color:var(--muted);border-top:1px solid var(--border);margin-top:3rem;font-family:'DM Mono',monospace;}
+@media(max-width:900px){.kpi-grid,.company-grid,.ins-grid,.plat-grid,.anos-grid{grid-template-columns:1fr 1fr;}.hero-inner{flex-direction:column;align-items:flex-start;}.hero-stat{text-align:left;}}
+@media(max-width:600px){.kpi-grid,.company-grid,.ins-grid,.plat-grid,.anos-grid,.two-col{grid-template-columns:1fr;}.wrap{padding:0 1rem 3rem;}.topbar{padding:0 1rem;}.nav-links{display:none;}}
+
+.chart-card{background:var(--white);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border);box-shadow:var(--shadow);}
+.chart-title{font-size:13px;font-weight:700;margin-bottom:.3rem;color:var(--text);}
+.chart-sub{font-size:12px;color:var(--muted);margin-bottom:1rem;}
+.chart-wrap{position:relative;height:220px;}
+.desp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.desp-item{background:var(--white);border-radius:12px;padding:1.1rem 1.25rem;border:1px solid var(--border);box-shadow:var(--shadow);}
+.desp-icon{font-size:18px;margin-bottom:.4rem;}
+.desp-lbl{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem;}
+.desp-val{font-size:18px;font-weight:800;letter-spacing:-.02em;color:var(--text);}
+.desp-pct{font-size:11px;color:var(--muted);margin-top:.15rem;}
+.desp-bar{height:4px;border-radius:2px;margin-top:.6rem;background:var(--border);}
+.desp-bar-fill{height:100%;border-radius:2px;background:var(--grad);}
+.anos-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.ano-card{background:var(--white);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border);box-shadow:var(--shadow);}
+.ano-yr{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:.05em;margin-bottom:.75rem;background:var(--grad-soft);color:var(--blue);border:1px solid rgba(75,92,228,.15);}
+.ano-val{font-size:26px;font-weight:800;letter-spacing:-.03em;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.2rem;}
+.ano-sub{font-size:12px;color:var(--muted);margin-bottom:1rem;}
+.arow{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.arow:last-child{border-bottom:none;}
+.arl{color:var(--sub);}
+.arv{font-family:'DM Mono',monospace;font-size:12px;font-weight:600;}
+.co-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.co-card{background:var(--white);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border);box-shadow:var(--shadow);position:relative;overflow:hidden;}
+.co-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
+.co-be::before{background:linear-gradient(90deg,#4B5CE4,#7B5CC8);}
+.co-gsg::before{background:linear-gradient(90deg,#7B5CC8,#A855C8);}
+.co-magp::before{background:linear-gradient(90deg,#A855C8,#4B5CE4);}
+.co-hdr{display:flex;align-items:center;gap:8px;margin-bottom:1rem;}
+.co-dot{width:8px;height:8px;border-radius:50%;}
+.co-main{font-size:24px;font-weight:800;letter-spacing:-.03em;margin-bottom:.2rem;}
+.co-sub-lbl{font-size:11px;color:var(--muted);margin-bottom:1.25rem;}
+.co-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.co-row:last-child{border-bottom:none;}
+.co-rl{color:var(--sub);}
+.co-rv{font-family:'DM Mono',monospace;font-size:12px;font-weight:600;}
+.ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.ins{background:var(--white);border-radius:var(--radius);padding:1.25rem 1.25rem 1.25rem 1.5rem;border:1px solid var(--border);box-shadow:var(--shadow);}
+.ins.ok{border-left:4px solid var(--green);}
+.ins.warn{border-left:4px solid var(--amber);}
+.ins.info{border-left:4px solid var(--blue);}
+.ins-ttl{font-size:13px;font-weight:700;margin-bottom:.4rem;}
+.ins-txt{font-size:12px;color:var(--sub);line-height:1.65;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.card{background:var(--white);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border);box-shadow:var(--shadow);}
+.card-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:1rem;}
+.row-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.row-item:last-child{border-bottom:none;}
+.row-rl{color:var(--sub);}
+.row-rv{font-family:'DM Mono',monospace;font-size:12px;font-weight:600;}
+.plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.plat-card{background:var(--white);border-radius:var(--radius);padding:1.25rem;border:1px solid var(--border);box-shadow:var(--shadow);}
+.plat-name{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;}
+.plat-val{font-size:18px;font-weight:800;letter-spacing:-.02em;margin-bottom:.15rem;}
+.plat-sub{font-size:11px;color:var(--muted);}
+.plat-bar{height:4px;border-radius:2px;margin:.6rem 0 0;background:var(--border);}
+.plat-fill{height:100%;border-radius:2px;background:var(--grad);}
+@media(max-width:900px){.desp-grid,.co-grid,.ins-grid,.plat-grid,.anos-grid,.two-col{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.desp-grid,.co-grid,.ins-grid,.plat-grid,.anos-grid,.two-col{grid-template-columns:1fr;}.wrap{padding:0 1rem 3rem;}.topbar{padding:0 1rem;}.nav-links{display:none;}.hero-inner{flex-direction:column;align-items:flex-start;}.hero-stat{text-align:left;}}
+</style></head><body><script>if(!sessionStorage.getItem('auth'))window.location.replace('portal.html');</script>
+<nav class="topbar">
+  <a class="logo" href="grupo.html">
+    <div class="logo-mark"><svg viewBox="0 0 16 16" fill="none"><path d="M2 12L6 7.5L10 10L14 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="logo-text">Empreenda <span>BPO</span></span>
+  </a>
+  <div class="topbar-right">
+    <div class="nav-links"><a class="nav-link" href="grupo.html">Grupo</a><a class="nav-link active" href="bebrave.html">Be Brave</a><a class="nav-link" href="gsg.html">GSG</a><a class="nav-link" href="magp.html">MAGP</a></div>
+    <span class="pill pill-be">Be Brave</span>
+    <span class="pill pill-period">Maio / 2026</span>
+  </div>
+</nav>
+<div class="hero"><div class="hero-inner">
+  <div>
+    <div class="hero-tag">Be Brave · Fechamento · 31 de maio de 2026</div>
+    <h1 class="hero-title">Seu negócio em<br><span class="grad-text">maio de 2026</span></h1>
+    <p class="hero-sub">Receita auditada pelo Conta Azul. Despesas detalhadas: impostos, tráfego pago, equipe e operação. Vendas cruzadas com Guru, TMB, Hotmart e Hubla.</p>
+  </div>
+  <div class="hero-stat">
+    <div class="hero-stat-lbl">Lucro Real · Mai/2026</div>
+    <div class="hero-stat-val">R$ 51.884</div>
+    <div class="hero-stat-sub">Margem 43.5% · 295 vendas · GMV R$ 106.299</div>
+  </div>
+</div></div>
+
+<div class="wrap">
+<div class="sec">O que aconteceu este mês</div>
+<div class="kpi-grid">
+  <div class="kpi"><div class="kpi-lbl">💰 Receita</div>
+    <div class="kpi-val g">R$ 119.162</div>
+    <div class="kpi-desc">Tudo que entrou na conta em maio — auditado pelo Conta Azul.</div>
+    <span class="badge b-g">GMV bruto R$ 106.299</span></div>
+  <div class="kpi"><div class="kpi-lbl">📢 Tráfego Pago</div>
+    <div class="kpi-val amber">R$ 31.157</div>
+    <div class="kpi-desc">Investimento em mídia paga para gerar as vendas do mês.</div>
+    <span class="badge b-amber">26.1% da receita</span></div>
+  <div class="kpi"><div class="kpi-lbl">💰 Impostos</div>
+    <div class="kpi-val amber">R$ 408</div>
+    <div class="kpi-desc">Simples Nacional, IRPJ, CSLL e outros tributos pagos no mês.</div>
+    <span class="badge b-amber">0.3% da receita</span></div>
+  <div class="kpi"><div class="kpi-lbl">✅ Lucro Real</div>
+    <div class="kpi-val green">R$ 51.884</div>
+    <div class="kpi-desc">O que sobrou depois de pagar tudo — impostos, tráfego, equipe e operação.</div>
+    <span class="badge b-green">Margem 43.5%</span></div>
+</div>
+
+<div class="sec">Para onde foi o dinheiro · Despesas Mai/2026</div>
+<div class="desp-grid"><div class="desp-item"><div class="desp-icon">💰</div><div class="desp-lbl">Impostos</div><div class="desp-val">R$ 408</div><div class="desp-pct">0.3% da receita</div><div class="desp-bar"><div class="desp-bar-fill" style="width:1%;background:#6366f1"></div></div></div><div class="desp-item"><div class="desp-icon">📢</div><div class="desp-lbl">Tráfego Pago</div><div class="desp-val">R$ 31.157</div><div class="desp-pct">26.1% da receita</div><div class="desp-bar"><div class="desp-bar-fill" style="width:48%;background:#A855C8"></div></div></div><div class="desp-item"><div class="desp-icon">👥</div><div class="desp-lbl">Equipe/Autônomos</div><div class="desp-val">R$ 20.593</div><div class="desp-pct">17.3% da receita</div><div class="desp-bar"><div class="desp-bar-fill" style="width:32%;background:#4B5CE4"></div></div></div><div class="desp-item"><div class="desp-icon">💳</div><div class="desp-lbl">Comissões</div><div class="desp-val">R$ 1.223</div><div class="desp-pct">1.0% da receita</div><div class="desp-bar"><div class="desp-bar-fill" style="width:2%;background:#7B5CC8"></div></div></div><div class="desp-item"><div class="desp-icon">💻</div><div class="desp-lbl">Plataformas/Taxas</div><div class="desp-val">R$ 8.006</div><div class="desp-pct">6.7% da receita</div><div class="desp-bar"><div class="desp-bar-fill" style="width:12%;background:#16a34a"></div></div></div><div class="desp-item"><div class="desp-icon">🖥️</div><div class="desp-lbl">Software</div><div class="desp-val">R$ 3.744</div><div class="desp-pct">3.1% da receita</div><div class="desp-bar"><div class="desp-bar-fill" style="width:6%;background:#d97706"></div></div></div></div>
+
+<div class="sec">2025 vs 2026</div>
+<div class="anos-grid">
+  <div class="ano-card">
+    <div class="ano-yr">2025 — Ano completo</div>
+    <div class="ano-val">R$ 1.556.539</div>
+    <div class="ano-sub">Receita total real</div>
+    <div class="arow"><span class="arl">Lucro real</span><span class="arv" style="color:var(--red)">−R$ 203.840</span></div>
+    <div class="arow"><span class="arl">Margem média</span><span class="arv">-13.1%</span></div>
+    <div class="arow"><span class="arl">Melhor mês</span><span class="arv">Nov/25 · R$ 325.276</span></div>
+  </div>
+  <div class="ano-card">
+    <div class="ano-yr">2026 — Jan a Mai</div>
+    <div class="ano-val">R$ 481.060</div>
+    <div class="ano-sub">Receita total real</div>
+    <div class="arow"><span class="arl">Lucro real</span><span class="arv" style="color:var(--green)">R$ 54.909</span></div>
+    <div class="arow"><span class="arl">Margem média</span><span class="arv">11.4%</span></div>
+    <div class="arow"><span class="arl">Melhor mês</span><span class="arv">Mai/26 · R$ 119.162</span></div>
+  </div>
+</div>
+
+<div class="sec">Evolução mensal · Jan/2025 a Mai/2026</div>
+<div class="two-col">
+  <div class="chart-card">
+    <div class="chart-title">Receita e Lucro real</div>
+    <div class="chart-sub">Barras = receita · Linha verde = lucro real. Meses negativos = investimento em lançamento.</div>
+    <div class="chart-wrap"><canvas id="c1"></canvas></div>
+  </div>
+  <div class="chart-card">
+    <div class="chart-title">Tráfego Pago vs Impostos vs Equipe</div>
+    <div class="chart-sub">As 3 maiores despesas estratégicas mês a mês.</div>
+    <div class="chart-wrap"><canvas id="c2"></canvas></div>
+  </div>
+</div>
+
+<div class="sec">O que pode melhorar · Análise FP&A</div>
+<div class="ins-grid"><div class="ins ok"><div class="ins-ttl">🟢 Novembro/25 foi o melhor mês da história</div><div class="ins-txt">R$ 325,276 de receita com R$ 129,720 de lucro. O padrão de lançamento da Be Brave é claro: meses de preparação (tráfego alto, receita baixa) seguidos de meses de lançamento com resultado expressivo.</div></div><div class="ins warn"><div class="ins-ttl">🟡 Meses de investimento pesam no resultado acumulado</div><div class="ins-txt">Em 2025 o resultado acumulado foi de R$ 129,720 em novembro, mas meses de tráfego alto zeraram parte do ganho. Para 2026, avaliar se o investimento em tráfego está gerando o retorno esperado no lançamento seguinte.</div></div><div class="ins info"><div class="ins-ttl">🔵 Hubla virou o principal canal de vendas em 2026</div><div class="ins-txt">Em 2026 a Hubla representa a maior parte do GMV da Be Brave. O ticket médio na Hubla em mai/26 foi de R$ 360. Consolidar a operação na Hubla pode reduzir custos com múltiplas plataformas.</div></div></div>
+
+<div class="sec">Histórico completo · Jan/2025 – Mai/2026</div>
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Mês</th><th>Receita</th><th>Impostos</th><th>Tráfego</th><th>Equipe/Autôn</th><th>Total Despesa</th><th>Lucro Real</th><th>Margem</th></tr></thead>
+  <tbody><tr class="sep-row"><td colspan="99">── 2025 ──</td></tr><tr class=""><td>Jan/25</td><td>R$ 34.812</td><td class="tv-a">R$ 35.811</td><td class="tv-a">—</td><td class="tv-a">R$ 30.659</td><td class="tv-a">R$ 88.777</td><td class="tv-r">−R$ 53.965</td><td class="tv-r">-155.0%</td></tr><tr class=""><td>Fev/25</td><td>R$ 222.320</td><td class="tv-a">R$ 2.109</td><td class="tv-a">R$ 17.017</td><td class="tv-a">R$ 29.700</td><td class="tv-a">R$ 84.153</td><td class="tv-g">R$ 138.167</td><td class="tv-g">62.1%</td></tr><tr class=""><td>Mar/25</td><td>R$ 59.044</td><td class="tv-a">R$ 39.020</td><td class="tv-a">R$ 44.451</td><td class="tv-a">R$ 33.638</td><td class="tv-a">R$ 140.073</td><td class="tv-r">−R$ 81.028</td><td class="tv-r">-137.2%</td></tr><tr class=""><td>Abr/25</td><td>R$ 47.246</td><td class="tv-a">R$ 2.739</td><td class="tv-a">R$ 63.205</td><td class="tv-a">R$ 37.470</td><td class="tv-a">R$ 122.919</td><td class="tv-r">−R$ 75.673</td><td class="tv-r">-160.2%</td></tr><tr class=""><td>Mai/25</td><td>R$ 223.237</td><td class="tv-a">—</td><td class="tv-a">—</td><td class="tv-a">R$ 46.541</td><td class="tv-a">R$ 84.633</td><td class="tv-g">R$ 138.604</td><td class="tv-g">62.1%</td></tr><tr class=""><td>Jun/25</td><td>R$ 48.012</td><td class="tv-a">R$ 41.618</td><td class="tv-a">R$ 73.492</td><td class="tv-a">R$ 38.569</td><td class="tv-a">R$ 174.366</td><td class="tv-r">−R$ 126.355</td><td class="tv-r">-263.2%</td></tr><tr class=""><td>Jul/25</td><td>R$ 221.888</td><td class="tv-a">R$ 1.116</td><td class="tv-a">R$ 22.389</td><td class="tv-a">R$ 46.393</td><td class="tv-a">R$ 148.507</td><td class="tv-g">R$ 73.381</td><td class="tv-g">33.1%</td></tr><tr class=""><td>Ago/25</td><td>R$ 57.938</td><td class="tv-a">R$ 26.929</td><td class="tv-a">R$ 91.209</td><td class="tv-a">R$ 44.071</td><td class="tv-a">R$ 190.744</td><td class="tv-r">−R$ 132.806</td><td class="tv-r">-229.2%</td></tr><tr class=""><td>Set/25</td><td>R$ 177.456</td><td class="tv-a">R$ 1.370</td><td class="tv-a">R$ 28.869</td><td class="tv-a">R$ 45.919</td><td class="tv-a">R$ 135.915</td><td class="tv-g">R$ 41.541</td><td class="tv-g">23.4%</td></tr><tr class=""><td>Out/25</td><td>R$ 49.972</td><td class="tv-a">R$ 17.486</td><td class="tv-a">R$ 77.560</td><td class="tv-a">R$ 50.646</td><td class="tv-a">R$ 193.542</td><td class="tv-r">−R$ 143.570</td><td class="tv-r">-287.3%</td></tr><tr class=""><td>Nov/25</td><td>R$ 325.276</td><td class="tv-a">R$ 551</td><td class="tv-a">R$ 51.225</td><td class="tv-a">R$ 49.729</td><td class="tv-a">R$ 195.556</td><td class="tv-g">R$ 129.720</td><td class="tv-g">39.9%</td></tr><tr class=""><td>Dez/25</td><td>R$ 89.338</td><td class="tv-a">R$ 38.267</td><td class="tv-a">R$ 38.853</td><td class="tv-a">R$ 57.221</td><td class="tv-a">R$ 201.194</td><td class="tv-r">−R$ 111.856</td><td class="tv-r">-125.2%</td></tr><tr class="sep-row"><td colspan="99">── 2026 ──</td></tr><tr class=""><td>Jan/26</td><td>R$ 42.747</td><td class="tv-a">R$ 2.249</td><td class="tv-a">R$ 34.140</td><td class="tv-a">R$ 51.685</td><td class="tv-a">R$ 115.567</td><td class="tv-r">−R$ 72.820</td><td class="tv-r">-170.4%</td></tr><tr class=""><td>Fev/26</td><td>R$ 111.861</td><td class="tv-a">R$ 19.804</td><td class="tv-a">R$ 38.820</td><td class="tv-a">R$ 19.179</td><td class="tv-a">R$ 91.679</td><td class="tv-g">R$ 20.182</td><td class="tv-g">18.0%</td></tr><tr class=""><td>Mar/26</td><td>R$ 42.102</td><td class="tv-a">R$ 223</td><td class="tv-a">R$ 7.541</td><td class="tv-a">R$ 19.895</td><td class="tv-a">R$ 44.653</td><td class="tv-r">−R$ 2.551</td><td class="tv-r">-6.1%</td></tr><tr class=""><td>Abr/26</td><td>R$ 165.188</td><td class="tv-a">R$ 414</td><td class="tv-a">R$ 72.468</td><td class="tv-a">R$ 21.579</td><td class="tv-a">R$ 106.973</td><td class="tv-g">R$ 58.215</td><td class="tv-g">35.2%</td></tr><tr class="may-row"><td>★ Mai/26</td><td>R$ 119.162</td><td class="tv-a">R$ 408</td><td class="tv-a">R$ 31.157</td><td class="tv-a">R$ 20.593</td><td class="tv-a">R$ 67.279</td><td class="tv-g">R$ 51.884</td><td class="tv-g">43.5%</td></tr></tbody>
+</table></div>
+
+<div class="footer">Empreenda BPO · Be Brave · Fechamento Mai/2026 · Conta Azul + Guru + TMB + Hotmart + Hubla</div>
+</div>
+
+<script>
+const LBL=['Jan/25','Fev/25','Mar/25','Abr/25','Mai/25','Jun/25','Jul/25','Ago/25','Set/25','Out/25','Nov/25','Dez/25','Jan/26','Fev/26','Mar/26','Abr/26','Mai/26'];
+const REC=[34812,222320,59044,47246,223237,48012,221888,57938,177456,49972,325276,89338,42747,111861,42102,165188,119162];const LUC=[-53965,138167,-81028,-75673,138604,-126355,73381,-132806,41541,-143570,129720,-111856,-72820,20182,-2551,58215,51884];const TRAF=[0,17017,44451,63205,0,73492,22389,91209,28869,77560,51225,38853,34140,38820,7541,72468,31157];const AUT=[30659,29700,33638,37470,46541,38569,46393,44071,45919,50646,49729,57221,51685,19179,19895,21579,20593];const IMP=[35811,2109,39020,2739,0,41618,1116,26929,1370,17486,551,38267,2249,19804,223,414,408];
+
+new Chart(document.getElementById('c1').getContext('2d'),{
+  data:{labels:LBL,datasets:[
+    {type:'bar',label:'Receita',data:REC,backgroundColor:'rgba(75,92,228,.15)',borderColor:'rgba(75,92,228,.4)',borderWidth:1,borderRadius:3},
+    {type:'line',label:'Lucro Real',data:LUC,borderColor:'#16a34a',backgroundColor:'rgba(22,163,74,.07)',borderWidth:2.5,pointRadius:3,pointBackgroundColor:LUC.map(v=>v>=0?'#16a34a':'#dc2626'),fill:true,tension:.3}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'top',labels:{font:{size:11},boxWidth:12}},tooltip:{callbacks:{label:c=>c.dataset.label+': R$'+Math.round(c.raw).toLocaleString('pt-BR')}}},
+    scales:{x:{grid:{display:false},ticks:{font:{size:10},maxRotation:45}},y:{ticks:{font:{size:10},callback:v=>v>=1e6?'R$'+(v/1e6).toFixed(1)+'M':v>=1e3?'R$'+(v/1e3).toFixed(0)+'K':'R$'+v}}}
+  }
+});
+
+new Chart(document.getElementById('c2').getContext('2d'),{
+  type:'bar',
+  data:{labels:LBL,datasets:[
+    {label:'Tráfego Pago',data:TRAF,backgroundColor:'rgba(168,85,200,.75)',borderRadius:2},
+    {label:'Impostos',data:IMP,backgroundColor:'rgba(99,102,241,.75)',borderRadius:2},
+    {label:'Equipe/Autôn',data:AUT,backgroundColor:'rgba(75,92,228,.75)',borderRadius:2},
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{position:'top',labels:{font:{size:11},boxWidth:12}},tooltip:{callbacks:{label:c=>c.dataset.label+': R$'+Math.round(c.raw).toLocaleString('pt-BR')}}},
+    scales:{x:{stacked:true,grid:{display:false},ticks:{font:{size:10},maxRotation:45}},y:{stacked:true,ticks:{font:{size:10},callback:v=>v>=1e3?'R$'+(v/1e3).toFixed(0)+'K':'R$'+v}}}
+  }
+});
+</script></body></html>
